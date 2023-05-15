@@ -116,7 +116,7 @@
                         @foreach( $builds as $build )
                             <div class="col-12 col-md-4">
                                 <div class="c-cart-shadow mb-4">
-                                    <a href="/builds/{{$build->slug}}">
+                                    <a href="/builds/{{$build->id}}">
                                         <div>
                                             <img class="w-100" src="http://127.0.0.1:8000/img/sing.png"/>
                                         </div>

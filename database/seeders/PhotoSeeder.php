@@ -2,17 +2,17 @@
 
 namespace Database\Seeders;
 
-use App\Models\Build;
+use App\Models\Photo;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
-class BuildSeeder extends Seeder
+class PhotoSeeder extends Seeder
 {
     /**
      * Run the database seeds.
      */
     public function run(): void
     {
-        Build::factory()->count(4)->hasPhotos(4)->create();
+        Photo::factory()->count(4)->create();
     }
 }

@@ -11,6 +11,11 @@ class Build extends Model
 
     public function getCompletionDateAttribute($value)
     {
-        return  date("M d,Y", strtotime($value));
+        return date("M d,Y", strtotime($value));
+    }
+
+    public function photos()
+    {
+        return $this->hasMany(Photo::class, 'build_id');
     }
 }

@@ -88,26 +88,13 @@
                     <div style="--swiper-navigation-color: #fff; --swiper-pagination-color: #fff"
                          class="swiper mySwiper2 overflow-show-c">
                         <div class="swiper-wrapper overflow-hidden-c">
-                            <div class="swiper-slide">
-                                <img src="assets/img/as.png"/>
+                            @foreach($photos as $photo)
 
-                            </div>
-                            <div class="swiper-slide">
-                                <img src="assets/img/as.png"/>
+                                <div class="swiper-slide">
+                                    <img src="{{$photo->slug}}"/>
+                                </div>
+                            @endforeach
 
-                            </div>
-                            <div class="swiper-slide">
-                                <img src="assets/img/as.png"/>
-
-                            </div>
-                            <div class="swiper-slide">
-                                <img src="assets/img/as.png"/>
-
-                            </div>
-                            <div class="swiper-slide">
-                                <img src="assets/img/as.png"/>
-
-                            </div>
                         </div>
 
                         <div class="swiper-button-prev">
@@ -206,26 +193,12 @@
                 <div class="container-fluid">
                     <div thumbsSlider="" class="swiper mySwiper">
                         <div class="swiper-wrapper">
-                            <div class="swiper-slide">
-                                <img src="assets/img/as.png"/>
+                            @foreach($photos as $photo)
 
-                            </div>
-                            <div class="swiper-slide">
-                                <img src="assets/img/as.png"/>
-
-                            </div>
-                            <div class="swiper-slide">
-                                <img src="assets/img/as.png"/>
-
-                            </div>
-                            <div class="swiper-slide">
-                                <img src="assets/img/as.png"/>
-
-                            </div>
-                            <div class="swiper-slide">
-                                <img src="assets/img/as.png"/>
-
-                            </div>
+                                <div class="swiper-slide">
+                                    <img src="{{$photo->slug}}"/>
+                                </div>
+                            @endforeach
                         </div>
                     </div>
                 </div>
