@@ -18,6 +18,11 @@ class BuildFactory extends Factory
     {
         return [
             'name' => fake()->name(),
+            'location' => fake()->city(),
+            'completion_date' => fake()->date(),
+            'description' => fake()->text(),
+            'promotion_text' => fake()->text(),
+            'slug' => fake()->slug()
         ];
     }
 }

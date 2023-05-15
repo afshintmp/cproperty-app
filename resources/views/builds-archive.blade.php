@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('app')
 @section('content')
     @parent
 
@@ -116,30 +116,30 @@
                         @foreach( $builds as $build )
                             <div class="col-12 col-md-4">
                                 <div class="c-cart-shadow mb-4">
-                                    <div>
-                                        <img class="w-100" src="http://127.0.0.1:8000/img/sing.png"/>
-                                    </div>
+                                    <a href="/builds/{{$build->slug}}">
+                                        <div>
+                                            <img class="w-100" src="http://127.0.0.1:8000/img/sing.png"/>
+                                        </div>
 
-                                    <div class="ps-2 pe-2 pt-2">
-                                        <h2 class="c-card-title">
-                                            <img src="http://127.0.0.1:8000/img/Vectorloc.svg" height="20" alt="">
-                                            {{ $build->name }}
-                                        </h2>
-                                        <p class="mb-0 color-97">
-                                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-                                            incididunt ut labore et dolore magna aliqua.
-                                        </p>
+                                        <div class="ps-2 pe-2 pt-2">
+                                            <h2 class="c-card-title">
+                                                <img src="http://127.0.0.1:8000/img/Vectorloc.svg" height="20" alt="">
+                                                {{ $build->location }}
+                                            </h2>
+                                            <p class="mb-0 color-97">
+                                                {{ $build->description }}
+                                            </p>
 
-                                    </div>
-                                    <div class="ps-2 pe-2">
-                                        <p class=" c-cart-price color-green d-inline-block mb-0">
-                                            $265,0000,000
-                                        </p>
+                                        </div>
+                                        <div class="ps-2 pe-2">
+                                            <p class=" c-cart-price color-green d-inline-block mb-0">
+                                                $265,0000,000
+                                            </p>
 
-                                        <div class="clear-fix"></div>
-                                    </div>
+                                            <div class="clear-fix"></div>
+                                        </div>
 
-
+                                    </a>
                                 </div>
                             </div>
 

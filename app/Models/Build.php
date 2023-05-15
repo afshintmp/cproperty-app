@@ -8,4 +8,9 @@ use Illuminate\Database\Eloquent\Model;
 class Build extends Model
 {
     use HasFactory;
+
+    public function getCompletionDateAttribute($value)
+    {
+        return  date("M d,Y", strtotime($value));
+    }
 }

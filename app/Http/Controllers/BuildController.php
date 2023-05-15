@@ -2,13 +2,14 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Support\Facades\DB;
 use App\Models\Build;
 use Illuminate\Http\Request;
 
 class BuildController extends Controller
 {
 
-    public function show()
+    public function show1()
     {
 
         return view('builds-archive',
@@ -17,9 +18,11 @@ class BuildController extends Controller
             ]);
     }
 
-    public function sample()
+    public function show(Request $request, int $id)
     {
+        $build = Build::find($id);
 
-        return view('builds-single');
+
+        return view('build.show', compact('build'));
     }
 }

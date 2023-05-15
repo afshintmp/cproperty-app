@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\BuildController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -17,6 +18,6 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/builds', [\App\Http\Controllers\BuildController::class, 'show']);
-Route::get('/builds/sample', [\App\Http\Controllers\BuildController::class, 'sample']);
+Route::get('/builds', [BuildController::class, 'show1']);
+Route::get('/builds/{id}', [BuildController::class, 'show'])->name('builds.show');
 
