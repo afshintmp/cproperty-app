@@ -23,3 +23,18 @@ jQuery('.cat-title').on('click', function () {
     }
     jQuery(this).parent().find('ul').slideToggle()
 })
+
+
+function showOverView() {
+    jQuery('#pro_tab > div').hide()
+    jQuery('.overview').show()
+    jQuery('.tabs>span').removeClass('active')
+    jQuery('.overview-head').addClass('active')
+}
+
+function showPromotion(){
+    jQuery('#pro_tab > div').hide()
+    jQuery('.promotion').show()
+    jQuery('.tabs>span').removeClass('active')
+    jQuery('.promotion-head').addClass('active')
+}

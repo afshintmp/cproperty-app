@@ -5,12 +5,12 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Photo extends Model
+class Image extends Model
 {
     use HasFactory;
 
-    public function build()
+    public function imageable()
     {
-        return $this->belongsTo(Build::class, 'build_id');
+        return $this->morphTo();
     }
 }

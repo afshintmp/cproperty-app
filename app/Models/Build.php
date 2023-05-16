@@ -9,13 +9,45 @@ class Build extends Model
 {
     use HasFactory;
 
+//    protected $with = ['images'];
+
     public function getCompletionDateAttribute($value)
     {
         return date("M d,Y", strtotime($value));
     }
 
-    public function photos()
+    public function images()
     {
-        return $this->hasMany(Photo::class, 'build_id');
+        return $this->morphMany(Image::class, 'imageable');
     }
+
+    public function cover()
+    {
+        return $this->morphMany(Image::class, 'imageable')->where('tag', '
+        =', 'cover');
+    }
+
+    public function promotion()
+    {
+        return $this->morphMany(Image::class, 'imageable')->where('tag', '=', 'promotion');
+
+    }
+
+    public function getImageGalleryAttribute()
+    {
+
+        return $this->images()->where('tag', '=', '')->get();
+    }
+
+    public function getCoverImageAttribute()
+    {
+
+        return $this->images()->where('tag', '=', 'cover')->first();
+    }
+
+    public function getPromotionImageAttribute()
+    {
+        return $this->images()->where('tag', '=', 'promotion')->first();
+    }
+
 }

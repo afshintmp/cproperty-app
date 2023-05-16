@@ -21,8 +21,10 @@ class BuildController extends Controller
     public function show(Request $request, int $id)
     {
         $build = Build::find($id);
-        $photos = Build::find($id)->photos;
+        $build->load('images');
 
-        return view('build.show', compact('build', 'photos'));
+
+
+        return view('build.show', compact('build'));
     }
 }
