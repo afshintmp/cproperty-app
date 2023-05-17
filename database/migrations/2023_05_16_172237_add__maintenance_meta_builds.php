@@ -11,11 +11,7 @@ return new class extends Migration {
     public function up(): void
     {
         Schema::table('builds', function (Blueprint $table) {
-            $table->char('deposit', 100);
-            $table->char('assignment', 100);
-            $table->char('tower', 100);
-            $table->char('type', 100);
-            $table->char('pet', 100);
+            $table->char('maintenance', 100);
         });
     }
 
@@ -25,11 +21,7 @@ return new class extends Migration {
     public function down(): void
     {
         Schema::table('builds', function (Blueprint $table) {
-            $table->dropColumn('deposit');
-            $table->dropColumn('assignment');
-            $table->dropColumn('tower');
-            $table->dropColumn('type');
-            $table->dropColumn('pet');
+            $table->dropColumn('maintenance');
         });
     }
 };

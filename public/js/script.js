@@ -38,3 +38,10 @@ function showPromotion(){
     jQuery('.tabs>span').removeClass('active')
     jQuery('.promotion-head').addClass('active')
 }
+
+function showUnit(){
+    jQuery('#pro_tab > div').hide()
+    jQuery('.unit').show()
+    jQuery('.tabs>span').removeClass('active')
+    jQuery('.unit-head').addClass('active')
+}
