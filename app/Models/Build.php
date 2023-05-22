@@ -50,4 +50,9 @@ class Build extends Model
         return $this->images()->where('tag', '=', 'promotion')->first();
     }
 
+    public function units()
+    {
+        return $this->hasMany(Unit::class);
+    }
+
 }

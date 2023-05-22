@@ -277,7 +277,7 @@
                 <div class="box-shadow-one p-3 shadow-clear img-fix color-97" id="pro_tab">
 
                     <div class="promotion" style="">
-                        <img class="mb-2" src="{{$build->promotion_image->slug}}" height="220" alt="{{$build->promotion_image->alt_text}}">
+                        <img class="mb-2" src="{{$build->promotion_image->slug}}" alt="{{$build->promotion_image->alt_text}}">
                         {{$build->promotion_text}}
                     </div>
 
@@ -334,74 +334,26 @@
                     </div>
                     <div class="unit" style="display: none">
                         <ul>
-                            <li>
-                                <p>Floor Plan : A2 </p>
-                                <p>Bedroom : 3</p>
-                                <p>Bathroom : 1</p>
-                                <p>Size : 250 Sq/ft</p>
-                                <p>Floors : 10</p>
-                                <p>Price:
-                                    $600,000
-                                </p>
-                                <p class="line-height-unset">
-                                    <button class="more"> more
-                                        <img class="vector"
-                                             src="https://cproperty.ca/wp-content/themes/astra-child/svg/Vector.svg"
-                                             alt="">
-                                    </button>
-                                </p>
-                            </li>
-                            <li>
-                                <p>Floor Plan : A2 </p>
-                                <p>Bedroom : 3</p>
-                                <p>Bathroom : 1</p>
-                                <p>Size : 250 Sq/ft</p>
-                                <p>Floors : 10</p>
-                                <p>Price:
-                                    $600,000
-                                </p>
-                                <p class="line-height-unset">
-                                    <button class="more"> more
-                                        <img class="vector"
-                                             src="https://cproperty.ca/wp-content/themes/astra-child/svg/Vector.svg"
-                                             alt="">
-                                    </button>
-                                </p>
-                            </li>
-                            <li>
-                                <p>Floor Plan : A2 </p>
-                                <p>Bedroom : 3</p>
-                                <p>Bathroom : 1</p>
-                                <p>Size : 250 Sq/ft</p>
-                                <p>Floors : 10</p>
-                                <p>Price:
-                                    $600,000
-                                </p>
-                                <p class="line-height-unset">
-                                    <button class="more"> more
-                                        <img class="vector"
-                                             src="https://cproperty.ca/wp-content/themes/astra-child/svg/Vector.svg"
-                                             alt="">
-                                    </button>
-                                </p>
-                            </li>
-                            <li>
-                                <p>Floor Plan : A2 </p>
-                                <p>Bedroom : 3</p>
-                                <p>Bathroom : 1</p>
-                                <p>Size : 250 Sq/ft</p>
-                                <p>Floors : 10</p>
-                                <p>Price:
-                                    $600,000
-                                </p>
-                                <p class="line-height-unset">
-                                    <button class="more"> more
-                                        <img class="vector"
-                                             src="https://cproperty.ca/wp-content/themes/astra-child/svg/Vector.svg"
-                                             alt="">
-                                    </button>
-                                </p>
-                            </li>
+                            @foreach($build->units as $unit)
+                                <li>
+                                    <p>Floor Plan : {{$unit->floor_plan}} </p>
+                                    <p>Bedroom : {{$unit->bedroom}}</p>
+                                    <p>Bathroom : {{$unit->bathroom}}</p>
+                                    <p>Size : {{$unit->size}} Sq/ft</p>
+                                    <p>Floors : {{$unit->floors}}</p>
+                                    <p>Price:
+                                        ${{$unit->price}}
+                                    </p>
+                                    <p class="line-height-unset">
+                                        <button class="more"> more
+                                            <img class="vector"
+                                                 src="https://cproperty.ca/wp-content/themes/astra-child/svg/Vector.svg"
+                                                 alt="">
+                                        </button>
+                                    </p>
+                                </li>
+                            @endforeach
+
                         </ul>
                     </div>
                 </div>
