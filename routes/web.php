@@ -16,8 +16,8 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    auth()->user()->givePermissionsTo('add build', 'delete build');
-
+//    auth()->user()->givePermissionsTo('add build', 'delete build');
+    dd(auth()->user()->can('add build'));
 
 });
 

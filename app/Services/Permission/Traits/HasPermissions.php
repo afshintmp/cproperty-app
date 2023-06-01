@@ -13,6 +13,12 @@ trait HasPermissions
         return $this->belongsToMany(Permission::Class);
     }
 
+    public function withdrawPermissionsTo(...$permissions)
+    {
+        $permissions = $this->getAllPermissions($permissions);
+        dd($this->permissions()->detach($permissions));
+    }
+
     public function givePermissionsTo(...$permissions)
     {
         $permissions = $this->getAllPermissions($permissions);
@@ -22,7 +28,12 @@ trait HasPermissions
 
     private function getAllPermissions(array $permissions)
     {
-
         return Permission::whereIn('name', $permissions)->get();
+    }
+
+    public function hasPermission(Permission $permission)
+    {
+        dd($permission);
+        return $this->permissions->contains($permission);
     }
 }
