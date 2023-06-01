@@ -17,6 +17,12 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
 //    auth()->user()->givePermissionsTo('add build', 'delete build');
+//    auth()->user()->giveRolesTo('admin');
+
+//    dd(auth()->user()->hasRole('admin'));
+//        \App\Models\Role::find(1)->givePermissionsTo('add build');
+
+//    auth()->user()->hasPermission('add build');
     dd(auth()->user()->can('add build'));
 
 });

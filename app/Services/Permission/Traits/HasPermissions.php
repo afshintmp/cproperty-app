@@ -16,14 +16,16 @@ trait HasPermissions
     public function withdrawPermissionsTo(...$permissions)
     {
         $permissions = $this->getAllPermissions($permissions);
-        dd($this->permissions()->detach($permissions));
+        $this->permissions()->detach($permissions);
+        return $this;
     }
 
     public function givePermissionsTo(...$permissions)
     {
         $permissions = $this->getAllPermissions($permissions);
         if ($permissions->isEmpty()) return $this;
-        dd($this->permissions()->syncWithoutDetaching($permissions));
+        $this->permissions()->syncWithoutDetaching($permissions);
+        return $this;
     }
 
     private function getAllPermissions(array $permissions)
@@ -33,7 +35,18 @@ trait HasPermissions
 
     public function hasPermission(Permission $permission)
     {
-        dd($permission);
-        return $this->permissions->contains($permission);
+       return $this->hasPermissionThroughRoles($permission) || $this->permissions->contains($permission);
+
+
+    }
+
+    protected function hasPermissionThroughRoles(Permission $permission)
+    {
+
+        foreach ($permission->roles as $role) {
+            if ($this->roles->contains($role)) return true;
+        }
+        return false;
+
     }
 }
