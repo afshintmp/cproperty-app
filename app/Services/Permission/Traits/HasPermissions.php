@@ -3,6 +3,7 @@
 namespace App\Services\Permission\Traits;
 
 use App\Models\Permission;
+use Illuminate\Support\Arr;
 
 
 trait HasPermissions
@@ -28,14 +29,23 @@ trait HasPermissions
         return $this;
     }
 
+    public function refreshPermission(...$permissions)
+    {
+        $permissions = $this->getAllPermissions($permissions);
+        $this->permissions()->sync($permissions);
+        return $this;
+
+    }
+
     private function getAllPermissions(array $permissions)
     {
+        $permissions = arr::flatten($permissions);
         return Permission::whereIn('name', $permissions)->get();
     }
 
     public function hasPermission(Permission $permission)
     {
-       return $this->hasPermissionThroughRoles($permission) || $this->permissions->contains($permission);
+        return $this->hasPermissionThroughRoles($permission) || $this->permissions->contains($permission);
 
 
     }

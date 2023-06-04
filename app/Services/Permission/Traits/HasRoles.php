@@ -4,6 +4,7 @@ namespace App\Services\Permission\Traits;
 
 
 use App\Models\Role;
+use Illuminate\Support\Arr;
 
 
 trait HasRoles
@@ -28,9 +29,16 @@ trait HasRoles
         $this->roles()->syncWithoutDetaching($roles);
         return $this;
     }
+    public function refreshRole(...$roles)
+    {
+        $roles = $this->getAllRoles($roles);
+        $this->roles()->sync($roles);
+        return $this;
 
+    }
     private function getAllRoles(array $roles)
     {
+        $roles = arr::flatten($roles);
         return Role::whereIn('name', $roles)->get();
     }
 
