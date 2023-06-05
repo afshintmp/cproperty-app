@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\BasketController;
 use App\Http\Controllers\BuildController;
 use App\Http\Controllers\PlanController;
 use App\Http\Controllers\ProfileController;
@@ -29,14 +30,14 @@ Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
-Route::group(['prefix' => 'admin' , 'middleware' =>'role:admin'], function () {
-    Route::get('/' , function (){
+Route::group(['prefix' => 'admin', 'middleware' => 'role:admin'], function () {
+    Route::get('/', function () {
         return view('admin.dashboard');
     });
 
-    Route::get('/plans' , [PlanController::class , 'adminIndex'])->name('admin.plans.index');
-    Route::get('/plans/{plan}/edit' , [PlanController::class , 'edit'])->name('admin.plans.edit');
-    Route::post('/plans/{plan}/edit' , [PlanController::class , 'update'])->name('admin.plans.update');
+    Route::get('/plans', [PlanController::class, 'adminIndex'])->name('admin.plans.index');
+    Route::get('/plans/{plan}/edit', [PlanController::class, 'edit'])->name('admin.plans.edit');
+    Route::post('/plans/{plan}/edit', [PlanController::class, 'update'])->name('admin.plans.update');
 
 
     Route::get('/users', [UserController::class, 'index'])->name('admin.users.index');
@@ -50,6 +51,9 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-Route::get('/plans' , [PlanController::class , 'index']);
+Route::get('/plans', [PlanController::class, 'index']);
+
+Route::get('/basket/add/{plan}', [BasketController::class, 'add'])->name('basket.add');
+
 
 require __DIR__ . '/auth.php';

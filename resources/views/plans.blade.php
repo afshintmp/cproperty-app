@@ -40,14 +40,18 @@
                             </div>
                             <div class="plan-body">
                                 <p>
-                               {{$plan->description}}
+                                    {{$plan->description}}
                                 </p>
 
 
                             </div>
                             <div class="">
                                 <span class="plans-price">{{$plan->price}}$</span>
-                                <button class="plans-add-to-cart btn-green">add to card</button>
+                                <button class="plans-add-to-cart btn-green">
+                                    <a href="{{route('basket.add' , $plan->id)}}">add
+                                        to card
+                                    </a>
+                                </button>
                                 <div class="clear-fix"></div>
                             </div>
                         </div>
