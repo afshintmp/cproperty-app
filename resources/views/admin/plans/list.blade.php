@@ -7,24 +7,18 @@
             <thead>
             <tr>
                 <th class="col">name</th>
-                <th class="col">email</th>
-                <th class="col">role</th>
+
                 <th class="col">operation</th>
             </tr>
             </thead>
             <tbody>
-            @forelse($users as $user)
+            @forelse($plans as $plan)
                 <tr>
-                    <td>{{$user->name}}</td>
-                    <td>{{$user->email}}</td>
-                    <td>
-                        @foreach($user->roles as $role)
+                    <td>{{$plan->title}}</td>
 
-                            {{$role->name}}
-                        @endforeach
-                    </td>
+
                     <td>
-                        <a href="{{route('admin.users.edit' , $user->id)}}">edit</a>
+                        <a href="{{route('admin.plans.edit' , $plan->id)}}">edit</a>
                     </td>
                 </tr>
 

@@ -62,15 +62,15 @@
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{{route('users.index')}}">
+                        <a class="nav-link" href="{{route('admin.users.index')}}">
                             <span data-feather="file"></span>
                             Users
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">
+                        <a class="nav-link" href="{{route('admin.plans.index')}}">
                             <span data-feather="shopping-cart"></span>
-                            Products
+                            Plans
                         </a>
                     </li>
                     <li class="nav-item">

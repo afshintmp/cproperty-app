@@ -33,9 +33,15 @@ Route::group(['prefix' => 'admin' , 'middleware' =>'role:admin'], function () {
     Route::get('/' , function (){
         return view('admin.dashboard');
     });
-    Route::get('/users', [UserController::class, 'index'])->name('users.index');
-    Route::get('/users/{user}/edit', [UserController::class, 'edit'])->name('users.edit');Route::get('/users', [UserController::class, 'index'])->name('users.index');
-    Route::post('/users/{user}/edit', [UserController::class, 'update'])->name('users.update');
+
+    Route::get('/plans' , [PlanController::class , 'adminIndex'])->name('admin.plans.index');
+    Route::get('/plans/{plan}/edit' , [PlanController::class , 'edit'])->name('admin.plans.edit');
+    Route::post('/plans/{plan}/edit' , [PlanController::class , 'update'])->name('admin.plans.update');
+
+
+    Route::get('/users', [UserController::class, 'index'])->name('admin.users.index');
+    Route::get('/users/{user}/edit', [UserController::class, 'edit'])->name('admin.users.edit');
+    Route::post('/users/{user}/edit', [UserController::class, 'update'])->name('admin.users.update');
 });
 
 Route::middleware('auth')->group(function () {

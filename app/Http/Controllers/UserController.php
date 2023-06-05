@@ -20,7 +20,7 @@ class UserController extends Controller
         $permissions = Permission::all();
         $roles = Role::all();
         $user->load('permissions', 'roles');
-        return view('users.edit', compact('permissions', 'roles', 'user'));
+        return view('admin.users.edit', compact('permissions', 'roles', 'user'));
     }
 
     public function update(Request $request, User $user)
