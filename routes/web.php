@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\BuildController;
+use App\Http\Controllers\PlanController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
@@ -29,7 +30,9 @@ Route::get('/dashboard', function () {
 })->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::group(['prefix' => 'admin' , 'middleware' =>'role:admin'], function () {
-
+    Route::get('/' , function (){
+        return view('admin.dashboard');
+    });
     Route::get('/users', [UserController::class, 'index'])->name('users.index');
     Route::get('/users/{user}/edit', [UserController::class, 'edit'])->name('users.edit');Route::get('/users', [UserController::class, 'index'])->name('users.index');
     Route::post('/users/{user}/edit', [UserController::class, 'update'])->name('users.update');
@@ -40,5 +43,7 @@ Route::middleware('auth')->group(function () {
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
+
+Route::get('/plans' , [PlanController::class , 'index']);
 
 require __DIR__ . '/auth.php';
