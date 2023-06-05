@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\BasketController;
 use App\Http\Controllers\BuildController;
+use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\PlanController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\UserController;
@@ -26,9 +27,7 @@ Route::get('/', function () {
 Route::get('/builds', [BuildController::class, 'show1']);
 Route::get('/builds/{id}', [BuildController::class, 'show'])->name('builds.show');
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
+Route::get('/dashboard',[DashboardController::class , 'index'])->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::group(['prefix' => 'admin', 'middleware' => 'role:admin'], function () {
     Route::get('/', function () {
