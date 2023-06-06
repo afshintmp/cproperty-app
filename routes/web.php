@@ -50,9 +50,10 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-Route::get('/plans', [PlanController::class, 'index']);
+Route::get('/plans', [PlanController::class, 'index'])->name('plan.index');
 
 Route::get('/basket/add/{plan}', [BasketController::class, 'add'])->name('basket.add');
 
+Route::get('/checkout' , [BasketController::class, 'checkOut'])->name('checkout');
 
 require __DIR__ . '/auth.php';

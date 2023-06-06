@@ -40,7 +40,12 @@ trait HasPermissions
     private function getAllPermissions(array $permissions)
     {
         $permissions = arr::flatten($permissions);
-        return Permission::whereIn('name', $permissions)->get();
+        try {
+            return Permission::whereIn('name', $permissions)->get();
+        } catch (\Exception $e) {
+            return [];
+        }
+
     }
 
     public function hasPermission(Permission $permission)

@@ -39,7 +39,12 @@ trait HasRoles
     private function getAllRoles(array $roles)
     {
         $roles = arr::flatten($roles);
-        return Role::whereIn('name', $roles)->get();
+        try {
+            return Role::whereIn('name', $roles)->get();
+        } catch (\Exception $e) {
+            return [];
+        }
+
     }
 
     public function hasRole($role)

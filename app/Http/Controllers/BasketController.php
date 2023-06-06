@@ -24,7 +24,14 @@ class BasketController extends Controller
 
         if (! auth()->user()){
             return view('auth.register');
+        }else{
+            return redirect()->route('checkout');
         }
-        dd(123);
+
+    }
+
+    public function checkOut(){
+        dump(session()->all());
+        return view('checkout');
     }
 }
