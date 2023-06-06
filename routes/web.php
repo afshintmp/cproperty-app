@@ -54,6 +54,6 @@ Route::get('/plans', [PlanController::class, 'index'])->name('plan.index');
 
 Route::get('/basket/add/{plan}', [BasketController::class, 'add'])->name('basket.add');
 
-Route::get('/checkout' , [BasketController::class, 'checkOut'])->name('checkout');
+Route::get('/checkout' , [BasketController::class, 'checkout'])->name('checkout');
 
 require __DIR__ . '/auth.php';

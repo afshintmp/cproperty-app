@@ -20,4 +20,21 @@ class Basket
         $this->storage->set('plan', $plan->id);
     }
 
+    public function subTotal()
+    {
+        $plan = $this->storage->get('plan');
+        return Plan::find($plan)->price;
+    }
+
+    public function plan()
+    {
+        $plan = $this->storage->get('plan');
+        return $plan;
+    }
+
+    public function clear()
+    {
+        $this->storage->clear();
+    }
+
 }
