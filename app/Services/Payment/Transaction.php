@@ -26,8 +26,8 @@ class Transaction
     {
         $order = $this->makeOrder();
         $payment = $this->makePayments($order);
-
-        $this->basket->clear();
+        auth()->user()->addPlanToUser($order);
+//        $this->basket->clear();
 
         return $order;
     }

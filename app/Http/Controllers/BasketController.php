@@ -36,9 +36,10 @@ class BasketController extends Controller
 
     public function checkout()
     {
+
         $this->transaction->checkout();
-//        $plan = (resolve(StorageInterface::class)->get('plan'));
-//        $plan = Plan::find($plan);
-        return view('checkout');
+        $plan = (resolve(StorageInterface::class)->get('plan'));
+        $plan = Plan::find($plan);
+        return view('checkout' , compact('plan'));
     }
 }

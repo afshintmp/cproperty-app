@@ -8,9 +8,9 @@ use function PHPUnit\Framework\isEmpty;
 
 trait HasSubscription
 {
-    public function plan()
+    public function plans()
     {
-        return $this->belongsTo(Plan::Class);
+        return $this->belongsToMany(Plan::Class);
     }
 
     public function hasPlan()
@@ -19,6 +19,13 @@ trait HasSubscription
             return false;
         }
         return $this->hasPlan();
+    }
+
+    public function addPlanToUser($order)
+    {
+
+        $this->plans()->sync([1 => ['started_time' => '2023-06-06 20:03:16' , 'end_life_time' => '2023-06-06 20:03:16']]);
+
     }
 
 }
