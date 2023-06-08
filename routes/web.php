@@ -28,7 +28,12 @@ Route::get('/', function () {
 Route::get('/builds', [BuildController::class, 'show1'])->name('builds.index');
 Route::get('/builds/{id}', [BuildController::class, 'show'])->name('builds.show');
 
-Route::get('/dashboard',[DashboardController::class , 'index'])->middleware(['auth', 'verified'])->name('dashboard');
+//Route::get('/dashboard', [DashboardController::class, 'index'])->middleware(['auth', 'verified'])->name('dashboard');
+
+Route::get('/dashboard', function () {
+    return view('dashboard');
+})->middleware(['auth', 'verified'])->name('dashboard');
+
 
 Route::group(['prefix' => 'admin', 'middleware' => 'role:admin'], function () {
     Route::get('/', function () {
@@ -55,6 +60,6 @@ Route::get('/plans', [PlanController::class, 'index'])->name('plan.index');
 
 Route::get('/basket/add/{plan}', [BasketController::class, 'add'])->name('basket.add');
 
-Route::get('/checkout' , [BasketController::class, 'checkout'])->name('checkout');
+Route::get('/checkout', [BasketController::class, 'checkout'])->name('checkout');
 
 require __DIR__ . '/auth.php';
