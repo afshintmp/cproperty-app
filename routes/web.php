@@ -21,10 +21,11 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
 //    dd(auth()->user()->can('add build'));
-    return view('welcome');
-});
+//    dump(auth()->user());
+    return view('index');
+})->name('index');
 
-Route::get('/builds', [BuildController::class, 'show1']);
+Route::get('/builds', [BuildController::class, 'show1'])->name('builds.index');
 Route::get('/builds/{id}', [BuildController::class, 'show'])->name('builds.show');
 
 Route::get('/dashboard',[DashboardController::class , 'index'])->middleware(['auth', 'verified'])->name('dashboard');
