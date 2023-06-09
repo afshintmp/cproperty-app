@@ -48,6 +48,11 @@ Route::group(['prefix' => 'admin', 'middleware' => 'role:admin'], function () {
     Route::get('/users', [UserController::class, 'index'])->name('admin.users.index');
     Route::get('/users/{user}/edit', [UserController::class, 'edit'])->name('admin.users.edit');
     Route::post('/users/{user}/edit', [UserController::class, 'update'])->name('admin.users.update');
+
+
+    Route::get('/page/plans' , function (){
+        return view();
+    })->name('admin.page.plan.index');
 });
 
 Route::middleware('auth')->group(function () {

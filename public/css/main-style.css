@@ -1400,3 +1400,11 @@ ul {
 .pb-custom{
     padding-bottom: 100px;
 }
+
+.c-btn-one > a:hover {
+    color: #fff;
+}
+.c-btn-one > a {
+    color: #fff;
+    text-decoration: none;
+}

@@ -8,7 +8,7 @@
     </div>
 @endif
 
-<form action="{{route('users.update' , $user->id)}}" method="post">
+<form action="{{route('admin.users.update' , $user->id)}}" method="post">
     {{csrf_field()}}
     <div>
         <p>add permissions to user</p>

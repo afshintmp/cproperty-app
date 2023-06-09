@@ -8,6 +8,7 @@
             <tr>
                 <th class="col">name</th>
                 <th class="col">email</th>
+                <th class="col">verify</th>
                 <th class="col">role</th>
                 <th class="col">operation</th>
             </tr>
@@ -17,6 +18,7 @@
                 <tr>
                     <td>{{$user->name}}</td>
                     <td>{{$user->email}}</td>
+                    <td>{{$user->email_verified_at}}</td>
                     <td>
                         @foreach($user->roles as $role)
 

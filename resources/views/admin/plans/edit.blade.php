@@ -1,4 +1,7 @@
 @extends('admin/app')
+@section('custom-head')
+    <x-head.tinymce-config/>
+@endsection
 @section('content')
     <div class="mt-5">
         @if(session('success'))
@@ -17,26 +20,36 @@
 
         <form action="{{route('admin.plans.update' , $plan->id)}}" method="post">
             {{csrf_field()}}
-            <div class="mb-3">
-                <label class="form-label" for="">Title :</label>
-                <input type="text"  class="form-control" name="title" value="{{$plan->title}}">
+            <div class="row">
+                <div class="mb-3 col-6">
+                    <label class="form-label" for="">Title :</label>
+                    <input type="text" class="form-control" name="title" value="{{$plan->title}}">
 
+                </div>
+                <div class="mb-3 col-6">
+                    <label class="form-label" for="">Tag :</label>
+                    <input type="text" class="form-control" name="tag" value="{{$plan->tag}}">
+                </div>
             </div>
+            <di class="row">
+                <div class="mb-3 col-6">
+                    <label class="form-label" for="">Time credit :</label>
+                    <input type="number" class="form-control" name="time_credit" value="{{$plan->time_credit}}">
+                </div>
+
+                <div class="mb-3 col-6">
+                    <label class="form-label" for="">Price ($):</label>
+                    <input type="number" class="form-control" name="price" value="{{$plan->price}}">
+                </div>
+            </di>
             <div class="mb-3">
                 <label class="form-label" for="">Description :</label>
-                <textarea style="height: 200px"  class="form-control" name="description">{{$plan->description}}</textarea>
+                <textarea id="myeditorinstance" name="description">{{$plan->description}}</textarea>
+            </div>
 
-            </div>
-            <div class="mb-3">
-                <label class="form-label" for="">Credit :</label>
-                <input type="number"  class="form-control" name="">
-            </div>
-            <div class="mb-3">
-                <label class="form-label" for="">Price ($):</label>
-                <input type="number" class="form-control" name="price" value="{{$plan->price}}">
-            </div>
 
             <input class="btn btn-primary" type="submit" value="save">
         </form>
+            <br><br><br>
     </div>
 @endsection

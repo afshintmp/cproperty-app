@@ -18,10 +18,6 @@ class PlanController extends Controller
 
     public function index()
     {
-//        $sessionStorage = resolve(StorageInterface::class);
-//        $sessionStorage->set('plan', 5);
-//        dd($sessionStorage->all());
-//        dd($sessionStorage->exist('plan'));
         $plans = Plan::all();
         return view('plans', compact('plans'));
     }
