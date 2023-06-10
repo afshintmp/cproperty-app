@@ -45,8 +45,16 @@ class InitialSeeder extends Seeder
         $plans = [
             [
                 'title' => 'Enhanced',
-                'tag' => 'Annual',
+                'tag' => '',
                 'time_credit' => 3,
+                'description' => $lorm_txt,
+                'price' => 250,
+
+            ],
+            [
+                'title' => 'Enhanced',
+                'tag' => 'Annual',
+                'time_credit' => 12,
                 'description' => $lorm_txt,
                 'price' => 250,
 
@@ -54,8 +62,14 @@ class InitialSeeder extends Seeder
             ['title' => 'Starter',
                 'description' => $lorm_txt,
                 'price' => 70,
-                'tag' => 'Annual',
+                'tag' => '',
                 'time_credit' => 3,
+            ],
+            ['title' => 'Starter',
+                'description' => $lorm_txt,
+                'price' => 70,
+                'tag' => 'Annual',
+                'time_credit' => 12,
             ]
 
         ];

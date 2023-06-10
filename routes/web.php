@@ -3,6 +3,7 @@
 use App\Http\Controllers\BasketController;
 use App\Http\Controllers\BuildController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\FileController;
 use App\Http\Controllers\PlanController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\UserController;
@@ -51,7 +52,7 @@ Route::group(['prefix' => 'admin', 'middleware' => 'role:admin'], function () {
 
 
     Route::get('/page/plans' , function (){
-        return view();
+        return view('admin.pages.plan');
     })->name('admin.page.plan.index');
 });
 
@@ -66,5 +67,8 @@ Route::get('/plans', [PlanController::class, 'index'])->name('plan.index');
 Route::get('/basket/add/{plan}', [BasketController::class, 'add'])->name('basket.add');
 
 Route::get('/checkout', [BasketController::class, 'checkout'])->name('checkout');
+Route::get('file/create' , [FileController::class , 'create'])->name('file.create');
+Route::post('file/create' , [FileController::class , 'upload'])->name('file.new');
+
 
 require __DIR__ . '/auth.php';
