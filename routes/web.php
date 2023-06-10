@@ -67,6 +67,8 @@ Route::get('/plans', [PlanController::class, 'index'])->name('plan.index');
 Route::get('/basket/add/{plan}', [BasketController::class, 'add'])->name('basket.add');
 
 Route::get('/checkout', [BasketController::class, 'checkout'])->name('checkout');
+
+
 Route::get('file/create' , [FileController::class , 'create'])->name('file.create');
 Route::post('file/create' , [FileController::class , 'upload'])->name('file.new');
 
