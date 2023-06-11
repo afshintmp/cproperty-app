@@ -16,25 +16,32 @@
                 {{$plan->title}}
             </strong>
         </h4>
-
+            <style>
+                .readonly:focus{
+                    background: #dfdfdf;
+                }
+                .readonly{
+                    background: #dfdfdf;
+                }
+            </style>
 
         <form action="{{route('admin.plans.update' , $plan->id)}}" method="post">
             {{csrf_field()}}
             <div class="row">
                 <div class="mb-3 col-6">
                     <label class="form-label" for="">Title :</label>
-                    <input type="text" class="form-control" name="title" value="{{$plan->title}}">
+                    <input type="text" class="form-control readonly" name="title" readonly value="{{$plan->title}}">
 
                 </div>
                 <div class="mb-3 col-6">
                     <label class="form-label" for="">Tag :</label>
-                    <input type="text" class="form-control" name="tag" value="{{$plan->tag}}">
+                    <input type="text" class="form-control readonly" name="tag"  readonly value="{{$plan->tag}}">
                 </div>
             </div>
             <di class="row">
                 <div class="mb-3 col-6">
                     <label class="form-label" for="">Time credit :</label>
-                    <input type="number" class="form-control" name="time_credit" value="{{$plan->time_credit}}">
+                    <input type="number" class="form-control readonly" name="time_credit"  readonly value="{{$plan->time_credit}}">
                 </div>
 
                 <div class="mb-3 col-6">

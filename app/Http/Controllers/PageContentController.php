@@ -27,13 +27,21 @@ class PageContentController extends Controller
     public function update(Request $request)
     {
 
-        $data = ['title' => $request->title,
-            'content' => $request->description,
-            'image' => 'image' . DIRECTORY_SEPARATOR . $request->file->getClientOriginalName()
-        ];
-        $this->uploader->upload();
+        if (isset($request->deleteImage)) {
+            $data = [
+                'image' => Null
+            ];
 
+        } else {
+            $data = ['title' => $request->title,
+                'content' => $request->description,
+                'image' => 'image' . DIRECTORY_SEPARATOR . $request->file->getClientOriginalName()
+            ];
+            $this->uploader->upload();
+
+
+        }
         $page = DB::table('page_content')->where('name', 'plan')->update($data);
-
+        return back()->with('success', 'page was updated');
     }
 }

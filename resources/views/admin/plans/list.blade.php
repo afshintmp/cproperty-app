@@ -7,7 +7,8 @@
             <thead>
             <tr>
                 <th class="col">name</th>
-
+                <th class="col">credit</th>
+                <th class="col">price</th>
                 <th class="col">operation</th>
             </tr>
             </thead>
@@ -15,11 +16,17 @@
             @forelse($plans as $plan)
                 <tr>
                     <td>{{$plan->title}}</td>
-
+                    <td>
+                        {{$plan->time_credit}} mounth
+                    </td>
+                    <td>
+                        {{$plan->price}} $
+                    </td>
 
                     <td>
                         <a href="{{route('admin.plans.edit' , $plan->id)}}">edit</a>
                     </td>
+
                 </tr>
 
             @empty
@@ -34,10 +41,5 @@
             </tbody>
         </table>
     </div>
-
-
-
-
-
 
 @endsection

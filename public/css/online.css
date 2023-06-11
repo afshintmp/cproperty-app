@@ -72,11 +72,25 @@
 
 .login-box {
     background: rgba(
-    0,
-    0,
-    0,
-    0.8) !important;
+        0,
+        0,
+        0,
+        0.8) !important;
 }
-.w-unset{
-    width: unset!important;
+
+.w-unset {
+    width: unset !important;
+}
+
+.plans-add-to-cart.btn-green {
+    padding: 0;
+}
+
+.plans-add-to-cart > a {
+    color: #fff;
+    text-decoration: none;
+    width: 100%;
+    display: block;
+    height: 100%;
+    line-height: 67px;
 }
