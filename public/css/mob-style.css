@@ -1,0 +1,101 @@
+@media only screen and (max-width: 576px) {
+
+    .dreamstm-title {
+        font-size: 26px;
+        text-align: center;
+        margin-top: 40px;
+        margin-bottom: 16px !important;
+    }
+
+    .c-cart-shadow {
+        background: #FFFFFF;
+        background-color: rgb(255, 255, 255);
+        box-shadow: 0px 36px 236px 100px rgba(0, 0, 0, 0.07);
+    }
+
+    .c-mt-categ {
+        margin-top: 0px;
+    }
+
+    .category-baner {
+        display: none !important;
+
+    }
+
+    .plans {
+        height: unset !important;
+        margin-bottom: unset;
+        padding-top: unset;
+    }
+
+    .--1, .--2 {
+        position: unset!important;
+        width: 100%;
+        margin-bottom: 40px;
+    }
+    .plan-main::after {
+        display: none!important;
+    }
+    .plan-sub-title, .plan-title {
+        font-size: 26px;
+    }
+    .plan-main{
+        padding: 25px;
+    }
+    .plan-head {
+        border-bottom: 1px solid #000;
+    }
+    .plan-head .plan-title {
+        display: inline-block;
+    }
+    .plan-head .plan-sub-title {
+        display: inline-block;
+        margin-top: 0px;
+        float: right;
+    }
+    .info--{
+        display: block;
+        height: unset!important;
+    }
+    .plan-body > p {
+        display: block;
+    }
+    .plan-body.info--.text-00,
+    .plan-body.info--.text-00 > *{
+        font-size: 16px!important;
+        line-height: 40px!important;
+    }
+    .plans-info{
+        display: block;
+    }
+    .plan-main-shodow{
+        display: none;
+    }
+    .bottom-bar{
+        display: none;
+    }
+    .plans-price{
+        font-size: 26px;
+        line-height: 30px;
+        display: block;
+        text-align: center;
+        margin-top: 20px;
+    }
+    .plans-add-to-cart.btn-green{
+        width: 100%;
+        height: unset;
+        padding-top: 16px;
+        padding-bottom: 16px;
+        margin-top: 20px;
+    }
+    .dreamstm-text--{
+        margin-bottom: 20px;
+    }
+    .plans .container{
+        display: flex;
+        flex-direction: column-reverse;
+    }
+    .pr-34{
+
+    }
+}

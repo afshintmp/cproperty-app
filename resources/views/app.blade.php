@@ -7,7 +7,9 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
     <link rel="stylesheet" href="{{ asset('css/bootstrap.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('font/font-face.css') }}">
     <link rel="stylesheet" href="{{ asset('css/main-style.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/mob-style.css') }}">
     <link rel="stylesheet" href="{{ asset('css/online.css') }}">
 
     @section('custom-head')

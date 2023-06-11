@@ -1,0 +1,7 @@
+@font-face {
+	font-family: 'mazzard_m_bold';
+	src: url('MazzardM-Bold.woff2') format('WOFF2'),
+		url('MazzardM-Bold.woff') format('WOFF');
+	font-weight: normal;
+	font-style: normal;
+}

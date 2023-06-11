@@ -4,6 +4,7 @@ use App\Http\Controllers\BasketController;
 use App\Http\Controllers\BuildController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\FileController;
+use App\Http\Controllers\PageContentController;
 use App\Http\Controllers\PlanController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\UserController;
@@ -51,9 +52,8 @@ Route::group(['prefix' => 'admin', 'middleware' => 'role:admin'], function () {
     Route::post('/users/{user}/edit', [UserController::class, 'update'])->name('admin.users.update');
 
 
-    Route::get('/page/plans' , function (){
-        return view('admin.pages.plan');
-    })->name('admin.page.plan.index');
+    Route::get('/page/plans', [PageContentController::class, 'edit'])->name('admin.page.plan.index');
+    Route::post('/page/plans', [PageContentController::class, 'update'])->name('admin.page.plan.update');
 });
 
 Route::middleware('auth')->group(function () {
@@ -69,8 +69,8 @@ Route::get('/basket/add/{plan}', [BasketController::class, 'add'])->name('basket
 Route::get('/checkout', [BasketController::class, 'checkout'])->name('checkout');
 
 
-Route::get('file/create' , [FileController::class , 'create'])->name('file.create');
-Route::post('file/create' , [FileController::class , 'upload'])->name('file.new');
+Route::get('file/create', [FileController::class, 'create'])->name('file.create');
+Route::post('file/create', [FileController::class, 'upload'])->name('file.new');
 
 
 require __DIR__ . '/auth.php';

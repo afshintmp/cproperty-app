@@ -22,9 +22,15 @@ class Uploader
 
     public function upload()
     {
-        if ($this->isFileExists()) throw new FileExistException('file has already upload');
+
         $this->putFileInStorage();
-        return $this->saveFileIntoDatabase();
+        $this->saveFileIntoDatabase();
+    }
+
+    public function uploadToPageContent($pageName)
+    {
+        $this->upload();
+
     }
 
     private function saveFileIntoDatabase()
@@ -38,9 +44,11 @@ class Uploader
         $file->save();
     }
 
-    private function isFileExists(){
+    private function isFileExists()
+    {
         return $this->storageManager->isFileExists($this->file->getClientOriginalName(), $this->getType(), $this->isPrivate());
     }
+
     private function putFileInStorage()
     {
 

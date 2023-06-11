@@ -1,0 +1,22 @@
+@font-face {
+    font-family: 'mazzard_m_bold';
+    src: url('MazzardM-Bold.woff2') format('WOFF2'),
+    url('MazzardM-Bold.woff') format('WOFF');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'mazzard_m_light';
+    src: url('MazzardM-Light.woff2') format('WOFF2'),
+    url('MazzardM-Light.woff') format('WOFF');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'mazzard_m_regular';
+    src: url('MazzardM-Regular.woff2') format('WOFF2'),
+    url('MazzardM-Regular.woff') format('WOFF');
+    font-weight: normal;
+    font-style: normal;
+}

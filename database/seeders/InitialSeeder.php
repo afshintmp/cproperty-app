@@ -45,6 +45,7 @@ class InitialSeeder extends Seeder
         $plans = [
             [
                 'title' => 'Enhanced',
+                'uniqe_name' => 'enhanced',
                 'tag' => '',
                 'time_credit' => 3,
                 'description' => $lorm_txt,
@@ -53,6 +54,7 @@ class InitialSeeder extends Seeder
             ],
             [
                 'title' => 'Enhanced',
+                'uniqe_name' => 'annual-enhanced',
                 'tag' => 'Annual',
                 'time_credit' => 12,
                 'description' => $lorm_txt,
@@ -60,12 +62,14 @@ class InitialSeeder extends Seeder
 
             ],
             ['title' => 'Starter',
+                'uniqe_name' => 'starter',
                 'description' => $lorm_txt,
                 'price' => 70,
                 'tag' => '',
                 'time_credit' => 3,
             ],
             ['title' => 'Starter',
+                'uniqe_name' => 'annual-starter',
                 'description' => $lorm_txt,
                 'price' => 70,
                 'tag' => 'Annual',
@@ -73,6 +77,14 @@ class InitialSeeder extends Seeder
             ]
 
         ];
+        $pages_content = [
+            ['name' => 'plan',
+                'title' => 'Get a Premium Account',
+                'content' => $lorm_txt]
+        ];
+        foreach ($pages_content as $content) {
+            DB::table('page_content')->insert($content);
+        }
         foreach ($roles as $role) {
             DB::table('roles')->insert($role);
         }
