@@ -30,17 +30,17 @@ Route::get('/', function () {
 Route::get('/builds', [BuildController::class, 'show1'])->name('builds.index');
 Route::get('/builds/{id}', [BuildController::class, 'show'])->name('builds.show');
 
-//Route::get('/dashboard', [DashboardController::class, 'index'])->middleware(['auth', 'verified'])->name('dashboard');
+Route::get('/dashboard', [DashboardController::class, 'index'])->middleware(['auth', 'verified'])->name('dashboard');
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
+//Route::get('/dashboard', function () {
+//    return view('dashboard');
+//})->middleware(['auth', 'verified'])->name('dashboard');
 
 
 Route::group(['prefix' => 'admin', 'middleware' => 'role:admin'], function () {
     Route::get('/', function () {
         return view('admin.dashboard');
-    });
+    })->name('admin.dashboard');
 
     Route::get('/plans', [PlanController::class, 'adminIndex'])->name('admin.plans.index');
     Route::get('/plans/{plan}/edit', [PlanController::class, 'edit'])->name('admin.plans.edit');
@@ -48,6 +48,8 @@ Route::group(['prefix' => 'admin', 'middleware' => 'role:admin'], function () {
 
 
     Route::get('/users', [UserController::class, 'index'])->name('admin.users.index');
+    Route::get('/users/add', [UserController::class, 'add'])->name('admin.users.add');
+    Route::post('/users/add', [UserController::class, 'create'])->name('admin.users.create');
     Route::get('/users/{user}/edit', [UserController::class, 'edit'])->name('admin.users.edit');
     Route::post('/users/{user}/edit', [UserController::class, 'update'])->name('admin.users.update');
 
@@ -72,5 +74,10 @@ Route::get('/checkout', [BasketController::class, 'checkout'])->name('checkout')
 Route::get('file/create', [FileController::class, 'create'])->name('file.create');
 Route::post('file/create', [FileController::class, 'upload'])->name('file.new');
 
+Route::group(['prefix' => 'developer', 'middleware' => 'role:developer'], function () {
+    Route::get('/', function () {
+        dd('ok');
+    })->name('developer.dashboard');
+});
 
 require __DIR__ . '/auth.php';

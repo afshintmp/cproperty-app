@@ -7,6 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Register</title>
     <link rel="stylesheet" href="{{ asset('css/bootstrap.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('font/font-face.css') }}">
     <link rel="stylesheet" href="{{ asset('css/main-style.css') }}">
     <link rel="stylesheet" href="{{ asset('css/online.css') }}">
 
@@ -21,7 +22,7 @@
          style="background-size: cover;background-image: url('{{asset('img/Frame 345.png')}}') ;background-repeat: no-repeat"></div>
     <div class="container h-100 pt-5 pb-5">
         <div class="row align-items-center justify-content-center h-100">
-            <div class="col-6 align-self-center">
+            <div class="col-12 col-md-9 align-self-center">
 
                 <div class="login-box position-relative">
 
@@ -31,52 +32,61 @@
                             @csrf
 
                             <!-- Name -->
-                            <div class="login-form-input-group">
+                            <div class="row">
+                                <div class="col-12 col-md-6">
+                                    <div class="login-form-input-group">
 
-                                <x-input-label for="name" :value="__('Name')"/>
-                                <x-text-input id="name" class="block mt-1 w-full" type="text" name="name"
-                                              :value="old('name')" required
-                                              autofocus autocomplete="name"/>
-                                <x-input-error :messages="$errors->get('name')" class="mt-2"/>
+                                        <x-input-label for="name" :value="__('Name')"/>
+                                        <x-text-input id="name" class="block mt-1 w-full" type="text" name="name"
+                                                      :value="old('name')" required
+                                                      autofocus autocomplete="name"/>
+                                        <x-input-error :messages="$errors->get('name')" class="mt-2"/>
+                                    </div>
+                                </div>
+                                <div class="col-12 col-md-6">
+                                    <!-- Email Address -->
+                                    <div class="login-form-input-group">
+                                        <x-input-label for="email" :value="__('Email')"/>
+                                        <x-text-input id="email" class="block mt-1 w-full" type="email" name="email"
+                                                      :value="old('email')"
+                                                      required
+                                                      autocomplete="username"/>
+                                        <x-input-error :messages="$errors->get('email')" class="mt-2"/>
+                                    </div>
+                                </div>
                             </div>
-
-                            <!-- Email Address -->
-                            <div class="login-form-input-group">
-                                <x-input-label for="email" :value="__('Email')"/>
-                                <x-text-input id="email" class="block mt-1 w-full" type="email" name="email"
-                                              :value="old('email')"
-                                              required
-                                              autocomplete="username"/>
-                                <x-input-error :messages="$errors->get('email')" class="mt-2"/>
-                            </div>
-
                             <!-- Password -->
-                            <div class="login-form-input-group">
-                                <x-input-label for="password" :value="__('Password')"/>
+                            <div class="row">
+                                <div class="col-12 col-md-6">
+                                    <div class="login-form-input-group">
+                                        <x-input-label for="password" :value="__('Password')"/>
 
-                                <x-text-input id="password" class="block mt-1 w-full"
-                                              type="password"
-                                              name="password"
-                                              required autocomplete="new-password"/>
+                                        <x-text-input id="password" class="block mt-1 w-full"
+                                                      type="password"
+                                                      name="password"
+                                                      required autocomplete="new-password"/>
 
-                                <x-input-error :messages="$errors->get('password')" class="mt-2"/>
+                                        <x-input-error :messages="$errors->get('password')" class="mt-2"/>
+                                    </div>
+                                </div>
+                                <div class="col-12 col-md-6">
+                                    <!-- Confirm Password -->
+                                    <div class="login-form-input-group">
+                                        <x-input-label for="password_confirmation" :value="__('Confirm Password')"/>
+
+                                        <x-text-input id="password_confirmation" class="block mt-1 w-full"
+                                                      type="password"
+                                                      name="password_confirmation" required
+                                                      autocomplete="new-password"/>
+
+                                        <x-input-error :messages="$errors->get('password_confirmation')" class="mt-2"/>
+                                    </div>
+                                </div>
                             </div>
-
-                            <!-- Confirm Password -->
-                            <div class="login-form-input-group">
-                                <x-input-label for="password_confirmation" :value="__('Confirm Password')"/>
-
-                                <x-text-input id="password_confirmation" class="block mt-1 w-full"
-                                              type="password"
-                                              name="password_confirmation" required autocomplete="new-password"/>
-
-                                <x-input-error :messages="$errors->get('password_confirmation')" class="mt-2"/>
-                            </div>
-
                             <div class="text-center mt-4">
 
 
-                                <x-primary-button class="btn-green ml-4">
+                                <x-primary-button class="btn-green ml-4 w-50">
                                     {{ __('Register') }}
                                 </x-primary-button>
                             </div>

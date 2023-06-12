@@ -1,7 +1,16 @@
 @extends('admin/app')
 @section('content')
+    @if(session('success'))
 
-    <h2 class="mt-5">users</h2>
+        <div class="alert alert-success mt-4">
+            {{session('success')}}
+        </div>
+    @endif
+    <h2 class="mt-5 d-inline-block mr-5">users</h2>
+
+    <a href="{{route('admin.users.add')}}" class="d-inline-block ml-5 pl-5">add new user</a>
+
+
     <div class="table-responsive">
         <table class="table table-striped table-sm">
             <thead>
@@ -42,10 +51,5 @@
             </tbody>
         </table>
     </div>
-
-
-
-
-
 
 @endsection

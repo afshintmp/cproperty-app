@@ -12,18 +12,22 @@ use Illuminate\Http\Request;
 class DashboardController extends Controller
 {
 
-    public function index(){
-       if(auth()->user()->hasPlan()){
+    public function index()
+    {
+        if (auth()->user()->hasRole('admin')) return redirect()->route('admin.dashboard');
+        if (auth()->user()->hasRole('developer')) return redirect()->route('developer.dashboard');
+        if (auth()->user()->hasPlan()) {
 
 
+        } else {
+            $sessionStorage = resolve(StorageInterface::class);
+            if (!$sessionStorage->exist('plan')) {
+                return redirect()->route('plan.index');
+            } else {
+                return redirect()->route('checkout');
 
-       }else{
-           $sessionStorage = resolve(StorageInterface::class);
-           if(!$sessionStorage->exist('plan')){
-               return redirect()->route('plan.index');
-           };
+            };
 
-
-       };
+        };
     }
 }

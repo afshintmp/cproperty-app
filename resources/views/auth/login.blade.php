@@ -21,7 +21,7 @@
          style="background-size: cover;background-image: url('{{asset('img/Frame 345.png')}}') ;background-repeat: no-repeat"></div>
     <div class="container h-100 pt-5 pb-5">
         <div class="row align-items-center justify-content-center h-100">
-            <div class="col-6 align-self-center">
+            <div class="col-md-9 col-12 align-self-center">
 
                 <div class="login-box position-relative">
 
