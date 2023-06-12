@@ -3,6 +3,7 @@
 use App\Http\Controllers\BasketController;
 use App\Http\Controllers\BuildController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\DeveloperController;
 use App\Http\Controllers\FileController;
 use App\Http\Controllers\PageContentController;
 use App\Http\Controllers\PlanController;
@@ -75,9 +76,7 @@ Route::get('file/create', [FileController::class, 'create'])->name('file.create'
 Route::post('file/create', [FileController::class, 'upload'])->name('file.new');
 
 Route::group(['prefix' => 'developer', 'middleware' => 'role:developer'], function () {
-    Route::get('/', function () {
-        dd('ok');
-    })->name('developer.dashboard');
+    Route::get('/', [DeveloperController::class , 'index' ])->name('developer.dashboard');
 });
 
 require __DIR__ . '/auth.php';
