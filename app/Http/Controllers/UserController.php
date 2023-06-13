@@ -48,7 +48,7 @@ class UserController extends Controller
 
         return redirect()->route('admin.users.index')->with('success', 'User was create');
 
-//        $user = User::create($admin)->giveRolesTo('admin');
+
 
     }
 
@@ -69,7 +69,7 @@ class UserController extends Controller
             'email_verified_at' => now(),
             'remember_token' => Str::random(10)
         ];
-//        dd(Carbon::now());
+
         $user = User::create($user)->giveRolesTo($request->role);
         return $user;
     }

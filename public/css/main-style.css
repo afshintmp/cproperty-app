@@ -164,8 +164,9 @@ p {
 
 
 .c-card-title {
-    font-size: 23px;
-    font-weight: bold;
+    font-size: 20px;
+    font-weight: 700;
+    font-family: 'mazzard_m_bold';
 }
 
 .c-cart-shadow {
@@ -1888,6 +1889,9 @@ p {
     border: 0;
     background: transparent;
     padding: 8px;
+    font-size: 16px;
+    font-weight: 500;
+    font-family: 'mazzard_m_regular';
 }
 
 .vertical-top {
@@ -1927,7 +1931,7 @@ p {
 .admin-sec-subtitle {
     font-size: 16px;
     padding-bottom: 8px;
-    margin-bottom: 8px;
+    margin-bottom: 12px;
 }
 
 .border-left-custom {
@@ -2056,4 +2060,317 @@ p {
 
 .label-width-large label {
     width: 160px;
+}
+
+.mt-85 {
+    margin-top: 85px;
+}
+
+.input-w-unset.input-custom {
+    width: unset;
+}
+
+.input-custom.Assignment-no.flex-auto.self.no-logo > input {
+    width: 100%;
+    text-align: center;
+}
+
+.input-custom.Assignment-no.flex-auto.self.no-logo {
+    width: 50px;
+    padding: 0;
+    margin-right: 19px;
+}
+
+.input-custom.Assignment-no-secto.self.no-logo {
+    width: calc(100% - 73px);
+}
+
+.dec----- {
+    font-size: 14px;
+    font-weight: 500;
+    font-family: 'mazzard_m_regular';
+    margin-left: 11px;
+}
+
+.new-custom-radio > label > input {
+    display: none;
+}
+
+.new-custom-radio {
+    background: #F3F2F2;
+    padding: 11px;
+    display: inline-block;
+    color: rgba(74, 85, 104, 1);
+    font-size: 14px;
+    font-weight: bold;
+    font-family: 'mazzard_m_regular';
+
+}
+
+.new-custom-radio.active {
+    background: #B3865D;
+    color: #fff;
+}
+
+.green-gray-raduis {
+    -webkit-border-radius: 26px;
+    -moz-border-radius: 26px;
+    border-radius: 26px;
+    background: #F1F0F0;
+    color: rgba(74, 85, 104, 1);
+    border: 1px solid #4A5568;
+    padding: 11px;
+    font-size: 14px;
+    font-weight: bold;
+    font-family: 'mazzard_m_regular';
+}
+
+.p-11 {
+    padding: 11px;
+
+}
+
+.green-btn.in-add-property {
+    font-size: 14px;
+    font-weight: bold;
+    font-family: 'mazzard_m_regular';
+}
+
+.ml-12 {
+    margin-left: 12px;
+}
+
+.compilition-date-input > input {
+    width: 150px;
+    margin-right: 8px;
+    display: inline-block;
+}
+
+.compilition-date-input {
+
+}
+
+.mt-70 {
+    margin-top: 70px;
+}
+
+.admin-sec .custom-check-box {
+    font-size: 16px;
+    font-weight: 500;
+    font-family: 'mazzard_m_regular';
+}
+
+.feature-box > div {
+    margin-right: 26px;
+}
+
+.profile-textarea-custom > textarea {
+    width: 100%;
+    height: 178px;
+    background: #F1F0F0;
+    resize: none;
+    border: 0;
+    padding: 8px;
+    font-size: 16px;
+    font-weight: 500;
+    font-family: 'mazzard_m_regular';
+}
+
+.svg-left {
+    position: relative;
+}
+
+.svg-left > svg {
+    position: absolute;
+    right: 8px;
+    top: 8px;
+}
+
+.w-220 {
+    width: 220px !important;
+}
+
+.w-320 {
+    width: 320px;
+}
+
+.billing-ch-head {
+    font-size: 16px;
+    font-weight: 500;
+    font-family: 'mazzard_m_regular';
+    margin-bottom: 12px;
+}
+
+.set-deposit-col-margin > div:nth-child(1) {
+    margin-right: 25px;
+}
+
+.new-custom-radio {
+    margin-right: 25px;
+}
+
+.mb-12,
+.profile-radio-custom {
+    margin-bottom: 12px;
+}
+
+.calender-btn > svg {
+    vertical-align: -2px;
+    margin-left: 5px;
+}
+
+.calender-btn {
+    background: #B3865D;
+    color: #fff;
+    border: 0;
+    padding: 11px;
+    font-size: 16px;
+    font-weight: 500;
+    font-family: 'mazzard_m_regular';
+    margin-right: 15px;
+
+}
+
+.input-custom.compilition-date-input.flex-auto.self.no-logo > input {
+    width: 100%;
+    text-align: center;
+    padding: 11px 0;
+}
+
+.input-custom.compilition-date-input.flex-auto.self.no-logo {
+
+    width: 60px;
+    margin-right: 15px;
+    padding: 0;
+    text-align: center;
+}
+
+.admin-nav-bar-list {
+
+}
+
+.profile-tab-list > div:hover > div {
+    display: block;
+}
+
+.profile-tab-list > div > div {
+    display: none;
+}
+
+.profile-tab-list > div {
+    position: relative;
+}
+
+.admin-nav-bar-list-wrapper {
+    position: absolute;
+    top: 100%;
+}
+
+.admin-nav-bar-list {
+    box-shadow: 0px 4px 38px 3px rgba(0, 0, 0, 0.13);
+    padding: 20px 59px 20px 18px;
+    text-align: left;
+    margin-top: 18px;
+}
+
+.admin-nav-bar-list > li > a {
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 16px;
+    font-family: 'mazzard_m_regular';
+    width: 190px;
+    display: block;
+    margin-bottom: 10px;
+    text-decoration: none;
+    color: #000;
+}
+
+.admin-nav-bar-list-wrapper {
+
+}
+
+.uploader {
+    cursor: pointer;
+}
+
+.upload-more {
+}
+
+.upload-more > p > img {
+    vertical-align: -7px;
+}
+
+.upload-more > p {
+    font-weight: 500;
+    font-size: 16px;
+    font-family: 'mazzard_m_regular';
+    line-height: 16px;
+    text-align: center;
+    margin-top: 16px;
+    cursor: pointer;
+}
+
+.uploader {
+    text-align: center;
+}
+
+.uploader-text {
+    color: #585858;
+    font-size: 16px;
+    font-weight: 500;
+    font-family: 'mazzard_m_regular';
+}
+
+.preview_image {
+    margin-top: 15px;
+}
+
+.preview_image > p > img {
+    vertical-align: -6px;
+}
+
+.preview_image > p {
+    text-align: center;
+    font-size: 16px;
+    color: #000;
+    font-weight: 500;
+    font-family: 'mazzard_m_regular';
+}
+
+.cart-info-- {
+    font-size: 14px;
+    font-weight: 400;
+    font-family: 'mazzard_m_light';
+}
+
+.c-cart-price-to {
+    color: rgba(79, 79, 79, 1);
+    font-size: 20px;
+    font-weight: 500;
+    line-height: 23px;
+    font-family: 'mazzard_m_regular';
+
+}
+.c-cart-price-from {
+    color: rgba(40, 152, 0, 1);
+    font-size: 20px;
+    font-weight: 500;
+    line-height: 23px;
+    font-family: 'mazzard_m_regular';
+}
+.c-cart-price-dash{
+    color: rgba(79, 79, 79, 1);
+    font-size: 20px;
+    font-weight: 500;
+    line-height: 23px;
+    font-family: 'mazzard_m_regular';
+}
+.mt-8{
+    margin-top: 8px;
+}
+.mb-11{
+    padding-bottom: 11px;
+}
+.cart-info--link{
+    text-decoration: none;
 }

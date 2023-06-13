@@ -22,11 +22,9 @@
                 <label for="">Password :</label>
                 <div class="row">
                     <div class="col-8">
-                        <input type="password" required id="myInput" class="form-control" name="password" value="">
+                        <input type="text" required id="myInput" class="form-control" name="password" value="">
                     </div>
-                    <div class="col-4">
-                      <input type="checkbox" class="d-inline-block" onclick="myFunction()">Show Password
-                    </div>
+
                 </div>
             </div>
             <div class="mt-2">

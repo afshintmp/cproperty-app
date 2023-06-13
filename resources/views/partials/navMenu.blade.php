@@ -16,7 +16,7 @@
                             <a href="{{route('plan.index')}}">Plans</a>
                         </li>
                         <li>
-                            <a href="#">Cities</a>
+                            <a href="{{route('builds.index')}}">Builds</a>
                         </li>
                         <li>
                             <a href="#">Articles</a>
