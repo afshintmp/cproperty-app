@@ -9,6 +9,10 @@ class Build extends Model
 {
     use HasFactory;
 
+
+    protected $fillable = ['name',
+        'location', 'completion_date', 'deposit', 'assignment', 'maintenance', 'type', 'tower', 'pet' , 'slug'];
+
 //    protected $with = ['images'];
 
     public function getCompletionDateAttribute($value)

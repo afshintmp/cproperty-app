@@ -76,8 +76,9 @@ Route::get('file/create', [FileController::class, 'create'])->name('file.create'
 Route::post('file/create', [FileController::class, 'upload'])->name('file.new');
 
 Route::group(['prefix' => 'developer', 'middleware' => 'role:developer'], function () {
-    Route::get('/', [DeveloperController::class , 'index' ])->name('developer.dashboard');
-    Route::get('/project/add', [DeveloperController::class , 'addProject' ])->name('developer.project.add');
+    Route::get('/', [DeveloperController::class, 'index'])->name('developer.dashboard');
+    Route::get('/project/add', [DeveloperController::class, 'addProject'])->name('developer.project.add');
+    Route::post('/project/add', [DeveloperController::class, 'createProject'])->name('developer.project.create');
 });
 
 require __DIR__ . '/auth.php';
