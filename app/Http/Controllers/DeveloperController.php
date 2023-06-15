@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Build;
+use App\Models\Image;
 use App\Services\Uploader\StorageManager;
 use App\Services\Uploader\Uploader;
 use Illuminate\Http\Request;
@@ -28,8 +29,10 @@ class DeveloperController extends Controller
 
     public function listProject()
     {
-        dd(auth()->user()->build());
-        return view('developer.project.list');
+        $build = Build::where('developer', auth()->user()->id)->get();
+        $build->load('cover');
+//        dd($build->load('cover'));
+        return view('developer.project.list', compact('build'));
     }
 
     public function addProject()
@@ -60,9 +63,12 @@ class DeveloperController extends Controller
             'pet' => $request->pet,
             'slug' => Str::slug($request->title),
             'promotion_text' => $request->promotion,
+            'developer' => auth()->user()->id
         ];
 
-        $build = Build::create($build)->attach(auth()->user());
+        $build = Build::create($build);
+
+
         if ($build->exists) {
 
             $this->uploadImages($request, $build->id);

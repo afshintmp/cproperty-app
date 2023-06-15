@@ -11,7 +11,7 @@ class Build extends Model
 
 
     protected $fillable = ['name',
-        'location', 'completion_date', 'deposit', 'assignment', 'maintenance', 'type', 'tower', 'pet', 'slug'];
+        'location', 'completion_date', 'deposit', 'assignment', 'maintenance', 'type', 'tower', 'pet', 'slug' , 'developer'];
 
 //    protected $with = ['images'];
 
@@ -22,7 +22,8 @@ class Build extends Model
 
     public function developer()
     {
-        return $this->belongsTo(User::class);
+
+        return $this->hasOne(User::class ,'id' , 'developer');
     }
 
     public function images()
@@ -32,8 +33,8 @@ class Build extends Model
 
     public function cover()
     {
-        return $this->morphMany(Image::class, 'imageable')->where('tag', '
-        =', 'cover');
+
+        return $this->morphMany(Image::class, 'imageable')->where('tag' , 'cover');
     }
 
     public function promotion()

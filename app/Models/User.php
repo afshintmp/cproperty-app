@@ -41,10 +41,10 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
-    public function build()
-    {
-        $this->belongsTo(Build::class);
-    }
+//    public function builds()
+//    {
+//        $this->hasMany(Build::class, 'developer');
+//    }
 
     public function plan()
     {

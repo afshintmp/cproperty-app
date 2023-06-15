@@ -38,7 +38,7 @@ class UserController extends Controller
     {
         $user->refreshRole($request->role);
         $user->refreshPermission($request->permission);
-        return back()->with('success', true);
+        return back()->with('success', 'user was update');
     }
 
     public function add()
