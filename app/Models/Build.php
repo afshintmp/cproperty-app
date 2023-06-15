@@ -11,13 +11,18 @@ class Build extends Model
 
 
     protected $fillable = ['name',
-        'location', 'completion_date', 'deposit', 'assignment', 'maintenance', 'type', 'tower', 'pet' , 'slug'];
+        'location', 'completion_date', 'deposit', 'assignment', 'maintenance', 'type', 'tower', 'pet', 'slug'];
 
 //    protected $with = ['images'];
 
     public function getCompletionDateAttribute($value)
     {
         return date("M d,Y", strtotime($value));
+    }
+
+    public function developer()
+    {
+        return $this->belongsTo(User::class);
     }
 
     public function images()

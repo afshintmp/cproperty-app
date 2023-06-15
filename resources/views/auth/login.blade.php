@@ -7,6 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Login</title>
     <link rel="stylesheet" href="{{ asset('css/bootstrap.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('font/font-face.css') }}">
     <link rel="stylesheet" href="{{ asset('css/main-style.css') }}">
     <link rel="stylesheet" href="{{ asset('css/online.css') }}">
 
@@ -26,34 +27,36 @@
                 <div class="login-box position-relative">
 
                     <div>
-                        <x-auth-session-status class="mb-4" :status="session('status')" />
+                        <x-auth-session-status class="mb-4" :status="session('status')"/>
 
                         <form method="POST" action="{{ route('login') }}">
                             @csrf
 
                             <!-- Email Address -->
                             <div>
-                                <x-input-label for="email" :value="__('Email')" />
-                                <x-text-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required autofocus autocomplete="username" />
-                                <x-input-error :messages="$errors->get('email')" class="mt-2" />
+                                <x-input-label for="email" :value="__('Email')"/>
+                                <x-text-input id="email" class="block mt-1 w-full" type="email" name="email"
+                                              :value="old('email')" required autofocus autocomplete="username"/>
+                                <x-input-error :messages="$errors->get('email')" class="mt-2"/>
                             </div>
 
                             <!-- Password -->
                             <div class="mt-4">
-                                <x-input-label for="password" :value="__('Password')" />
+                                <x-input-label for="password" :value="__('Password')"/>
 
                                 <x-text-input id="password" class="block mt-1 w-full"
                                               type="password"
                                               name="password"
-                                              required autocomplete="current-password" />
+                                              required autocomplete="current-password"/>
 
-                                <x-input-error :messages="$errors->get('password')" class="mt-2" />
+                                <x-input-error :messages="$errors->get('password')" class="mt-2"/>
                             </div>
 
                             <!-- Remember Me -->
                             <div class="block mt-4">
                                 <label for="remember_me" class="">
-                                    <input id="remember_me" type="checkbox" class="d-inline-block w-unset" name="remember">
+                                    <input id="remember_me" type="checkbox" class="d-inline-block w-unset"
+                                           name="remember">
                                     <span class="">{{ __('Remember me') }}</span>
                                 </label>
                             </div>
@@ -69,6 +72,7 @@
                                         {{ __('Forgot your password?') }}
                                     </a>
                                 @endif
+
                             </div>
                         </form>
 

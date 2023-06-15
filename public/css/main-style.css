@@ -1724,13 +1724,13 @@ p {
 /*-----------------------------------profile*/
 
 .admin-build-cart-img {
-    width: 180px;
+    height: 100%;
     display: inline-block;
     vertical-align: top;
 }
 
 .admin-build-cart-img > img {
-    width: 100%;
+    height: 100%;
 
 }
 
@@ -1740,8 +1740,10 @@ p {
 
 .admin-build-cart-info {
     display: inline-block;
-    width: calc(100% - 185px);
-    padding: 16px 32px;
+    padding-right: 23px;
+    padding-left: 53px;
+    padding-top: 23px;
+    padding-bottom: 23px;
 }
 
 .project-title {
@@ -1752,13 +1754,14 @@ p {
 
 .admin-build-cart {
     box-shadow: 0px 4px 38px 3px rgba(0, 0, 0, 0.13);
-    margin-bottom: 16px;
+    margin-bottom: 25px;
     position: relative;
+    height: 242px;
 }
 
 .admin-build-cart-btn-sec {
     position: absolute;
-    bottom: 16px;
+    bottom: 23px;
 }
 
 .pro-tab {
@@ -1999,7 +2002,7 @@ p {
 
 .search-bar-btn {
     position: absolute;
-    top: 8px;
+    top: 0px;
     right: 0;
 }
 
@@ -2219,7 +2222,6 @@ p {
     margin-left: 5px;
 }
 
-.input-group-addon.calender-btn,
 .calender-btn {
     background: #B3865D;
     color: #fff;
@@ -2229,7 +2231,6 @@ p {
     font-weight: 500;
     font-family: 'mazzard_m_regular';
     margin-right: 15px;
-    cursor: pointer;
 
 }
 
@@ -2382,51 +2383,122 @@ p {
     text-decoration: none;
 }
 
-.Assignment-no > input,
-.Assignment-no {
-    cursor: pointer;
+.view-project-search-bar {
+
+
+    margin-top: 50px;
+    margin-bottom: 50px;
 }
 
-.assignment-active {
-    border: 1px solid #B3865D;
+.search-bar-sort {
+    padding-right: 50px;
+    padding-left: 50px;
+    padding-top: 8px;
+    padding-bottom: 8px;
 
 }
 
-.new-custom-radio > label,
-.new-custom-radio {
-    cursor: pointer;
+.search-bar-sort > svg {
+    vertical-align: -4px;
 }
 
-.input-group-addon.calender-btn {
-    display: inline-block;
-    width: 200px;
+.search-bar-sort {
+    color: #fff;
+    text-decoration: none;
 }
 
-.date-input {
-    display: inline-block;
-    background: #F3F2F2;
-    padding-left: 8px;
-
-    margin-left: 8px;
-    width: 390px;
-    max-width: 100%;
-    border: 0;
-
-    padding: 11px;
-    display: inline-block;
-    color: rgba(74, 85, 104, 1);
-    font-size: 14px;
-    font-weight: bold;
+.f-regular {
     font-family: 'mazzard_m_regular';
+    font-size: 20px;
+    line-height: 23px;
+    font-weight: 500;
 }
 
-label {
-    margin-bottom: 0 !important;
+.mr-10 {
+    margin-right: 10px;
+}
+
+.search-bar-input > input:focus {
+    outline: none;
+}
+
+.search-bar-input {
+
+    padding-bottom: 10px;
+}
+
+.f-bold {
+    font-weight: 600;
+    font-family: 'mazzard_m_bold';
+    font-size: 26px;
+    line-height: 30px;
+}
+
+.dashboard-main-title {
+    font-size: 26px;
+    line-height: 30px;
+}
+
+.admin-build-cart-info {
+    flex-grow: 1;
+}
+
+.text-b3 {
+    color: #B3865D;
+}
+
+.f-light {
+    font-family: 'mazzard_m_light';
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 18px;
+}
+
+.admin-build-cart-btn-sec > a {
+    text-decoration: none;
+    color: #fff;
 
 }
 
-.cover-section {
-    margin-bottom: 16px;
+.sorted-list-sec > ul > li > a > img {
+    padding-left: 5px;
+}
 
-    border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+.sorted-list-sec > ul > li > a {
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 16px;
+    font-family: 'mazzard_m_regular';
+    color: #000;
+    text-decoration: none;
+}
+
+.sorted-list-sec > ul > li {
+    margin-bottom: 10px;
+}
+
+.sorted-list-sec > ul {
+    background: #fff;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    padding-left: 18px;
+    z-index: 2;
+    position: relative;
+    box-shadow: 0px 4px 38px 3px rgba(0, 0, 0, 0.13);
+
+}
+
+.sorted-list-sec {
+    position: absolute;
+    display: none;
+    width: 100%;
+    padding-top: 21px;
+}
+
+.ml-10 {
+    margin-left: 10px;
+}
+
+.sorted-list:hover > .sorted-list-sec {
+    display: block;
 }

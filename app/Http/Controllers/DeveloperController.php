@@ -26,6 +26,12 @@ class DeveloperController extends Controller
         return view('developer.index');
     }
 
+    public function listProject()
+    {
+        dd(auth()->user()->build());
+        return view('developer.project.list');
+    }
+
     public function addProject()
     {
         return view('developer.project.add');
@@ -53,10 +59,10 @@ class DeveloperController extends Controller
             'tower' => 1,
             'pet' => $request->pet,
             'slug' => Str::slug($request->title),
-            'promotion_text' => $request->promotion
+            'promotion_text' => $request->promotion,
         ];
 
-        $build = Build::create($build);
+        $build = Build::create($build)->attach(auth()->user());
         if ($build->exists) {
 
             $this->uploadImages($request, $build->id);

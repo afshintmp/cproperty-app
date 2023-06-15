@@ -23,6 +23,12 @@
             user-select: none;
         }
 
+        .logout-link {
+            background: #ca0d0d;
+            border: 0;
+            color: #fff;
+        }
+
         @media (min-width: 768px) {
             .bd-placeholder-img-lg {
                 font-size: 3.5rem;
@@ -39,7 +45,7 @@
 <body>
 
 <header class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0 shadow">
-    <a class="navbar-brand col-md-3 col-lg-2 me-0 px-3" href="#">Company name</a>
+    <a class="navbar-brand col-md-3 col-lg-2 me-0 px-3" href="#">Welcome {{auth()->user()->name}}</a>
     <button class="navbar-toggler position-absolute d-md-none collapsed" type="button" data-bs-toggle="collapse"
             data-bs-target="#sidebarMenu" aria-controls="sidebarMenu" aria-expanded="false"
             aria-label="Toggle navigation">
@@ -48,7 +54,10 @@
     <input class="form-control form-control-dark w-100" type="text" placeholder="Search" aria-label="Search">
     <div class="navbar-nav">
         <div class="nav-item text-nowrap">
-            <a class="nav-link px-3" href="#">Sign out</a>
+            <form action="{{route('logout')}}" method="post">
+                {{csrf_field()}}
+                <input type="submit" class="nav-link logout-link px-3" value="Sign out"/>
+            </form>
         </div>
     </div>
 </header>

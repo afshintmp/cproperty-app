@@ -18,6 +18,14 @@ class UserController extends Controller
         return view('admin.users.list', compact('users'));
     }
 
+    public function passwordUpdate(Request $request , User $user){
+        if (empty($request->password)) return back()->with('error' , 'please enter valid password');
+        $user->update([
+            'password' => Hash::make($request->password),
+        ]);
+        return back()->with('success' , 'password was update');
+
+    }
     public function edit(User $user)
     {
         $permissions = Permission::all();

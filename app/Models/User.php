@@ -41,6 +41,11 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
+    public function build()
+    {
+        $this->belongsTo(Build::class);
+    }
+
     public function plan()
     {
         $this->belongsTo(Plan::class);
