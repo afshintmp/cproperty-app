@@ -1,42 +1,6 @@
 @extends('app')
 @section('content')
-    <div class="admin-nav-bar">
-        <div class="container">
-
-            <div class="row">
-                <div class="col-12">
-                    <div class="profile-tab-list">
-                        <div>Profile</div>
-                        <div class="active">
-                            Developer
-                            <div class="admin-nav-bar-list-wrapper">
-                                <ul class="admin-nav-bar-list">
-                                    <li>
-                                        <a href="{{route('developer.project.add')}}">
-                                    <span>
-                                        <img src="{{asset('img/image%2042(2).svg')}}" alt="">
-                                    </span>
-                                            add project
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="">
-                                    <span>
-                                          <img src="{{asset('img/eye-open.svg')}}" alt="">
-                                    </span>
-                                            view projects
-                                        </a>
-                                    </li>
-                                </ul>
-                                <div class="clear-fix"></div>
-                            </div>
-                        </div>
-                        <div>Setting</div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+    <x-developer.developer-bar active="developer"></x-developer.developer-bar>
 
 
     <div class="bread-sec">
@@ -48,14 +12,14 @@
                             Dashboard
                         </p>
                         <span>
-                >
-            </span>
+                            >
+                        </span>
                         <p>
                             Profile
                         </p>
                         <span>
-                >
-            </span>
+                            >
+                        </span>
                         <p>
                             Edit Profile
                         </p>
@@ -84,139 +48,15 @@
                             </h3>
                             <div class="d-flex">
 
+                                <div style="width: 219px">
                                     <div>
-                                        <div class="cover-section">
-                                            <label for="select-cover">
-                                                <div class="uploader" id="">
-                                                    <img src="{{asset('img/share-bigsize.svg')}}" alt="">
-                                                    <p class="uploader-text">upload building’s cover</p>
-                                                    <p>
-
-                                                    </p>
-                                                </div>
-                                                <input type="file" name="cover" id="select-cover"
-                                                       style="display: none">
-                                            </label>
-
-
-                                            <div class="preview_image">
-
-                                                <div id="cover"></div>
-                                            </div>
-                                        </div>
-
-
-                                        <div>
-
-                                            <label for="select-image">
-                                                <div class="uploader" id="">
-                                                    <img src="{{asset('img/share-bigsize.svg')}}" alt="">
-                                                    <p class="uploader-text">upload building’s photo</p>
-                                                    <p>
-
-                                                    </p>
-                                                </div>
-                                                <input type="file" name="file[]" id="select-image" multiple
-                                                       style="display: none">
-                                            </label>
-
-
-                                            <div class="preview_image">
-
-                                                <p>
-                                                    <img src="{{asset('img/share-2.svg')}}" alt="">
-                                                    <span id="total-images">0</span> File(s) Selected</p>
-
-
-                                                <div id="images"></div>
-                                            </div>
-                                        </div>
+                                        <input type="file" name="cover" id="select-cover">
                                     </div>
+                                    <div>
 
-                                    <script>
-                                        const coverInput = document.getElementById('select-cover');
-                                        const cover = document.getElementById('cover');
-                                        console.log(coverInput)
-
-                                        // Listen to the change event on the <input> element
-                                        coverInput.addEventListener('change', (event) => {
-                                            console.log('change')
-                                            // Get the selected image file
-                                            const imageFiles = event.target.files;
-
-                                            // Show the number of images selected
-
-                                            // Empty the images div
-                                            cover.innerHTML = '';
-
-                                            if (imageFiles.length > 0) {
-                                                // Loop through all the selected images
-                                                for (const imageFile of imageFiles) {
-                                                    const reader = new FileReader();
-
-                                                    // Convert each image file to a string
-                                                    reader.readAsDataURL(imageFile);
-
-                                                    // FileReader will emit the load event when the data URL is ready
-                                                    // Access the string using reader.result inside the callback function
-                                                    reader.addEventListener('load', () => {
-                                                        // Create new <img> element and add it to the DOM
-                                                        cover.innerHTML += `
-                <div class="image_box">
-                    <img src='${reader.result}'>
-                    <span class='image_name'>${imageFile.name}</span>
-                </div>
-            `;
-                                                    });
-                                                }
-                                            } else {
-                                                // Empty the images div
-                                                cover.innerHTML = '';
-                                            }
-                                        });
-
-                                        const fileInput = document.getElementById('select-image');
-                                        const images = document.getElementById('images');
-                                        const totalImages = document.getElementById('total-images');
-
-                                        // Listen to the change event on the <input> element
-                                        fileInput.addEventListener('change', (event) => {
-
-                                            // Get the selected image file
-                                            const imageFiles = event.target.files;
-
-                                            // Show the number of images selected
-                                            totalImages.innerText = imageFiles.length;
-
-                                            // Empty the images div
-                                            images.innerHTML = '';
-
-                                            if (imageFiles.length > 0) {
-                                                // Loop through all the selected images
-                                                for (const imageFile of imageFiles) {
-                                                    const reader = new FileReader();
-
-                                                    // Convert each image file to a string
-                                                    reader.readAsDataURL(imageFile);
-
-                                                    // FileReader will emit the load event when the data URL is ready
-                                                    // Access the string using reader.result inside the callback function
-                                                    reader.addEventListener('load', () => {
-                                                        // Create new <img> element and add it to the DOM
-                                                        images.innerHTML += `
-                <div class="image_box">
-                    <img src='${reader.result}'>
-                    <span class='image_name'>${imageFile.name}</span>
-                </div>
-            `;
-                                                    });
-                                                }
-                                            } else {
-                                                // Empty the images div
-                                                images.innerHTML = '';
-                                            }
-                                        });
-                                    </script>
+                                        <input type="file" name="images[]" id="select-images" multiple>
+                                    </div>
+                                </div>
 
 
                                 <div class=" flex-auto ms-4 vertical-top border-left-custom developer-general-info">
@@ -224,7 +64,8 @@
 
                                         <div class="input-custom flex-auto self no-logo">
 
-                                            <input type="text" name="title" placeholder="Type Your Project Name">
+                                            <input type="text" required name="title"
+                                                   placeholder="Type Your Project Name">
                                         </div>
 
                                     </div>
@@ -256,21 +97,23 @@
                                         Deposit:
                                     </h3>
                                     <div class="profile-input-custom set-deposit-col-margin">
+                                        <div class="d-inline-block" id="deposit-sec">
+                                            <div class="mb-2">
 
-                                        <div class="input-custom w-220 flex-auto self no-logo">
+                                                <input type="number" required class="deposit-number" name="deposit[]"
+                                                       placeholder="5">
+                                                %
+                                                <input class="deposit-text" required type="text"
+                                                       placeholder="Type Here...">
 
-                                            <input type="text" name="deposit" placeholder="Type Here...">
+                                            </div>
                                         </div>
-                                        <div class="input-custom w-220 flex-auto svg-left self no-logo">
+                                        <div class="d-inline-block mb-2">
 
-                                            <input type="text" placeholder="Add More">
-                                            <svg width="25" height="25" viewBox="0 0 25 25" fill="none"
-                                                 xmlns="http://www.w3.org/2000/svg">
-                                                <path
-                                                    d="M12.5 7.29167V17.7083M7.29167 12.5H17.7083M21.875 12.5C21.875 17.6777 17.6777 21.875 12.5 21.875C7.32233 21.875 3.125 17.6777 3.125 12.5C3.125 7.32233 7.32233 3.125 12.5 3.125C17.6777 3.125 21.875 7.32233 21.875 12.5Z"
-                                                    stroke="#289800" stroke-width="1.5" stroke-linecap="round"
-                                                    stroke-linejoin="round"/>
-                                            </svg>
+                                            <p class="green-btn cursor-pointer in-add-property p-11 ptb-2"
+                                               onclick="addDeposit()">
+                                                Add
+                                            </p>
 
                                         </div>
                                     </div>
@@ -318,30 +161,48 @@
                                     <h3 class="admin-sec-subtitle admin-sec-title">
                                         Phases:
                                     </h3>
+                                    <div class="phase-section">
+                                        {{--                                        <p class="green-gray-raduis ml-12 position-relative">--}}
+                                        {{--                                            townhomes,flower--}}
+                                        {{--                                            <span class="delete-pase-btn" onclick="deletePhase(this)">--}}
+                                        {{--                                                <svg width="15"--}}
+                                        {{--                                                     height="15"--}}
+                                        {{--                                                     viewBox="0 0 22 22"--}}
+                                        {{--                                                     fill="none"--}}
+                                        {{--                                                     xmlns="http://www.w3.org/2000/svg"><path--}}
+                                        {{--                                                        d="M10.7489 12.1037L6.15203 16.7006L4.91531 15.4639L9.51221 10.867L4.91531 6.27008L6.1287 5.05668L10.7256 9.65358L15.3225 5.05668L16.5592 6.29341L11.9623 10.8903L16.5592 15.4872L15.3458 16.7006L10.7489 12.1037Z"--}}
+                                        {{--                                                        fill="#4A5568"></path></svg></span>--}}
+                                        {{--                                        </p>--}}
+
+                                    </div>
                                     <p class="billing-ch-head">choose type of building: </p>
                                     <div class="profile-radio-custom ">
-                                        <div class="new-custom-radio typeofbuild active">
+                                        <div class="new-custom-radio typeofbuild typeofbuildcheck active">
                                             <label>
                                                 Low-Rise
-                                                <input type="radio" checked="checked" name="typeof" value="low-Rise">
+                                                <input type="radio" checked="checked" name="typeof"
+                                                       class="typeofbuildcheck" value="low-Rise">
                                             </label>
                                         </div>
                                         <div class="new-custom-radio typeofbuild">
                                             <label>
                                                 Mid-Rise
-                                                <input type="radio" name="typeof" value="mid-Rise">
+                                                <input type="radio" name="typeof" class="typeofbuildcheck"
+                                                       value="mid-Rise">
                                             </label>
                                         </div>
                                         <div class="new-custom-radio typeofbuild">
                                             <label>
                                                 High-Rise
-                                                <input type="radio" name="typeof" value="high-Rise">
+                                                <input type="radio" name="typeof" class="typeofbuildcheck"
+                                                       value="high-Rise">
                                             </label>
                                         </div>
                                         <div class="new-custom-radio typeofbuild ">
                                             <label>
                                                 Townhomes
-                                                <input type="radio" name="typeof" value="Townhomes">
+                                                <input type="radio" name="typeof" class="typeofbuildcheck"
+                                                       value="Townhomes">
                                             </label>
                                         </div>
 
@@ -351,12 +212,13 @@
 
                                         <div class="input-custom flex-auto self no-logo w-100">
 
-                                            <input type="text" placeholder="Type Name Of Phase...">
+                                            <input type="text" class="phase-txt" placeholder="Type Name Of Phase...">
                                         </div>
                                     </div>
                                     <div class="">
-                                        <button class="green-btn in-add-property p-11">Add Pase</button>
-                                        <button class="green-gray-raduis ml-12">townhomes,flower</button>
+                                        <p class="d-inline-block cursor-pointer green-btn in-add-property p-11"
+                                           onclick="addPhase()">Add Pase</p>
+
                                     </div>
 
 
@@ -421,16 +283,16 @@
 
 
                                     <div class="profile-radio-custom mb-2">
-                                        <div class="new-custom-radio pet-fre active">
-                                            <label>
-                                                yes
-                                                <input type="radio" name="pet" checked="" value="yes">
-                                            </label>
-                                        </div>
                                         <div class="new-custom-radio pet-fre ">
                                             <label>
+                                                yes
+                                                <input type="radio" name="pet" value="yes">
+                                            </label>
+                                        </div>
+                                        <div class="new-custom-radio pet-fre active">
+                                            <label>
                                                 no
-                                                <input type="radio" name="pet" value="no">
+                                                <input type="radio" name="pet" checked="" value="no">
                                             </label>
                                         </div>
 
@@ -449,36 +311,17 @@
                                 Features:
                             </h3>
                             <div class="d-flex feature-box">
-                                <div>
-                                    <label class="custom-check-box">Vancouver
-                                        <input type="checkbox">
-                                        <span class="checkmark"></span>
-                                    </label>
-                                </div>
-                                <div>
-                                    <label class="custom-check-box">Vancouver
-                                        <input type="checkbox">
-                                        <span class="checkmark"></span>
-                                    </label>
-                                </div>
-                                <div>
-                                    <label class="custom-check-box">Vancouver
-                                        <input type="checkbox">
-                                        <span class="checkmark"></span>
-                                    </label>
-                                </div>
-                                <div>
-                                    <label class="custom-check-box">Vancouver
-                                        <input type="checkbox">
-                                        <span class="checkmark"></span>
-                                    </label>
-                                </div>
-                                <div>
-                                    <label class="custom-check-box">Vancouver
-                                        <input type="checkbox">
-                                        <span class="checkmark"></span>
-                                    </label>
-                                </div>
+                                @foreach($features as $feature )
+
+                                    <div>
+                                        <label class="custom-check-box">{{$feature->name}}
+                                            <input type="checkbox" name="feature[]" value="{{$feature->id}}">
+                                            <span class="checkmark"></span>
+                                        </label>
+                                    </div>
+
+                                @endforeach
+
 
                             </div>
                             <div class="profile-input-custom d-flex mt-4">
@@ -500,17 +343,11 @@
                             <div class="d-flex">
                                 <div>
                                     <div class="promotion-section">
-                                        <label for="select-promotion">
-                                            <div class="uploader" id="">
-                                                <img src="{{asset('img/share-bigsize.svg')}}" alt="">
-                                                <p class="uploader-text">upload building’s cover</p>
-                                                <p>
-
-                                                </p>
+                                        <div style="width: 219px">
+                                            <div>
+                                                <input type="file" name="promotion" id="select-promotion">
                                             </div>
-                                            <input type="file" name="promotion" id="select-promotion"
-                                                   style="display: none">
-                                        </label>
+                                        </div>
 
 
                                         <div class="preview_image">
@@ -518,49 +355,7 @@
                                             <div id="promotion"></div>
                                         </div>
                                     </div>
-                                    <script>
-                                        const promotionInput = document.getElementById('select-promotion');
-                                        const promotion = document.getElementById('promotion');
 
-
-                                        // Listen to the change event on the <input> element
-                                        promotionInput.addEventListener('change', (event) => {
-                                            console.log('change')
-                                            // Get the selected image file
-                                            const imageFiles = event.target.files;
-
-                                            // Show the number of images selected
-
-                                            // Empty the images div
-                                            promotion.innerHTML = '';
-
-                                            if (imageFiles.length > 0) {
-                                                // Loop through all the selected images
-                                                for (const imageFile of imageFiles) {
-                                                    const reader = new FileReader();
-
-                                                    // Convert each image file to a string
-                                                    reader.readAsDataURL(imageFile);
-
-                                                    // FileReader will emit the load event when the data URL is ready
-                                                    // Access the string using reader.result inside the callback function
-                                                    reader.addEventListener('load', () => {
-                                                        // Create new <img> element and add it to the DOM
-                                                        promotion.innerHTML += `
-                <div class="image_box">
-                    <img src='${reader.result}'>
-                    <span class='image_name'>${imageFile.name}</span>
-                </div>
-            `;
-                                                    });
-                                                }
-                                            } else {
-                                                // Empty the images div
-                                                promotion.innerHTML = '';
-                                            }
-                                        });
-
-                                    </script>
                                 </div>
                                 <div class=" flex-auto ms-4 vertical-top border-left-custom developer-general-info">
                                     <div class="profile-input-custom d-flex">
@@ -602,7 +397,53 @@
     </div>
 
 @endsection
+
+@section('custom-head')
+    <link href="https://unpkg.com/filepond@^4/dist/filepond.css" rel="stylesheet"/>
+    <link
+        href="https://unpkg.com/filepond-plugin-image-preview/dist/filepond-plugin-image-preview.css"
+        rel="stylesheet"
+    />
+
+@endsection
 @section('custom-script')
+    <script src="https://unpkg.com/filepond-plugin-image-preview/dist/filepond-plugin-image-preview.js"></script>
+    <script src="https://unpkg.com/filepond@^4/dist/filepond.js"></script>
+    <script>
+            FilePond.registerPlugin(
+            FilePondPluginImagePreview
+        );
+
+        // Get a reference to the file input element
+        const inputElement = document.getElementById('select-cover');
+        const images = document.getElementById('select-images');
+        const promotion = document.getElementById('select-promotion');
+
+        // Create a FilePond instance
+        const pond = FilePond.create(inputElement, {
+            storeAsFile: true,
+            acceptedFileTypes: ['image/*'],
+            labelIdle: '<p>Set Builds Cover</p>' +
+                'Drag & Drop your files or <span class="filepond--label-action"> Browse </span>',
+            // stylePanelLayout : 'integrated'
+        });
+
+        const pond1 = FilePond.create(images, {
+            storeAsFile: true,
+            acceptedFileTypes: ['image/*'],
+            labelIdle: '<p>Set Builds Images</p>' +
+                'Drag & Drop your files or <span class="filepond--label-action"> Browse </span>',
+            // stylePanelLayout : 'integrated'
+        });
+
+        const pond2 = FilePond.create(promotion, {
+            storeAsFile: true,
+            acceptedFileTypes: ['image/*'],
+            labelIdle: '<p>Set Promotion Images</p>' +
+                'Drag & Drop your files or <span class="filepond--label-action"> Browse </span>',
+            // stylePanelLayout : 'integrated'
+        });
+    </script>
     <script>
         function AssignmentNo() {
 
@@ -618,9 +459,11 @@
             jQuery('#assi-no>input').prop('name', '')
             jQuery('#assi-yes').addClass('assignment-active')
             jQuery('#assi-yes>input').prop('name', 'assignment')
+            jQuery('#assi-yes>input').prop('required', true)
         }
 
         jQuery('.new-custom-radio.typeofbuild').on('click', function () {
+            jQuery('#assi-yes>input').prop('required', false)
             jQuery('.new-custom-radio.typeofbuild').removeClass('active')
             jQuery('.new-custom-radio.typeofbuild').find('input').prop('checked', '')
             jQuery(this).addClass('active')
@@ -633,6 +476,47 @@
             jQuery(this).addClass('active')
             jQuery(this).find('input').prop('checked', 'checked')
         })
+
+        function addDeposit() {
+
+            html = jQuery('#deposit-sec').html()
+
+            html += '<div class="mb-2">'
+                + '  <input type="number" required class="deposit-number" name="depositNum[]" placeholder="5"> % <input class="deposit-text" required type="text" name="depositTxt[]" placeholder="Type Here...">    <span class="delete-btn" onclick="deleteDeposit(this)">' +
+                '<svg width="24" height="24" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">' +
+                '<path d="M10.7489 12.1037L6.15203 16.7006L4.91531 15.4639L9.51221 10.867L4.91531 6.27008L6.1287 5.05668L10.7256 9.65358L15.3225 5.05668L16.5592 6.29341L11.9623 10.8903L16.5592 15.4872L15.3458 16.7006L10.7489 12.1037Z" fill="#4A5568"></path>' +
+                '</svg>' +
+                '</span></div>'
+
+            jQuery('#deposit-sec').html(html)
+
+
+        }
+
+        function deletePhase(e) {
+
+            jQuery(e).parent().remove()
+        }
+
+        function deleteDeposit(e) {
+
+            jQuery(e).parent().remove()
+        }
+
+        function addPhase() {
+            per = (jQuery('.typeofbuildcheck:checked').val())
+            ofd = (jQuery('.phase-txt').val())
+            html = jQuery('.phase-section').html()
+            btn = '    <p class="green-gray-raduis ml-12 position-relative d-inline-block">' +
+                per + ',' + ofd + '<input type="hidden" name="phases[]" value="' + per + ',' + ofd +
+                '">    ' +
+                '<span class="delete-pase-btn" onclick="deletePhase(this)"> <svg width="15" height="15" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M10.7489 12.1037L6.15203 16.7006L4.91531 15.4639L9.51221 10.867L4.91531 6.27008L6.1287 5.05668L10.7256 9.65358L15.3225 5.05668L16.5592 6.29341L11.9623 10.8903L16.5592 15.4872L15.3458 16.7006L10.7489 12.1037Z" fill="#4A5568"></path></svg></span>' +
+                '</p>'
+            jQuery('.phase-section').html(html + btn)
+            jQuery('.phase-txt').val('')
+            jQuery('.typeofbuildcheck').prop('checked', false)
+            jQuery('.typeofbuildcheck:nth-child(1)').prop('checked', true)
+        }
     </script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.15.1/moment.min.js"></script>
 

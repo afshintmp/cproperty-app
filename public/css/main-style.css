@@ -2223,15 +2223,17 @@ p {
 }
 
 .calender-btn {
-    background: #B3865D;
-    color: #fff;
-    border: 0;
-    padding: 11px;
-    font-size: 16px;
-    font-weight: 500;
-    font-family: 'mazzard_m_regular';
-    margin-right: 15px;
-
+    background: #B3865D!important;
+    color: #fff!important;
+    border: 0!important;
+    padding: 11px!important;
+    font-size: 16px!important;
+    font-weight: 500!important;
+    font-family: 'mazzard_m_regular'!important;
+    margin-right: 15px!important;
+    cursor: pointer;
+    width: 300px!important;
+    display: inline-block!important;
 }
 
 .input-custom.compilition-date-input.flex-auto.self.no-logo > input {
@@ -2501,4 +2503,7 @@ p {
 
 .sorted-list:hover > .sorted-list-sec {
     display: block;
+}
+.deposit-add-more{
+
 }

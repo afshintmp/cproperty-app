@@ -40,8 +40,16 @@ class InitialSeeder extends Seeder
                 'email_verified_at' => now(),
                 'remember_token' => Str::random(10)
             ]
-
         ];
+        $developer =
+            ['name' => 'developer',
+                'password' => Hash::make('developer'),
+                'email' => 'developer@gmail.com',
+                'email_verified_at' => now(),
+                'remember_token' => Str::random(10)
+            ];
+
+
         $plans = [
             [
                 'title' => 'Enhanced',
@@ -91,6 +99,7 @@ class InitialSeeder extends Seeder
         foreach ($admins as $admin) {
             $user = User::create($admin)->giveRolesTo('admin');
         }
+        User::create($developer)->giveRolesTo('developer');
         foreach ($plans as $plan) {
             Plan::create($plan);
         }

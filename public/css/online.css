@@ -86,6 +86,29 @@
     padding: 0;
 }
 
+.deposit-number {
+    width: 80px;
+}
+
+.deposit-text {
+    margin-left: 20px;
+}
+
+.deposit-number:focus,
+.deposit-text:focus {
+    outline: 0;
+}
+
+.deposit-number,
+.deposit-text {
+    display: inline-block;
+    background: #F3F2F2;
+
+    border: none;
+    padding: 9px;
+    max-width: 100%;
+}
+
 .plans-add-to-cart > a {
     color: #fff;
     text-decoration: none;
@@ -93,4 +116,115 @@
     display: block;
     height: 100%;
     line-height: 67px;
+}
+
+.ptb-2 {
+    padding-top: 9px;
+    padding-bottom: 9px;
+}
+
+.cursor-pointer {
+    cursor: pointer;
+}
+
+.Assignment-no > input,
+.Assignment-no {
+    cursor: pointer;
+}
+
+.assignment-active.Assignment-no-secto {
+    border: 1px solid #B3865D;
+}
+
+.delete-pase-btn > svg > path,
+.delete-btn > svg > path {
+    fill: #fff;
+}
+
+.delete-pase-btn {
+    position: absolute;
+    right: 5px;
+    top: 6px;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    border-radius: 50%;
+    background: #f04444;
+    height: 29px;
+    width: 29px;
+    display: inline-block;
+    vertical-align: top;
+
+    line-height: 26px;
+    text-align: center;
+
+    cursor: pointer;
+
+}
+
+.delete-btn {
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    border-radius: 50%;
+    background: #f04444;
+    height: 29px;
+    width: 29px;
+    display: inline-block;
+    vertical-align: top;
+    margin-left: 10px;
+    line-height: 29px;
+    text-align: center;
+    padding-left: 2px;
+    cursor: pointer;
+    margin-top: 5px;
+}
+
+.assignment-active.Assignment-no {
+    background: #B3865D;
+    color: #fff;
+    border: 1px solid #B3865D;
+
+}
+
+.phase-section {
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    padding-top: 20px;
+    padding-bottom: 20px;
+    min-height: 86px;
+}
+
+.phase-section > p {
+    padding-right: 40px;
+}
+
+.profile-radio-custom label {
+    margin-bottom: 0 !important;
+    cursor: pointer;
+}
+
+.calender-btn {
+    background: #B3865D !important;
+    color: #fff !important;
+    border: 0 !important;
+    padding: 11px !important;
+    font-size: 16px !important;
+    font-weight: 500 !important;
+    font-family: 'mazzard_m_regular' !important;
+    margin-right: 15px !important;
+    cursor: pointer;
+    width: 300px !important;
+    display: inline-block !important;
+}
+
+.date-input {
+    border: 0;
+    padding: 10px;
+    background: #F3F2F2;
+}
+.filepond--credits {
+    display: none !important;
+}
+.uploader {
+    background: #F1F0EF;
+    border:0;
+    padding: 60px 30px;
 }

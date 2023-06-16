@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Build;
+use App\Models\Feature;
 use App\Models\Image;
 use App\Services\Uploader\StorageManager;
 use App\Services\Uploader\Uploader;
@@ -37,7 +38,8 @@ class DeveloperController extends Controller
 
     public function addProject()
     {
-        return view('developer.project.add');
+        $features = Feature::all();
+        return view('developer.project.add', compact('features'));
     }
 
     public function createProject(Request $request)
@@ -50,7 +52,14 @@ class DeveloperController extends Controller
 
     private function createBuild($request)
     {
+        dd($request->all());
+        $request->validate([
+            'title' => ['required'],
+            'location' => ['required'],
+            'deposit' => ['required'],
+        ]);
 
+        dd($request->cover);
         $build = [
             'name' => $request->title,
             'location' => $request->location,

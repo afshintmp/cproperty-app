@@ -4,6 +4,7 @@ use App\Http\Controllers\BasketController;
 use App\Http\Controllers\BuildController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\DeveloperController;
+use App\Http\Controllers\FeatureController;
 use App\Http\Controllers\FileController;
 use App\Http\Controllers\PageContentController;
 use App\Http\Controllers\PlanController;
@@ -38,27 +39,6 @@ Route::get('/dashboard', [DashboardController::class, 'index'])->middleware(['au
 //})->middleware(['auth', 'verified'])->name('dashboard');
 
 
-Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'role:admin']], function () {
-    Route::get('/', function () {
-        return view('admin.dashboard');
-    })->name('admin.dashboard');
-
-    Route::get('/plans', [PlanController::class, 'adminIndex'])->name('admin.plans.index');
-    Route::get('/plans/{plan}/edit', [PlanController::class, 'edit'])->name('admin.plans.edit');
-    Route::post('/plans/{plan}/edit', [PlanController::class, 'update'])->name('admin.plans.update');
-
-
-    Route::get('/users', [UserController::class, 'index'])->name('admin.users.index');
-    Route::get('/users/add', [UserController::class, 'add'])->name('admin.users.add');
-    Route::post('/users/add', [UserController::class, 'create'])->name('admin.users.create');
-    Route::get('/users/{user}/edit', [UserController::class, 'edit'])->name('admin.users.edit');
-    Route::post('/users/{user}/edit', [UserController::class, 'update'])->name('admin.users.update');
-    Route::post('/users/{user}/change-password', [UserController::class, 'passwordUpdate'])->name('admin.users.passwordUpdate');
-
-    Route::get('/page/plans', [PageContentController::class, 'edit'])->name('admin.page.plan.index');
-    Route::post('/page/plans', [PageContentController::class, 'update'])->name('admin.page.plan.update');
-});
-
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
@@ -75,12 +55,7 @@ Route::get('/checkout', [BasketController::class, 'checkout'])->name('checkout')
 Route::get('file/create', [FileController::class, 'create'])->name('file.create');
 Route::post('file/create', [FileController::class, 'upload'])->name('file.new');
 
-Route::group(['prefix' => 'developer', 'middleware' => ['auth', 'role:developer']], function () {
-    Route::get('/', [DeveloperController::class, 'index'])->name('developer.dashboard');
-    Route::get('/project/add', [DeveloperController::class, 'addProject'])->name('developer.project.add');
-    Route::post('/project/add', [DeveloperController::class, 'createProject'])->name('developer.project.create');
-
-    Route::get('/project/list', [DeveloperController::class, 'listProject'])->name('developer.project.list');
-});
 
 require __DIR__ . '/auth.php';
+require __DIR__ . '/developer.php';
+require __DIR__ . '/admin.php';
