@@ -114,7 +114,7 @@
                     <h3 class="admin-sec-title f-bold dashboard-main-title">
                         Projects
                     </h3>
-                    @foreach($build as $item)
+                    @forelse($build as $item)
 
                         <div class="admin-build-cart d-flex">
                             <div class="admin-build-cart-img">
@@ -132,13 +132,13 @@
                                 <p class="f-regular">
                                     Units :
                                     <span class="text-green">
-                            12
+0
                        </span>
                                 </p>
                                 <p class="f-regular">
                                     Promotion :
                                     <span class="text-green">
-{{--                                    {{$item->promotion_title}}--}}
+                                    {{$item->promotion_title}}
                             </span>
                                 </p>
                                 <p class="f-regular">
@@ -161,7 +161,16 @@
 
                         </div>
 
-                    @endforeach
+                    @empty
+                        <div class="mt-3 mb-3">
+                            <h4 class="font-regular">
+                                No project has been created yet !
+                                <span class="text-b3">
+                                        <a class="text-b3 prolect-not-foun-c" href="{{route('developer.project.add')}}">create project</a>
+                                    </span>
+                            </h4>
+                        </div>
+                    @endforelse
 
 
                 </div>
