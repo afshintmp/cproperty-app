@@ -4,6 +4,8 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 
 class Feature extends Model
 {
@@ -11,9 +13,10 @@ class Feature extends Model
 
     protected $fillable = ['name'];
 
-    public function builds()
+    public function builds() :BelongsToMany
+
     {
-        return $this->belongsTo(Build::class);
+        return $this->belongsToMany(Build::class);
     }
 
 }

@@ -9,6 +9,7 @@ use App\Services\Permission\Traits\HasRoles;
 use App\Services\Subscription\Traits\HasSubscription;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Http\Request;
 use Illuminate\Notifications\Notifiable;
@@ -48,7 +49,13 @@ class User extends Authenticatable
 
     public function plan()
     {
-        $this->belongsTo(Plan::class);
+        return $this->belongsTo(Plan::class);
+    }
+
+    public function builds() : HasMany
+    {
+       return $this->hasMany(Build::class);
+
     }
 
     public function hasPlan()

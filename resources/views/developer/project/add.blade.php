@@ -21,7 +21,7 @@
                             >
                         </span>
                         <p>
-                           Add Build
+                            Add Build
                         </p>
                     </div>
                 </div>
@@ -72,7 +72,7 @@
 
                                         <div class="input-custom flex-auto self no-logo">
 
-                                            <input type="text" required name="title"
+                                            <input type="text" required name="name"
                                                    placeholder="Type Your Project Name" value="{{old('title')}}">
                                         </div>
 
@@ -97,189 +97,193 @@
                                             <input type="text" name="location"
                                                    placeholder="Add Project Location" value="{{old('location')}}">
                                         </div>
+                                    </div>
+                                    <div class="profile-textarea-custom">
+                                        <textarea name="description"
+                                                  placeholder="type down description here..."></textarea>
 
                                     </div>
 
-                                    <!--         -------------------------deposit---------------------------------                   -->
 
-                                    <style>
-                                        #deposit-sec-maker {
-                                            margin-bottom: 16px;
-                                            display: flex;
-                                            flex-wrap: wrap;
-                                        }
+                                <!--         -------------------------deposit---------------------------------                   -->
 
-                                        .deposit-cart > p {
-                                            font-size: 16px;
-                                            font-weight: 500;
-                                            font-family: 'mazzard_m_regular';
-                                        }
+                                <style>
+                                    #deposit-sec-maker {
+                                        margin-bottom: 16px;
+                                        display: flex;
+                                        flex-wrap: wrap;
+                                    }
 
-                                        .deposit-cart {
-                                            box-shadow: 0px 4px 38px 3px rgba(0, 0, 0, 0.13);
-                                            text-align: center;
-                                            display: inline-block;
-                                            padding: 12px;
-                                            flex: 1 0 13%; /* explanation below */
-                                            margin-bottom: 16px;
-                                        }
+                                    .deposit-cart > p {
+                                        font-size: 16px;
+                                        font-weight: 500;
+                                        font-family: 'mazzard_m_regular';
+                                    }
 
-                                        .deposit-cart-seprator {
-                                            flex: 1 0 13%; /* explanation below */
-                                            align-content: center;
-                                            justify-items: center;
-                                            display: flex;
-                                            margin-bottom: 16px;
-                                        }
+                                    .deposit-cart {
+                                        box-shadow: 0px 4px 38px 3px rgba(0, 0, 0, 0.13);
+                                        text-align: center;
+                                        display: inline-block;
+                                        padding: 12px;
+                                        flex: 1 0 13%; /* explanation below */
+                                        margin-bottom: 16px;
+                                    }
 
-
-                                        .deposit-cart-seprator:last-child,
-                                        .deposit-cart-seprator:nth-child(8) ,
-                                        .deposit-cart-seprator:nth-child(16) {
-                                            display: none;
-                                        }
-                                    </style>
-                                    <h3 class="admin-sec-subtitle admin-sec-title">
-                                        Deposit:
-                                    </h3>
-                                    <div id="deposit-sec-maker">
-
-                                    </div>
-                                    <div class="profile-input-custom set-deposit-col-margin">
-                                        <div class="d-inline-block" id="deposit-sec">
-                                            <div class="mb-2">
-
-                                                <input type="number"  class="deposit-number"
-                                                       placeholder="5" value="">
-                                                %
-                                                <input class="deposit-text"  type="text"
-                                                       placeholder="Type Here..." value="">
-
-                                            </div>
-                                        </div>
-                                        <div class="d-inline-block mb-2">
-
-                                            <p class="green-btn cursor-pointer in-add-property p-11 ptb-2"
-                                               onclick="addDeposit()">
-                                                Add
-                                            </p>
-
-                                        </div>
-                                    </div>
+                                    .deposit-cart-seprator {
+                                        flex: 1 0 13%; /* explanation below */
+                                        align-content: center;
+                                        justify-items: center;
+                                        display: flex;
+                                        margin-bottom: 16px;
+                                    }
 
 
-                                    <!--                            --------assignment-------------------------------------- -->
+                                    .deposit-cart-seprator:last-child,
+                                    .deposit-cart-seprator:nth-child(8),
+                                    .deposit-cart-seprator:nth-child(16) {
+                                        display: none;
+                                    }
 
-                                    <h3 class="admin-sec-subtitle admin-sec-title">
-                                        Assignment:
-                                    </h3>
+                                    .error-text {
+                                        font-size: 16px !important;
+                                    }
+                                </style>
+                                <h3 class="admin-sec-subtitle admin-sec-title">
+                                    Deposit:
+                                </h3>
+                                <div id="deposit-sec-maker">
 
-                                    <div class="profile-input-custom ">
+                                </div>
+                                <div class="alert alert-danger mt-2 deposit-error" style="display: none">
+                                    <p class="font-light error-text">please insert valid value</p>
+                                </div>
+                                <div class="profile-input-custom set-deposit-col-margin">
+                                    <div class="d-inline-block" id="deposit-sec">
+                                        <div class="mb-2">
 
-                                        <div id="assi-no"
-                                             class="input-custom Assignment-no assignment-active flex-auto self no-logo"
-                                             onclick="AssignmentNo()">
+                                            <input type="number" class="deposit-number"
+                                                   placeholder="5" value="">
+                                            %
+                                            <input class="deposit-text" type="text"
+                                                   placeholder="Type Here..." value="">
 
-                                            <input type="text" readonly placeholder="No" value="No" name="assignment">
-                                        </div>
-                                        <div id="assi-yes" class="input-custom Assignment-no-secto  self no-logo"
-                                             onclick="AssignmentYes()">
-
-                                            <input type="text" placeholder="If Yes, Type Here...">
                                         </div>
                                     </div>
+                                    <div class="d-inline-block mb-2">
+
+                                        <p class="green-btn cursor-pointer in-add-property p-11 ptb-2"
+                                           onclick="addDeposit()">
+                                            Add
+                                        </p>
+
+                                    </div>
+                                </div>
 
 
-                                    <!--                           -------------------- Maintenance---------------- -->
-                                    <h3 class="admin-sec-subtitle admin-sec-title">
-                                        Maintenance:
-                                    </h3>
+                                <!--                            --------assignment-------------------------------------- -->
 
-                                    <div class="profile-input-custom ">
+                                <h3 class="admin-sec-subtitle admin-sec-title">
+                                    Assignment:
+                                </h3>
 
-                                        <div class="input-custom w-320 flex-auto self no-logo">
+                                <div class="profile-input-custom ">
 
-                                            <input type="number" name="maintenance" placeholder="Type Number Here...">
-                                        </div>
-                                        <span class="dec-----">
+                                    <div id="assi-no"
+                                         class="input-custom Assignment-no assignment-active flex-auto self no-logo"
+                                         onclick="AssignmentNo()">
+
+                                        <input type="text" readonly placeholder="No" value="No" name="assignment">
+                                    </div>
+                                    <div id="assi-yes" class="input-custom Assignment-no-secto  self no-logo"
+                                         onclick="AssignmentYes()">
+
+                                        <input type="text" placeholder="If Yes, Type Here...">
+                                    </div>
+                                </div>
+
+
+                                <!--                           -------------------- Maintenance---------------- -->
+                                <h3 class="admin-sec-subtitle admin-sec-title">
+                                    Maintenance:
+                                </h3>
+
+                                <div class="profile-input-custom ">
+
+                                    <div class="input-custom w-320 flex-auto self no-logo">
+
+                                        <input type="number" name="maintenance" placeholder="Type Number Here...">
+                                    </div>
+                                    <span class="dec-----">
 
                                     per SQ/FT
                                 </span>
-                                    </div>
-                                    <!--                            phases:         -->
-                                    <h3 class="admin-sec-subtitle admin-sec-title">
-                                        Phases:
-                                    </h3>
-                                    <div class="phase-section">
-                                        {{--                                        <p class="green-gray-raduis ml-12 position-relative">--}}
-                                        {{--                                            townhomes,flower--}}
-                                        {{--                                            <span class="delete-pase-btn" onclick="deletePhase(this)">--}}
-                                        {{--                                                <svg width="15"--}}
-                                        {{--                                                     height="15"--}}
-                                        {{--                                                     viewBox="0 0 22 22"--}}
-                                        {{--                                                     fill="none"--}}
-                                        {{--                                                     xmlns="http://www.w3.org/2000/svg"><path--}}
-                                        {{--                                                        d="M10.7489 12.1037L6.15203 16.7006L4.91531 15.4639L9.51221 10.867L4.91531 6.27008L6.1287 5.05668L10.7256 9.65358L15.3225 5.05668L16.5592 6.29341L11.9623 10.8903L16.5592 15.4872L15.3458 16.7006L10.7489 12.1037Z"--}}
-                                        {{--                                                        fill="#4A5568"></path></svg></span>--}}
-                                        {{--                                        </p>--}}
+                                </div>
+                                <!--                            phases:         -->
+                                <h3 class="admin-sec-subtitle admin-sec-title">
+                                    Phases:
+                                </h3>
+                                <div class="phase-section">
 
+                                </div>
+                                <div class="alert alert-danger mt-2 phases-error" style="display: none">
+                                    <p class="font-light error-text">please insert valid name for phase</p>
+                                </div>
+                                <p class="billing-ch-head">choose type of building: </p>
+                                <div class="profile-radio-custom ">
+                                    <div class="new-custom-radio typeofbuild typeofbuildcheck active">
+                                        <label>
+                                            Low-Rise
+                                            <input type="radio" checked="checked" name="typeof"
+                                                   class="typeofbuildcheck" value="low-Rise">
+                                        </label>
                                     </div>
-                                    <p class="billing-ch-head">choose type of building: </p>
-                                    <div class="profile-radio-custom ">
-                                        <div class="new-custom-radio typeofbuild typeofbuildcheck active">
-                                            <label>
-                                                Low-Rise
-                                                <input type="radio" checked="checked" name="typeof"
-                                                       class="typeofbuildcheck" value="low-Rise">
-                                            </label>
-                                        </div>
-                                        <div class="new-custom-radio typeofbuild">
-                                            <label>
-                                                Mid-Rise
-                                                <input type="radio" name="typeof" class="typeofbuildcheck"
-                                                       value="mid-Rise">
-                                            </label>
-                                        </div>
-                                        <div class="new-custom-radio typeofbuild">
-                                            <label>
-                                                High-Rise
-                                                <input type="radio" name="typeof" class="typeofbuildcheck"
-                                                       value="high-Rise">
-                                            </label>
-                                        </div>
-                                        <div class="new-custom-radio typeofbuild ">
-                                            <label>
-                                                Townhomes
-                                                <input type="radio" name="typeof" class="typeofbuildcheck"
-                                                       value="Townhomes">
-                                            </label>
-                                        </div>
-
+                                    <div class="new-custom-radio typeofbuild">
+                                        <label>
+                                            Mid-Rise
+                                            <input type="radio" name="typeof" class="typeofbuildcheck"
+                                                   value="mid-Rise">
+                                        </label>
+                                    </div>
+                                    <div class="new-custom-radio typeofbuild">
+                                        <label>
+                                            High-Rise
+                                            <input type="radio" name="typeof" class="typeofbuildcheck"
+                                                   value="high-Rise">
+                                        </label>
+                                    </div>
+                                    <div class="new-custom-radio typeofbuild ">
+                                        <label>
+                                            Townhomes
+                                            <input type="radio" name="typeof" class="typeofbuildcheck"
+                                                   value="Townhomes">
+                                        </label>
                                     </div>
 
-                                    <div class="profile-input-custom mb-12">
+                                </div>
 
-                                        <div class="input-custom flex-auto self no-logo w-100">
+                                <div class="profile-input-custom mb-12">
 
-                                            <input type="text" class="phase-txt" placeholder="Type Name Of Phase...">
-                                        </div>
+                                    <div class="input-custom flex-auto self no-logo w-100">
+
+                                        <input type="text" class="phase-txt" placeholder="Type Name Of Phase...">
                                     </div>
-                                    <div class="">
-                                        <p class="d-inline-block cursor-pointer green-btn in-add-property p-11"
-                                           onclick="addPhase()">Add Pase</p>
+                                </div>
+                                <div class="">
+                                    <p class="d-inline-block cursor-pointer green-btn in-add-property p-11"
+                                       onclick="addPhase()">Add Pase</p>
 
-                                    </div>
-
-
-                                    <!--            -------------------------                compitopn  date-->
+                                </div>
 
 
-                                    <h3 class="admin-sec-subtitle admin-sec-title">
-                                        Completion Date:
-                                    </h3>
+                                <!--            -------------------------                compitopn  date-->
 
-                                    <div class="input-custom">
-                                        <div class='date' id='datetimepicker'>
+
+                                <h3 class="admin-sec-subtitle admin-sec-title">
+                                    Completion Date:
+                                </h3>
+
+                                <div class="input-custom">
+                                    <div class='date' id='datetimepicker'>
                                             <span class="input-group-addon calender-btn">
 
                                             <svg width="15" height="15" viewBox="0 0 15 15" fill="none"
@@ -318,130 +322,130 @@
                                             choose on calendar
 
                                              </span>
-                                            <input type='text' name="completion_date" class="date-input"/>
-
-                                        </div>
-                                    </div>
-
-                                    <!--            -------------------------                pet  date-->
-
-
-                                    <h3 class="admin-sec-subtitle admin-sec-title">
-                                        Pet Friendly:
-                                    </h3>
-
-
-                                    <div class="profile-radio-custom mb-2">
-                                        <div class="new-custom-radio pet-fre ">
-                                            <label>
-                                                yes
-                                                <input type="radio" name="pet" value="yes">
-                                            </label>
-                                        </div>
-                                        <div class="new-custom-radio pet-fre active">
-                                            <label>
-                                                no
-                                                <input type="radio" name="pet" checked="" value="no">
-                                            </label>
-                                        </div>
-
+                                        <input type='text' name="completion_date" class="date-input"/>
 
                                     </div>
                                 </div>
 
-                            </div>
+                                <!--            -------------------------                pet  date-->
 
 
-                        </div>
+                                <h3 class="admin-sec-subtitle admin-sec-title">
+                                    Pet Friendly:
+                                </h3>
 
 
-                        <div class="have-back-shadow add-developer-padding section-input-bdrs-unset mt-70">
-                            <h3 class="admin-sec-subtitle admin-sec-title mb-3">
-                                Features:
-                            </h3>
-                            <div class="d-flex feature-box">
-                                @foreach($features as $feature )
-
-                                    <div>
-                                        <label class="custom-check-box">{{$feature->name}}
-                                            <input type="checkbox" name="feature[]" value="{{$feature->id}}">
-                                            <span class="checkmark"></span>
+                                <div class="profile-radio-custom mb-2">
+                                    <div class="new-custom-radio pet-fre ">
+                                        <label>
+                                            yes
+                                            <input type="radio" name="pet" value="yes">
+                                        </label>
+                                    </div>
+                                    <div class="new-custom-radio pet-fre active">
+                                        <label>
+                                            no
+                                            <input type="radio" name="pet" checked="" value="no">
                                         </label>
                                     </div>
 
-                                @endforeach
 
-
+                                </div>
                             </div>
-                            <div class="profile-input-custom d-flex mt-4">
+
+                        </div>
+
+
+                </div>
+
+
+                <div class="have-back-shadow add-developer-padding section-input-bdrs-unset mt-70">
+                    <h3 class="admin-sec-subtitle admin-sec-title mb-3">
+                        Features:
+                    </h3>
+                    <div class="d-flex feature-box">
+                        @foreach($features as $feature )
+
+                            <div>
+                                <label class="custom-check-box">{{$feature->name}}
+                                    <input type="checkbox" name="feature[]" value="{{$feature->id}}">
+                                    <span class="checkmark"></span>
+                                </label>
+                            </div>
+
+                        @endforeach
+
+
+                    </div>
+                    <div class="profile-input-custom d-flex mt-4">
+
+                        <div class="input-custom flex-auto self no-logo">
+
+                            <input type="text" placeholder="is there other features? type it down....">
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <div class="have-back-shadow add-developer-padding section-input-bdrs-unset mt-70">
+                    <h3 class="admin-sec-subtitle admin-sec-title mb-3">
+                        Building Promotion:
+                    </h3>
+                    <div class="d-flex">
+                        <div>
+                            <div class="promotion-section">
+                                <div style="width: 219px">
+                                    <div>
+                                        <input type="file" name="promotion" id="select-promotion">
+                                    </div>
+                                </div>
+
+
+                                <div class="preview_image">
+
+                                    <div id="promotion"></div>
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class=" flex-auto ms-4 vertical-top border-left-custom developer-general-info">
+                            <div class="profile-input-custom d-flex">
 
                                 <div class="input-custom flex-auto self no-logo">
 
-                                    <input type="text" placeholder="is there other features? type it down....">
+                                    <input type="text" name="promotion_title"
+                                           placeholder="do you want to add a promotion? type it down....">
                                 </div>
 
                             </div>
-
-                        </div>
-
-
-                        <div class="have-back-shadow add-developer-padding section-input-bdrs-unset mt-70">
-                            <h3 class="admin-sec-subtitle admin-sec-title mb-3">
-                                Building Promotion:
-                            </h3>
-                            <div class="d-flex">
-                                <div>
-                                    <div class="promotion-section">
-                                        <div style="width: 219px">
-                                            <div>
-                                                <input type="file" name="promotion" id="select-promotion">
-                                            </div>
-                                        </div>
-
-
-                                        <div class="preview_image">
-
-                                            <div id="promotion"></div>
-                                        </div>
-                                    </div>
-
-                                </div>
-                                <div class=" flex-auto ms-4 vertical-top border-left-custom developer-general-info">
-                                    <div class="profile-input-custom d-flex">
-
-                                        <div class="input-custom flex-auto self no-logo">
-
-                                            <input type="text" name="promotionTitle"
-                                                   placeholder="do you want to add a promotion? type it down....">
-                                        </div>
-
-                                    </div>
-                                    <div class="profile-textarea-custom">
-                                        <textarea name="promotionText"
+                            <div class="profile-textarea-custom">
+                                        <textarea name="promotion_text"
                                                   placeholder="type down description here..."></textarea>
 
-                                    </div>
-                                    <title>Integrate Bootstrap Datepicker in Laravel </title>
-                                    <link rel="stylesheet"
-                                          href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
-                                    <link rel="stylesheet"
-                                          href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.10.0/css/bootstrap-datepicker.min.css">
-
-                                </div>
-
                             </div>
+                            <title>Integrate Bootstrap Datepicker in Laravel </title>
+                            <link rel="stylesheet"
+                                  href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
+                            <link rel="stylesheet"
+                                  href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.10.0/css/bootstrap-datepicker.min.css">
 
                         </div>
 
-                        <div class="mt-5 mb-5 text-center">
-                            <input type="submit" class="btn-green w-50" value="submit">
-                        </div>
+                    </div>
 
-                    </form>
                 </div>
-            </div>
 
+                <div class="mt-5 mb-5 text-center">
+                    <input type="submit" class="btn-green w-50" value="submit">
+                </div>
+
+                </form>
+            </div>
         </div>
+
+    </div>
 
     </div>
 
@@ -530,27 +534,34 @@
             depositNumber = jQuery('.deposit-number').val()
             depositText = jQuery('.deposit-text').val()
 
-            html = jQuery('#deposit-sec-maker').html()
+            if (depositNumber.length == 0 || depositText.length == 0 || ((Number(depositNumber)) === 0)) {
+                jQuery('.deposit-error').show()
+            } else {
 
-            html += ' <div class="deposit-cart">' +
-                '<p>' +
-                depositNumber + '%' +
-                '</p><p>' +
-                depositText +
-                '<input type="hidden" name="depositNumber[]" value="' + depositNumber + '">' +
-                '<input type="hidden" name="depositText[]" value="' + depositNumber + '">' +
-                '</p><span class="delete-deposit-btn" onclick="deleteDeposit(this)"> <svg width="15" height="15" ' +
-                'viewBox = "0 0 22 22" fill = "none" xmlns = "http://www.w3.org/2000/svg" > <path ' +
-                'd = "M10.7489 12.1037L6.15203 16.7006L4.91531 15.4639L9.51221 10.867L4.91531 6.27008L6.1287 5.05668L10.7256 9.65358L15.3225 5.05668L16.5592 6.29341L11.9623 10.8903L16.5592 15.4872L15.3458 16.7006L10.7489 12.1037Z"' +
-                ' fill = "#4A5568" > < /path></svg>' +
-                '</span></div><div class="deposit-cart-seprator">' +
-                '<img src="{{asset('img/Line 67.svg')}}" alt="">' +
-                ' </div>'
+                jQuery('.deposit-error').hide()
+                html = jQuery('#deposit-sec-maker').html()
+
+                html += ' <div class="deposit-cart">' +
+                    '<p>' +
+                    depositNumber + '%' +
+                    '</p><p>' +
+                    depositText +
+                    '<input type="hidden" name="depositNumber[]" value="' + depositNumber + '">' +
+                    '<input type="hidden" name="depositText[]" value="' + depositText + '">' +
+                    '</p><span class="delete-deposit-btn" onclick="deleteDeposit(this)"> <svg width="15" height="15" ' +
+                    'viewBox = "0 0 22 22" fill = "none" xmlns = "http://www.w3.org/2000/svg" > <path ' +
+                    'd = "M10.7489 12.1037L6.15203 16.7006L4.91531 15.4639L9.51221 10.867L4.91531 6.27008L6.1287 5.05668L10.7256 9.65358L15.3225 5.05668L16.5592 6.29341L11.9623 10.8903L16.5592 15.4872L15.3458 16.7006L10.7489 12.1037Z"' +
+                    ' fill = "#4A5568" > < /path></svg>' +
+                    '</span></div><div class="deposit-cart-seprator">' +
+                    '<img src="{{asset('img/Line 67.svg')}}" alt="">' +
+                    ' </div>'
 
 
-            jQuery('#deposit-sec-maker').html(html)
-            jQuery('.deposit-number').val('')
-            jQuery('.deposit-text').val('')
+                jQuery('#deposit-sec-maker').html(html)
+                jQuery('.deposit-number').val('')
+                jQuery('.deposit-text').val('')
+            }
+
 
         }
 
@@ -568,16 +579,23 @@
         function addPhase() {
             per = (jQuery('.typeofbuildcheck:checked').val())
             ofd = (jQuery('.phase-txt').val())
-            html = jQuery('.phase-section').html()
-            btn = '    <p class="green-gray-raduis ml-12 position-relative d-inline-block">' +
-                per + ',' + ofd + '<input type="hidden" name="phases[]" value="' + per + ',' + ofd +
-                '">    ' +
-                '<span class="delete-pase-btn" onclick="deletePhase(this)"> <svg width="15" height="15" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M10.7489 12.1037L6.15203 16.7006L4.91531 15.4639L9.51221 10.867L4.91531 6.27008L6.1287 5.05668L10.7256 9.65358L15.3225 5.05668L16.5592 6.29341L11.9623 10.8903L16.5592 15.4872L15.3458 16.7006L10.7489 12.1037Z" fill="#4A5568"></path></svg></span>' +
-                '</p>'
-            jQuery('.phase-section').html(html + btn)
-            jQuery('.phase-txt').val('')
-            jQuery('.typeofbuildcheck').prop('checked', false)
-            jQuery('.typeofbuildcheck:nth-child(1)').prop('checked', true)
+            if (ofd.length == 0) {
+                jQuery('.phases-error').show()
+            } else {
+                jQuery('.phases-error').hide()
+
+                html = jQuery('.phase-section').html()
+                btn = '    <p class="green-gray-raduis ml-12 position-relative d-inline-block">' +
+                    per + ',' + ofd + '<input type="hidden" name="phasesType[]" value="' + per + '">' +
+                    '<input type="hidden" name="phasesName[]" value="' + ofd + '">' +
+                    '<span class="delete-pase-btn" onclick="deletePhase(this)"> <svg width="15" height="15" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M10.7489 12.1037L6.15203 16.7006L4.91531 15.4639L9.51221 10.867L4.91531 6.27008L6.1287 5.05668L10.7256 9.65358L15.3225 5.05668L16.5592 6.29341L11.9623 10.8903L16.5592 15.4872L15.3458 16.7006L10.7489 12.1037Z" fill="#4A5568"></path></svg></span>' +
+                    '</p>'
+                jQuery('.phase-section').html(html + btn)
+                jQuery('.phase-txt').val('')
+                jQuery('.typeofbuildcheck').prop('checked', false)
+                jQuery('.typeofbuildcheck:nth-child(1)').prop('checked', true)
+            }
+
         }
     </script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.15.1/moment.min.js"></script>

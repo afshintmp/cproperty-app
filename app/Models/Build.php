@@ -4,7 +4,10 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Database\Eloquent\Relations\MorphMany;
 
 class Build extends Model
 {
@@ -12,7 +15,8 @@ class Build extends Model
 
 
     protected $fillable = ['name',
-        'location', 'completion_date', 'deposit', 'assignment', 'maintenance', 'type', 'tower', 'pet', 'slug', 'developer'];
+        'location', 'description', 'completion_date', 'assignment', 'maintenance', 'pet', 'slug', 'developer',
+        'promotion_title'];
 
 //    protected $with = ['images'];
 
@@ -20,13 +24,25 @@ class Build extends Model
     {
         return date("M d,Y", strtotime($value));
     }
+
+    public function user(): BelongsTo
+    {
+        return $this->belongsTo(User::class);
+    }
+
+    public function phases(): HasMany
+    {
+        return $this->hasMany(Phase::class);
+    }
+
     public function deposits(): HasMany
     {
         return $this->hasMany(Deposit::class);
     }
-    public function features()
+
+    public function features(): BelongsToMany
     {
-        return $this->belongsTo(Feature::class);
+        return $this->belongsToMany(Feature::class);
     }
 
 
@@ -41,7 +57,7 @@ class Build extends Model
         return $this->morphMany(Image::class, 'imageable');
     }
 
-    public function cover()
+    public function cover(): morphMany
     {
 
         return $this->morphMany(Image::class, 'imageable')->where('tag', 'cover');
