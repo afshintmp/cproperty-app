@@ -135,12 +135,28 @@
 .assignment-active.Assignment-no-secto {
     border: 1px solid #B3865D;
 }
-
+.delete-deposit-btn > svg > path,
 .delete-pase-btn > svg > path,
 .delete-btn > svg > path {
     fill: #fff;
 }
+.delete-deposit-btn{
 
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    border-radius: 50%;
+    background: #f04444;
+    height: 29px;
+    width: 29px;
+    display: inline-block;
+    vertical-align: top;
+
+    line-height: 26px;
+    text-align: center;
+
+    cursor: pointer;
+
+}
 .delete-pase-btn {
     position: absolute;
     right: 5px;

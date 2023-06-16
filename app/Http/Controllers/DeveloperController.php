@@ -52,11 +52,13 @@ class DeveloperController extends Controller
 
     private function createBuild($request)
     {
-        dd($request->all());
+
         $request->validate([
             'title' => ['required'],
             'location' => ['required'],
-            'deposit' => ['required'],
+            'depositNumber' => ['required'],
+            'depositText' => ['required'],
+            'phases' => ['required'],
         ]);
 
         dd($request->cover);
