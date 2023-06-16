@@ -59,9 +59,10 @@ class DeveloperController extends Controller
             'depositNumber' => ['required'],
             'depositText' => ['required'],
             'phases' => ['required'],
+            'completion_date' => ['required'],
         ]);
 
-        dd($request->cover);
+        dd($request->all('title' , 'location' , 'assignment' , 'completion_date' , 'pet' , 'promotion_text' , 'promotion_title'));
         $build = [
             'name' => $request->title,
             'location' => $request->location,

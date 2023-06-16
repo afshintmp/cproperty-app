@@ -95,7 +95,7 @@
 
                                              </span>
                                             <input type="text" name="location"
-                                                   placeholder="Add Project Location">
+                                                   placeholder="Add Project Location" value="{{old('location')}}">
                                         </div>
 
                                     </div>
@@ -143,8 +143,6 @@
                                         Deposit:
                                     </h3>
                                     <div id="deposit-sec-maker">
-
-
 
                                     </div>
                                     <div class="profile-input-custom set-deposit-col-margin">
@@ -320,7 +318,7 @@
                                             choose on calendar
 
                                              </span>
-                                            <input type='text' name="completionDate" class="date-input"/>
+                                            <input type='text' name="completion_date" class="date-input"/>
 
                                         </div>
                                     </div>

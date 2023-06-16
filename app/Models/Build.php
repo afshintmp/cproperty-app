@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class Build extends Model
 {
@@ -19,7 +20,10 @@ class Build extends Model
     {
         return date("M d,Y", strtotime($value));
     }
-
+    public function deposits(): HasMany
+    {
+        return $this->hasMany(Deposit::class);
+    }
     public function features()
     {
         return $this->belongsTo(Feature::class);
