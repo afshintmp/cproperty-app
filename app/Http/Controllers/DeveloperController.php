@@ -25,6 +25,20 @@ class DeveloperController extends Controller
         $this->storageManager = $storageManager;
     }
 
+
+    public function editProject(Build $build)
+    {
+        $build->load(['deposits', 'phases', 'cover']);
+        $features = Feature::all();
+        return view('developer.project.edit', compact('features', 'build'));
+    }
+
+
+    public function updateProject(Request $request , Build $build)
+    {
+        $this->updateBuild($request);
+    }
+
     public function index()
     {
         return view('developer.index');
@@ -34,7 +48,6 @@ class DeveloperController extends Controller
     {
 
         $build = auth()->user()->builds()->get();
-//        dd($build);
         $build->load('cover');
 
         return view('developer.project.list', compact('build'));
@@ -70,10 +83,8 @@ class DeveloperController extends Controller
 
         $build = $request->all('name', 'location', 'assignment', 'completion_date', 'pet', 'promotion_text',
             'promotion_title', 'maintenance', 'description');
-        $build['slug'] = Str::slug($request->title);
-        $build['deposit'] = 'test';
-        $build['tower'] = 'test';
-        $build['type'] = 'test';
+        $build['slug'] = Str::slug($request->name);
+
 
 
         $build = Build::create($build);
@@ -182,5 +193,23 @@ class DeveloperController extends Controller
         }
 
 
+    }
+
+    private function updateBuild($request)
+    {
+        $request->validate([
+            'name' => ['required'],
+            'location' => ['required'],
+            'depositNumber' => ['required'],
+            'depositText' => ['required'],
+            'phasesType' => ['required'],
+            'phasesName' => ['required'],
+            'completion_date' => ['required'],
+        ]);
+
+        $build = $request->all('name', 'location', 'assignment', 'completion_date', 'pet', 'promotion_text',
+            'promotion_title', 'maintenance', 'description');
+
+        $build['slug'] = Str::slug($request->name);
     }
 }

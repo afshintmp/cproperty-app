@@ -313,3 +313,6 @@
 .error-text {
     font-size: 16px !important;
 }
+.phase-section > p{
+    margin-bottom: 0;
+}

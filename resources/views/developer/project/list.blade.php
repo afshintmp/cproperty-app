@@ -156,7 +156,7 @@
                                     <a class="d-inline-block form-btn-one admin-build-cart-btn-orange p-2 f-light">
                                         view units
                                     </a>
-                                    <a class=" d-inline-block admin-build-cart-btn-brown c-btn-one f-light">
+                                    <a href="{{route('developer.project.edit' , $item->id)}}" class=" d-inline-block admin-build-cart-btn-brown c-btn-one f-light">
                                         Edit Project/Promotion
                                     </a>
                                 </div>

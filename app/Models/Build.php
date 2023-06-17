@@ -20,10 +20,10 @@ class Build extends Model
 
 //    protected $with = ['images'];
 
-    public function getCompletionDateAttribute($value)
-    {
-        return date("M d,Y", strtotime($value));
-    }
+//    public function getCompletionDateAttribute($value)
+//    {
+//        return date("M d,Y", strtotime($value));
+//    }
 
     public function user(): BelongsTo
     {

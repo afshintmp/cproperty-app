@@ -11,6 +11,9 @@ Route::group(['prefix' => 'developer', 'middleware' => ['auth', 'role:developer'
 
     Route::get('/project/list', [DeveloperController::class, 'listProject'])->name('developer.project.list');
 
+    Route::get('/project/{build}/edit', [DeveloperController::class, 'editProject'])->name('developer.project.edit');
+    Route::post('/project/{build}/edit', [DeveloperController::class, 'updateProject'])->name('developer.project.update');
+
 
     Route::get('/project/{build}/unit/add', [UnitController::class, 'add'])->name('developer.unit.add');
 
