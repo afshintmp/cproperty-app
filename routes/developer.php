@@ -16,5 +16,6 @@ Route::group(['prefix' => 'developer', 'middleware' => ['auth', 'role:developer'
 
 
     Route::get('/project/{build}/unit/add', [UnitController::class, 'add'])->name('developer.unit.add');
+    Route::post('/project/{build}/unit/add', [UnitController::class, 'create'])->name('developer.unit.create');
 
 });
