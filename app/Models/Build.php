@@ -16,7 +16,7 @@ class Build extends Model
 
     protected $fillable = ['name',
         'location', 'description', 'completion_date', 'assignment', 'maintenance', 'pet', 'slug', 'developer',
-        'promotion_title'];
+        'promotion_title' , 'promotion_text'];
 
 //    protected $with = ['images'];
 

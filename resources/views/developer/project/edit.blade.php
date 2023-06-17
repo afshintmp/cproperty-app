@@ -336,18 +336,21 @@
 
 
                                     <div class="profile-radio-custom mb-2">
-                                        <div class="new-custom-radio pet-fre ">
+                                        <div
+                                            class="new-custom-radio pet-fre  @if($build->pet == 'yes')  active @endif ">
                                             <label>
                                                 yes
-                                                <input type="radio" name="pet" @if($build->pet == 'yes') checked=""
-                                                       @endif value="yes">
+                                                <input type="radio" name="pet"
+                                                       @if($build->pet == 'yes') checked="" @endif
+                                                       value="yes">
                                             </label>
                                         </div>
-                                        <div class="new-custom-radio pet-fre active">
+                                        <div class="new-custom-radio pet-fre @if($build->pet == 'no')  active @endif ">
                                             <label>
                                                 no
-                                                <input type="radio" name="pet" @if($build->pet == 'no') checked=""
-                                                       @endif value="no">
+                                                <input type="radio" name="pet"
+                                                       @if($build->pet == 'no') checked="" @endif
+                                                       value="no">
                                             </label>
                                         </div>
 
@@ -517,7 +520,7 @@
             {
 
                 source:
-                    'stable',
+                    '{{$image->id}}',
 
                 // set type to local to indicate an already uploaded file
                 options: {
@@ -527,7 +530,7 @@
                     // optional stub file information
                     file: {
                         name:
-                          '{{$image->name}}',
+                            '{{$image->name}}',
                     },
 
                     // pass poster property
