@@ -107,47 +107,6 @@
 
                                 <!--         -------------------------deposit---------------------------------                   -->
 
-                                <style>
-                                    #deposit-sec-maker {
-                                        margin-bottom: 16px;
-                                        display: flex;
-                                        flex-wrap: wrap;
-                                    }
-
-                                    .deposit-cart > p {
-                                        font-size: 16px;
-                                        font-weight: 500;
-                                        font-family: 'mazzard_m_regular';
-                                    }
-
-                                    .deposit-cart {
-                                        box-shadow: 0px 4px 38px 3px rgba(0, 0, 0, 0.13);
-                                        text-align: center;
-                                        display: inline-block;
-                                        padding: 12px;
-                                        flex: 1 0 13%; /* explanation below */
-                                        margin-bottom: 16px;
-                                    }
-
-                                    .deposit-cart-seprator {
-                                        flex: 1 0 13%; /* explanation below */
-                                        align-content: center;
-                                        justify-items: center;
-                                        display: flex;
-                                        margin-bottom: 16px;
-                                    }
-
-
-                                    .deposit-cart-seprator:last-child,
-                                    .deposit-cart-seprator:nth-child(8),
-                                    .deposit-cart-seprator:nth-child(16) {
-                                        display: none;
-                                    }
-
-                                    .error-text {
-                                        font-size: 16px !important;
-                                    }
-                                </style>
                                 <h3 class="admin-sec-subtitle admin-sec-title">
                                     Deposit:
                                 </h3>

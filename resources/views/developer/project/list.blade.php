@@ -132,7 +132,7 @@
                                 <p class="f-regular">
                                     Units :
                                     <span class="text-green">
-0
+
                        </span>
                                 </p>
                                 <p class="f-regular">
@@ -149,10 +149,14 @@
                             </span>
                                 </p>
                                 <div class="admin-build-cart-btn-sec">
-                                    <a class="d-inline-block form-btn-one p-2 f-light">
-                                        Add/Edit Unit
+                                    <a href="{{route('developer.unit.add' , $item->id)}}"
+                                       class="d-inline-block form-btn-one admin-build-cart-btn-orange p-2 f-light">
+                                        add unit
                                     </a>
-                                    <a class=" d-inline-block c-btn-one f-light">
+                                    <a class="d-inline-block form-btn-one admin-build-cart-btn-orange p-2 f-light">
+                                        view units
+                                    </a>
+                                    <a class=" d-inline-block admin-build-cart-btn-brown c-btn-one f-light">
                                         Edit Project/Promotion
                                     </a>
                                 </div>

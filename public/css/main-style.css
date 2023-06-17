@@ -2507,3 +2507,84 @@ p {
 .deposit-add-more{
 
 }
+.unit-face.new-custom-radio {
+    margin-right: 8px;
+}
+
+.unit-title-section-main {
+    font-size: 20px;
+    font-family: 'mazzard_m_bold';
+    font-weight: 600;
+    line-height: 23px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+    padding-bottom: 16px;
+    margin-bottom: 52px;
+}
+
+.unit-title-section-phase {
+    color: rgba(179, 134, 93, 0.84);
+
+}
+
+.unit-developer-cart {
+    box-shadow: 0px 4px 38px 3px rgba(0, 0, 0, 0.13);
+    padding: 25px 18px;
+    margin-bottom: 50px;
+}
+
+.floor-image > img {
+    width: 100%;
+}
+
+.unit-developer-cart-price > img {
+    vertical-align: -5px;
+    margin-right: 8px;
+}
+
+.unit-developer-cart-price {
+    font-weight: 600;
+    font-family: 'mazzard_m_bold';
+    font-size: 20px;
+    line-height: 23px;
+    color: #289800;
+    margin-top: 11px;
+}
+
+.unit-developer-cart-floor > img,
+.unit-developer-cart-type > img {
+    vertical-align: -2px;
+    margin-right: 8px;
+    margin-bottom: 0;
+}
+
+.unit-developer-cart-floor,
+.unit-developer-cart-type {
+    margin-top: 11px;
+    font-weight: 600;
+    font-family: 'mazzard_m_bold';
+    font-size: 16px;
+    line-height: 19px;
+    margin-bottom: 0;
+    color: #000;
+
+}
+.mt-11{
+    margin-top: 11px;
+}
+.unit-developer-cart-btn > button >a{
+    padding: 10px;
+    display: block;
+    text-decoration: 0;
+    color: #fff;
+    font-family: 'mazzard_m_regular';
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 18px;
+}
+.unit-developer-cart-btn > .btn.btn-brown{
+    background: rgba(179, 134, 93, 1);
+}
+.unit-developer-cart-btn > button{
+    padding: 0;
+    box-shadow: unset;
+}
