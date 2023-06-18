@@ -49,7 +49,7 @@
                         Add Unit
                     </h3>
 
-                    <form action="{{route('developer.unit.create' ,$build->id)}}" method="post">
+                    <form action="{{route('developer.unit.create' ,$build->id)}}" method="post" enctype="multipart/form-data">
                         {{csrf_field()}}
                         <div class="have-back-shadow add-developer-padding section-input-bdrs-unset add-unit-form">
                             <h3 class="admin-sec-subtitle admin-sec-title mb-3">
@@ -58,13 +58,23 @@
                             <div class="d-flex">
                                 <div style="flex: 0 0 219px;">
                                     <div>
-                                        <input type="file" name="unitImage" id="select-image"/>
+                                        <input type="file" name="floor_plan" id="select-image"/>
                                     </div>
                                 </div>
 
 
                                 <div class=" flex-auto ms-4 vertical-top border-left-custom developer-general-info">
 
+                                    <div class="profile-input-custom ">
+
+                                        <div class="input-custom flex-auto w-100 price-input self no-logo">
+
+                                            <input type="text" required class="w-100" name="name" placeholder="Floor Plan Name"
+                                                   value="{{old('price')}}">
+                                        </div>
+
+
+                                    </div>
 
                                     <h3 class="admin-sec-subtitle admin-sec-title">
                                         <img src="{{asset('img/image%2042(2).svg')}}" alt="">
@@ -110,8 +120,62 @@
                                         .unit-custom-padding > .col-4 {
                                             padding-right: 30px !important;
                                         }
-                                        .add-unit-form .input-custom.w-320.flex-auto.self.no-logo > input{
+
+                                        .add-unit-form .input-custom.w-320.flex-auto.self.no-logo > input {
                                             width: 100%;
+                                        }
+
+                                        .floor-cart > p {
+                                            font-size: 16px;
+                                        }
+
+                                        .floor-cart {
+
+                                            box-shadow: 0px 4px 38px 3px rgba(0, 0, 0, 0.13);
+                                            text-align: center;
+                                            display: inline-block;
+                                            margin-bottom: 15px;
+                                            padding: 11px;
+                                            margin-right: 15px;
+                                        }
+
+                                        .floor-cart > p {
+                                            display: inline-block;
+                                            margin-bottom: 0;
+                                        }
+
+                                        .floor-cart > .delete-deposit-btn svg {
+                                            line-height: 11px !important;
+                                        }
+
+                                        .floor-cart > .delete-deposit-btn {
+                                            width: 15px;
+                                            height: 15px;
+                                            margin-top: 5px;
+                                            line-height: 12px;
+
+                                        }
+
+                                        .add-floor-btn-uses {
+                                            margin-bottom: 0;
+                                        }
+
+                                        .add-floor-btn-uses-sec {
+                                            margin-left: 15px;
+                                        }
+
+                                        .add-floor-btn-uses-sec {
+
+                                        }
+
+                                        .green-btn.cursor-pointer.in-add-property.add-floor-btn-uses {
+                                            padding: 9px;
+                                            vertical-align: top;
+                                            position: relative;
+                                        }
+
+                                        .font-light.error-text {
+                                            margin-bottom: 0;
                                         }
                                     </style>
 
@@ -119,14 +183,35 @@
                                         <img src="{{asset('img/house-building%202.svg')}}" alt="">
                                         Floors:
                                     </h3>
-
+                                    <div id="floor-sec-maker">
+{{--                                        <div class="floor-cart">--}}
+{{--                                            <p>--}}
+{{--                                                Floor2--}}
+{{--                                            </p>--}}
+{{--                                            <span class="delete-deposit-btn" onclick="deleteFloor(this)"> <svg--}}
+{{--                                                    width="15" height="15" viewBox="0 0 22 22" fill="none"--}}
+{{--                                                    xmlns="http://www.w3.org/2000/svg"> <path--}}
+{{--                                                        d="M10.7489 12.1037L6.15203 16.7006L4.91531 15.4639L9.51221 10.867L4.91531 6.27008L6.1287 5.05668L10.7256 9.65358L15.3225 5.05668L16.5592 6.29341L11.9623 10.8903L16.5592 15.4872L15.3458 16.7006L10.7489 12.1037Z"--}}
+{{--                                                        fill="#4A5568"> &lt; /path&gt;</path></svg></span>--}}
+{{--                                            <input type="hidden" name="floors[]">--}}
+{{--                                        </div>--}}
+                                    </div>
+                                    <div class="alert alert-danger mt-2 floor-error" style="display: none">
+                                        <p class="font-light error-text">please insert valid value</p>
+                                    </div>
                                     <div class="profile-input-custom ">
 
                                         <div class="input-custom floor-input w-320 flex-auto self no-logo">
-
-                                            <input type="number" required name="floor" placeholder="Type " value="{{old('floor')}}" >
+                                            <input type="number" id="floor-cr" name="" placeholder="Type " value="">
                                         </div>
+                                        <div class="d-inline-block add-floor-btn-uses-sec">
 
+                                            <p class="green-btn cursor-pointer in-add-property add-floor-btn-uses"
+                                               onclick="addFloor()">
+                                                Add
+                                            </p>
+
+                                        </div>
                                     </div>
 
                                     <!--                           -------------------- Maintenance---------------- -->
@@ -140,7 +225,8 @@
 
                                         <div class="input-custom w-320 flex-auto price-input self no-logo">
 
-                                            <input type="number" required name="price" placeholder="Type Number Here..." value="{{old('price')}}">
+                                            <input type="number" required name="price" placeholder="Type Number Here..."
+                                                   value="{{old('price')}}">
                                         </div>
 
 
@@ -155,13 +241,13 @@
                                         <div class="new-custom-radio unit-face active">
                                             <label>
                                                 north
-                                                <input type="radio"  name="face" value="north" checked>
+                                                <input type="radio" name="face" value="north" checked>
                                             </label>
                                         </div>
                                         <div class="new-custom-radio unit-face">
                                             <label>
                                                 north-east
-                                                <input type="radio"  name="face" value="north-east">
+                                                <input type="radio" name="face" value="north-east">
                                             </label>
                                         </div>
                                         <div class="new-custom-radio unit-face">
@@ -216,7 +302,8 @@
 
                                                 <div class="input-custom w-320 flex-auto self no-logo">
 
-                                                    <input type="text" required name="size" value="{{old('size')}}" placeholder="Type Here...">
+                                                    <input type="text" required name="size" value="{{old('size')}}"
+                                                           placeholder="Type Here...">
                                                 </div>
                                                 <span class="dec----- unit-dec---">
 
@@ -235,7 +322,8 @@
 
                                                 <div class="input-custom w-320 flex-auto self no-logo">
 
-                                                    <input type="text" required name="storage" value="{{old('storage')}}" placeholder="Type Here...">
+                                                    <input type="text" required name="storage"
+                                                           value="{{old('storage')}}" placeholder="Type Here...">
                                                 </div>
 
                                             </div>
@@ -251,7 +339,8 @@
 
                                                 <div class="input-custom w-320 flex-auto self no-logo">
 
-                                                    <input type="text" required name="parking" value="{{old('parking')}}" placeholder="Type Here...">
+                                                    <input type="text" required name="parking"
+                                                           value="{{old('parking')}}" placeholder="Type Here...">
                                                 </div>
 
                                             </div>
@@ -267,7 +356,8 @@
 
                                                 <div class="input-custom w-320 flex-auto self no-logo">
 
-                                                    <input type="number" required name="bedroom" value="{{old('bedroom')}}" placeholder="Type Here...">
+                                                    <input type="number" required name="bedroom"
+                                                           value="{{old('bedroom')}}" placeholder="Type Here...">
                                                 </div>
 
                                             </div>
@@ -283,7 +373,8 @@
 
                                                 <div class="input-custom w-320 flex-auto self no-logo">
 
-                                                    <input type="number" required name="bathroom" value="{{old('bathroom')}}" placeholder="Type Here...">
+                                                    <input type="number" required name="bathroom"
+                                                           value="{{old('bathroom')}}" placeholder="Type Here...">
                                                 </div>
 
                                             </div>
@@ -299,7 +390,8 @@
 
                                                 <div class="input-custom w-320 flex-auto self no-logo">
 
-                                                    <input type="number" required name="garden" value="{{old('garden')}}" placeholder="Type Here...">
+                                                    <input type="number"  name="garden"
+                                                           value="{{old('garden')}}" placeholder="Type Here...">
                                                 </div>
                                                 <span class="dec----- unit-dec---">
 
@@ -318,7 +410,8 @@
 
                                                 <div class="input-custom w-320 flex-auto self no-logo">
 
-                                                    <input type="text" required name="den" value="{{old('gden')}}" placeholder="Type Here...">
+                                                    <input type="text" required name="dens" value="{{old('dens')}}"
+                                                           placeholder="Type Here...">
                                                 </div>
 
                                             </div>
@@ -334,7 +427,8 @@
 
                                                 <div class="input-custom w-320 flex-auto self no-logo">
 
-                                                    <input type="text" required name="flex" value="{{old('flex')}}" placeholder="Type Here...">
+                                                    <input type="text" required name="flex" value="{{old('flex')}}"
+                                                           placeholder="Type Here...">
                                                 </div>
 
                                             </div>
@@ -350,7 +444,8 @@
 
                                                 <div class="input-custom w-320 flex-auto self no-logo">
 
-                                                    <input type="number" required name="balcony" value="{{old('balcony')}}" placeholder="Type Here...">
+                                                    <input type="number"  name="balcony"
+                                                           value="{{old('balcony')}}" placeholder="Type Here...">
                                                 </div>
                                                 <span class="dec----- unit-dec---">
 
@@ -382,9 +477,6 @@
         </div>
 
     </div>
-
-
-
 
 @endsection
 
@@ -425,6 +517,40 @@
 
     </script>
     <script>
+        function addFloor() {
+
+
+            Floor = jQuery('#floor-cr').val()
+
+
+            if (Floor.length == 0 || ((Number(Floor)) === 0)) {
+                jQuery('.floor-error').show()
+            } else {
+
+                jQuery('.floor-error').hide()
+                html = jQuery('#floor-sec-maker').html()
+
+                html += '  <div class="floor-cart">' +
+                    '<p>' +
+                    'Floor' + Floor +
+                    '</p>' +
+                    '<span class="delete-deposit-btn" onclick="deleteFloor(this)"> <svg width="15" height="15" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg"> <path d="M10.7489 12.1037L6.15203 16.7006L4.91531 15.4639L9.51221 10.867L4.91531 6.27008L6.1287 5.05668L10.7256 9.65358L15.3225 5.05668L16.5592 6.29341L11.9623 10.8903L16.5592 15.4872L15.3458 16.7006L10.7489 12.1037Z" fill="#4A5568"> &lt; /path&gt;</path></svg>' +
+                    '<input type="hidden" name="floor[]" value="' + Floor + '">' +
+                    '</div>'
+
+
+                jQuery('#floor-sec-maker').html(html)
+                jQuery('#floor-cr').val('')
+
+            }
+
+
+        }
+
+        function deleteFloor(e) {
+            jQuery(e).parent().remove()
+        }
+
         jQuery('.new-custom-radio.typeofbuild').on('click', function () {
 
             jQuery('.new-custom-radio.typeofbuild').removeClass('active')
