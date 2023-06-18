@@ -122,335 +122,64 @@
                         </div>
 
 
-                        {{$phase->floor_unists}}
-                    @endforeach
 
-                    <div class="unit-title-section">
-                        <h3 class="unit-title-section-main unit-title-section-floor ">
-                            Floor one:
-                        </h3>
-                    </div>
-
-                    <div class="row">
-
-                        <div class="col-3">
-                            <div class="unit-developer-cart">
-                                <div class="floor-delete text-end">
-                                    <img src="assets/img/cross-circle.svg" alt="">
-                                </div>
-                                <div class="floor-image">
-                                    <img src="assets/img/Rectangle%209792.svg" alt="">
-                                </div>
-                                <div>
-                                    <p class="unit-developer-cart-price">
-                                        <img src="assets/img/moneygreen.svg" alt="">
-
-                                        $402,600
-                                    </p>
-
-                                    <p class="unit-developer-cart-type">
-                                        <img src="assets/img/image%2042(2).svg" alt="">
-
-                                        townhome
-                                    </p>
-                                    <p class="unit-developer-cart-floor">
-                                        <img src="assets/img/house-building%202.svg" alt="">
-
-                                        flor2
-                                    </p>
-                                </div>
-                                <div class="unit-developer-cart-btn">
-                                    <button class="btn-brown d-block w-100 mt-11">
-                                        <a class="font-regular" href="">edit availability</a>
-                                    </button>
-                                    <button class="btn-green d-block w-100 mt-11">
-                                        <a class="font-regular" href="">view information</a>
-                                    </button>
-                                </div>
-
+                        @foreach($phase->unit_sort as $floor=>$units)
+                            <div class="unit-title-section">
+                                <h3 class="unit-title-section-main unit-title-section-floor ">
+                                    {{ $floor }}:
+                                </h3>
                             </div>
+                            <div class="row">
+                                @foreach($units as $unit)
+                                    <div class="col-3">
+                                        <div class="unit-developer-cart">
+                                            <div class="floor-delete text-end">
+                                                <img src="{{asset('img/cross-circle.svg')}}" alt="">
+                                            </div>
+                                            <div class="floor-image">
+                                                <img src="{{asset('storage') .'/' .$unit['floor_plan']}}" alt="">
+                                            </div>
+                                            <div>
+                                                <p class="unit-developer-cart-price">
+                                                    <img src="{{asset('img/moneygreen.svg')}}" alt="">
 
-                        </div>
-                        <div class="col-3">
-                            <div class="unit-developer-cart">
-                                <div class="floor-delete text-end">
-                                    <img src="assets/img/cross-circle.svg" alt="">
-                                </div>
-                                <div class="floor-image">
-                                    <img src="assets/img/Rectangle%209792.svg" alt="">
-                                </div>
-                                <div>
-                                    <p class="unit-developer-cart-price">
-                                        <img src="assets/img/moneygreen.svg" alt="">
+                                                    $<?php echo number_format($unit['price'] , '0' ,'.' ,',') ?>
+                                                </p>
 
-                                        $402,600
-                                    </p>
+                                                <p class="unit-developer-cart-type">
+                                                    <img src="{{asset('img/image%2042(2).svg')}}" alt="">
 
-                                    <p class="unit-developer-cart-type">
-                                        <img src="assets/img/image%2042(2).svg" alt="">
+                                                    {{$unit['phase']}}
+                                                </p>
+                                                <p class="unit-developer-cart-floor">
+                                                    <img src="{{ asset('img/house-building%202.svg') }}" alt="">
 
-                                        townhome
-                                    </p>
-                                    <p class="unit-developer-cart-floor">
-                                        <img src="assets/img/house-building%202.svg" alt="">
+                                                    Floor{{$unit['floor']}}
+                                                </p>
+                                            </div>
+                                            <div class="unit-developer-cart-btn">
+                                                <button class="btn-brown d-block w-100 mt-11">
+                                                    <a class="font-regular" href="">edit availability</a>
+                                                </button>
+                                                <button class="btn-green d-block w-100 mt-11">
+                                                    <a class="font-regular" href="">view information</a>
+                                                </button>
+                                            </div>
 
-                                        flor2
-                                    </p>
-                                </div>
-                                <div class="unit-developer-cart-btn">
-                                    <button class="btn-brown d-block w-100 mt-11">
-                                        <a class="font-regular" href="">edit availability</a>
-                                    </button>
-                                    <button class="btn-green d-block w-100 mt-11">
-                                        <a class="font-regular" href="">view information</a>
-                                    </button>
-                                </div>
+                                        </div>
 
+                                    </div>
+                                @endforeach
+                                @endforeach
                             </div>
+                        @endforeach
 
-                        </div>
-                        <div class="col-3">
-                            <div class="unit-developer-cart">
-                                <div class="floor-delete text-end">
-                                    <img src="assets/img/cross-circle.svg" alt="">
-                                </div>
-                                <div class="floor-image">
-                                    <img src="assets/img/Rectangle%209792.svg" alt="">
-                                </div>
-                                <div>
-                                    <p class="unit-developer-cart-price">
-                                        <img src="assets/img/moneygreen.svg" alt="">
 
-                                        $402,600
-                                    </p>
-
-                                    <p class="unit-developer-cart-type">
-                                        <img src="assets/img/image%2042(2).svg" alt="">
-
-                                        townhome
-                                    </p>
-                                    <p class="unit-developer-cart-floor">
-                                        <img src="assets/img/house-building%202.svg" alt="">
-
-                                        flor2
-                                    </p>
-                                </div>
-                                <div class="unit-developer-cart-btn">
-                                    <button class="btn-brown d-block w-100 mt-11">
-                                        <a class="font-regular" href="">edit availability</a>
-                                    </button>
-                                    <button class="btn-green d-block w-100 mt-11">
-                                        <a class="font-regular" href="">view information</a>
-                                    </button>
-                                </div>
-
-                            </div>
-
-                        </div>
-                        <div class="col-3">
-                            <div class="unit-developer-cart">
-                                <div class="floor-delete text-end">
-                                    <img src="assets/img/cross-circle.svg" alt="">
-                                </div>
-                                <div class="floor-image">
-                                    <img src="assets/img/Rectangle%209792.svg" alt="">
-                                </div>
-                                <div>
-                                    <p class="unit-developer-cart-price">
-                                        <img src="assets/img/moneygreen.svg" alt="">
-
-                                        $402,600
-                                    </p>
-
-                                    <p class="unit-developer-cart-type">
-                                        <img src="assets/img/image%2042(2).svg" alt="">
-
-                                        townhome
-                                    </p>
-                                    <p class="unit-developer-cart-floor">
-                                        <img src="assets/img/house-building%202.svg" alt="">
-
-                                        flor2
-                                    </p>
-                                </div>
-                                <div class="unit-developer-cart-btn">
-                                    <button class="btn-brown d-block w-100 mt-11">
-                                        <a class="font-regular" href="">edit availability</a>
-                                    </button>
-                                    <button class="btn-green d-block w-100 mt-11">
-                                        <a class="font-regular" href="">view information</a>
-                                    </button>
-                                </div>
-
-                            </div>
-
-                        </div>
-                    </div>
-
-                    <div class="unit-title-section">
-                        <h3 class="unit-title-section-main unit-title-section-floor ">
-                            Floor one:
-                        </h3>
-                    </div>
-
-                    <div class="row">
-
-                        <div class="col-3">
-                            <div class="unit-developer-cart">
-                                <div class="floor-delete text-end">
-                                    <img src="assets/img/cross-circle.svg" alt="">
-                                </div>
-                                <div class="floor-image">
-                                    <img src="assets/img/Rectangle%209792.svg" alt="">
-                                </div>
-                                <div>
-                                    <p class="unit-developer-cart-price">
-                                        <img src="assets/img/moneygreen.svg" alt="">
-
-                                        $402,600
-                                    </p>
-
-                                    <p class="unit-developer-cart-type">
-                                        <img src="assets/img/image%2042(2).svg" alt="">
-
-                                        townhome
-                                    </p>
-                                    <p class="unit-developer-cart-floor">
-                                        <img src="assets/img/house-building%202.svg" alt="">
-
-                                        flor2
-                                    </p>
-                                </div>
-                                <div class="unit-developer-cart-btn">
-                                    <button class="btn-brown d-block w-100 mt-11">
-                                        <a class="font-regular" href="">edit availability</a>
-                                    </button>
-                                    <button class="btn-green d-block w-100 mt-11">
-                                        <a class="font-regular" href="">view information</a>
-                                    </button>
-                                </div>
-
-                            </div>
-
-                        </div>
-                        <div class="col-3">
-                            <div class="unit-developer-cart">
-                                <div class="floor-delete text-end">
-                                    <img src="assets/img/cross-circle.svg" alt="">
-                                </div>
-                                <div class="floor-image">
-                                    <img src="assets/img/Rectangle%209792.svg" alt="">
-                                </div>
-                                <div>
-                                    <p class="unit-developer-cart-price">
-                                        <img src="assets/img/moneygreen.svg" alt="">
-
-                                        $402,600
-                                    </p>
-
-                                    <p class="unit-developer-cart-type">
-                                        <img src="assets/img/image%2042(2).svg" alt="">
-
-                                        townhome
-                                    </p>
-                                    <p class="unit-developer-cart-floor">
-                                        <img src="assets/img/house-building%202.svg" alt="">
-
-                                        flor2
-                                    </p>
-                                </div>
-                                <div class="unit-developer-cart-btn">
-                                    <button class="btn-brown d-block w-100 mt-11">
-                                        <a class="font-regular" href="">edit availability</a>
-                                    </button>
-                                    <button class="btn-green d-block w-100 mt-11">
-                                        <a class="font-regular" href="">view information</a>
-                                    </button>
-                                </div>
-
-                            </div>
-
-                        </div>
-                        <div class="col-3">
-                            <div class="unit-developer-cart">
-                                <div class="floor-delete text-end">
-                                    <img src="assets/img/cross-circle.svg" alt="">
-                                </div>
-                                <div class="floor-image">
-                                    <img src="assets/img/Rectangle%209792.svg" alt="">
-                                </div>
-                                <div>
-                                    <p class="unit-developer-cart-price">
-                                        <img src="assets/img/moneygreen.svg" alt="">
-
-                                        $402,600
-                                    </p>
-
-                                    <p class="unit-developer-cart-type">
-                                        <img src="assets/img/image%2042(2).svg" alt="">
-
-                                        townhome
-                                    </p>
-                                    <p class="unit-developer-cart-floor">
-                                        <img src="assets/img/house-building%202.svg" alt="">
-
-                                        flor2
-                                    </p>
-                                </div>
-                                <div class="unit-developer-cart-btn">
-                                    <button class="btn-brown d-block w-100 mt-11">
-                                        <a class="font-regular" href="">edit availability</a>
-                                    </button>
-                                    <button class="btn-green d-block w-100 mt-11">
-                                        <a class="font-regular" href="">view information</a>
-                                    </button>
-                                </div>
-
-                            </div>
-
-                        </div>
-                        <div class="col-3">
-                            <div class="unit-developer-cart">
-                                <div class="floor-delete text-end">
-                                    <img src="assets/img/cross-circle.svg" alt="">
-                                </div>
-                                <div class="floor-image">
-                                    <img src="assets/img/Rectangle%209792.svg" alt="">
-                                </div>
-                                <div>
-                                    <p class="unit-developer-cart-price">
-                                        <img src="assets/img/moneygreen.svg" alt="">
-
-                                        $402,600
-                                    </p>
-
-                                    <p class="unit-developer-cart-type">
-                                        <img src="assets/img/image%2042(2).svg" alt="">
-
-                                        townhome
-                                    </p>
-                                    <p class="unit-developer-cart-floor">
-                                        <img src="assets/img/house-building%202.svg" alt="">
-
-                                        flor2
-                                    </p>
-                                </div>
-                                <div class="unit-developer-cart-btn">
-                                    <button class="btn-brown d-block w-100 mt-11">
-                                        <a class="font-regular" href="">edit availability</a>
-                                    </button>
-                                    <button class="btn-green d-block w-100 mt-11">
-                                        <a class="font-regular" href="">view information</a>
-                                    </button>
-                                </div>
-
-                            </div>
-
-                        </div>
-                    </div>
                 </div>
             </div>
+            </div>
         </div>
+    </div>
 
     </div>
 @endsection

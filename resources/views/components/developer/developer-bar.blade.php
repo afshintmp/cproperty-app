@@ -4,8 +4,8 @@
         <div class="row">
             <div class="col-12">
                 <div class="profile-tab-list">
-                    <div>Profile</div>
-                    <div {{$active == 'developer'? 'class=active' : '' }}>
+                    <div {{$active == 'profile'? 'class=active' : '' }} >Profile</div>
+                    <div {{$active == 'developer'? 'class=active' : '' }} >
                         Developer
                         <div class="admin-nav-bar-list-wrapper">
                             <ul class="admin-nav-bar-list">

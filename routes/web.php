@@ -51,7 +51,9 @@ Route::get('/basket/add/{plan}', [BasketController::class, 'add'])->name('basket
 
 Route::get('/checkout', [BasketController::class, 'checkout'])->name('checkout');
 
-
+Route::get('/map', function (){
+    return view('test');
+}  );
 Route::get('file/create', [FileController::class, 'create'])->name('file.create');
 Route::post('file/create', [FileController::class, 'upload'])->name('file.new');
 

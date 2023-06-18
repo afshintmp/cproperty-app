@@ -12,7 +12,7 @@ class BuildController extends Controller
     public function show1()
     {
 
-        return view('builds-archive',
+        return view('build.list',
             [
                 'builds' => Build::all()
             ]);

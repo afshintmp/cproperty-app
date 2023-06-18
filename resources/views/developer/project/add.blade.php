@@ -56,6 +56,7 @@
                             </h3>
                             <div class="d-flex">
 
+
                                 <div style="flex: 0 0 219px;">
                                     <div>
                                         <input type="file" name="cover" id="select-cover">
@@ -105,144 +106,144 @@
                                     </div>
 
 
-                                <!--         -------------------------deposit---------------------------------                   -->
+                                    <!--         -------------------------deposit---------------------------------                   -->
 
-                                <h3 class="admin-sec-subtitle admin-sec-title">
-                                    Deposit:
-                                </h3>
-                                <div id="deposit-sec-maker">
+                                    <h3 class="admin-sec-subtitle admin-sec-title">
+                                        Deposit:
+                                    </h3>
+                                    <div id="deposit-sec-maker">
 
-                                </div>
-                                <div class="alert alert-danger mt-2 deposit-error" style="display: none">
-                                    <p class="font-light error-text">please insert valid value</p>
-                                </div>
-                                <div class="profile-input-custom set-deposit-col-margin">
-                                    <div class="d-inline-block" id="deposit-sec">
-                                        <div class="mb-2">
+                                    </div>
+                                    <div class="alert alert-danger mt-2 deposit-error" style="display: none">
+                                        <p class="font-light error-text">please insert valid value</p>
+                                    </div>
+                                    <div class="profile-input-custom set-deposit-col-margin">
+                                        <div class="d-inline-block" id="deposit-sec">
+                                            <div class="mb-2">
 
-                                            <input type="number" class="deposit-number"
-                                                   placeholder="5" value="">
-                                            %
-                                            <input class="deposit-text" type="text"
-                                                   placeholder="Type Here..." value="">
+                                                <input type="number" class="deposit-number"
+                                                       placeholder="5" value="">
+                                                %
+                                                <input class="deposit-text" type="text"
+                                                       placeholder="Type Here..." value="">
+
+                                            </div>
+                                        </div>
+                                        <div class="d-inline-block mb-2">
+
+                                            <p class="green-btn cursor-pointer in-add-property p-11 ptb-2"
+                                               onclick="addDeposit()">
+                                                Add
+                                            </p>
 
                                         </div>
                                     </div>
-                                    <div class="d-inline-block mb-2">
 
-                                        <p class="green-btn cursor-pointer in-add-property p-11 ptb-2"
-                                           onclick="addDeposit()">
-                                            Add
-                                        </p>
 
+                                    <!--                            --------assignment-------------------------------------- -->
+
+                                    <h3 class="admin-sec-subtitle admin-sec-title">
+                                        Assignment:
+                                    </h3>
+
+                                    <div class="profile-input-custom ">
+
+                                        <div id="assi-no"
+                                             class="input-custom Assignment-no assignment-active flex-auto self no-logo"
+                                             onclick="AssignmentNo()">
+
+                                            <input type="text" readonly placeholder="No" value="No" name="assignment">
+                                        </div>
+                                        <div id="assi-yes" class="input-custom Assignment-no-secto  self no-logo"
+                                             onclick="AssignmentYes()">
+
+                                            <input type="text" placeholder="If Yes, Type Here...">
+                                        </div>
                                     </div>
-                                </div>
 
 
-                                <!--                            --------assignment-------------------------------------- -->
+                                    <!--                           -------------------- Maintenance---------------- -->
+                                    <h3 class="admin-sec-subtitle admin-sec-title">
+                                        Maintenance:
+                                    </h3>
 
-                                <h3 class="admin-sec-subtitle admin-sec-title">
-                                    Assignment:
-                                </h3>
+                                    <div class="profile-input-custom ">
 
-                                <div class="profile-input-custom ">
+                                        <div class="input-custom w-320 flex-auto self no-logo">
 
-                                    <div id="assi-no"
-                                         class="input-custom Assignment-no assignment-active flex-auto self no-logo"
-                                         onclick="AssignmentNo()">
-
-                                        <input type="text" readonly placeholder="No" value="No" name="assignment">
-                                    </div>
-                                    <div id="assi-yes" class="input-custom Assignment-no-secto  self no-logo"
-                                         onclick="AssignmentYes()">
-
-                                        <input type="text" placeholder="If Yes, Type Here...">
-                                    </div>
-                                </div>
-
-
-                                <!--                           -------------------- Maintenance---------------- -->
-                                <h3 class="admin-sec-subtitle admin-sec-title">
-                                    Maintenance:
-                                </h3>
-
-                                <div class="profile-input-custom ">
-
-                                    <div class="input-custom w-320 flex-auto self no-logo">
-
-                                        <input type="number" name="maintenance" placeholder="Type Number Here...">
-                                    </div>
-                                    <span class="dec-----">
+                                            <input type="number" name="maintenance" placeholder="Type Number Here...">
+                                        </div>
+                                        <span class="dec-----">
 
                                     per SQ/FT
                                 </span>
-                                </div>
-                                <!--                            phases:         -->
-                                <h3 class="admin-sec-subtitle admin-sec-title">
-                                    Phases:
-                                </h3>
-                                <div class="phase-section">
-
-                                </div>
-                                <div class="alert alert-danger mt-2 phases-error" style="display: none">
-                                    <p class="font-light error-text">please insert valid name for phase</p>
-                                </div>
-                                <p class="billing-ch-head">choose type of building: </p>
-                                <div class="profile-radio-custom ">
-                                    <div class="new-custom-radio typeofbuild typeofbuildcheck active">
-                                        <label>
-                                            Low-Rise
-                                            <input type="radio" checked="checked" name="typeof"
-                                                   class="typeofbuildcheck" value="low-Rise">
-                                        </label>
                                     </div>
-                                    <div class="new-custom-radio typeofbuild">
-                                        <label>
-                                            Mid-Rise
-                                            <input type="radio" name="typeof" class="typeofbuildcheck"
-                                                   value="mid-Rise">
-                                        </label>
+                                    <!--                            phases:         -->
+                                    <h3 class="admin-sec-subtitle admin-sec-title">
+                                        Phases:
+                                    </h3>
+                                    <div class="phase-section">
+
                                     </div>
-                                    <div class="new-custom-radio typeofbuild">
-                                        <label>
-                                            High-Rise
-                                            <input type="radio" name="typeof" class="typeofbuildcheck"
-                                                   value="high-Rise">
-                                        </label>
+                                    <div class="alert alert-danger mt-2 phases-error" style="display: none">
+                                        <p class="font-light error-text">please insert valid name for phase</p>
                                     </div>
-                                    <div class="new-custom-radio typeofbuild ">
-                                        <label>
-                                            Townhomes
-                                            <input type="radio" name="typeof" class="typeofbuildcheck"
-                                                   value="Townhomes">
-                                        </label>
+                                    <p class="billing-ch-head">choose type of building: </p>
+                                    <div class="profile-radio-custom ">
+                                        <div class="new-custom-radio typeofbuild typeofbuildcheck active">
+                                            <label>
+                                                Low-Rise
+                                                <input type="radio" checked="checked" name="typeof"
+                                                       class="typeofbuildcheck" value="low-Rise">
+                                            </label>
+                                        </div>
+                                        <div class="new-custom-radio typeofbuild">
+                                            <label>
+                                                Mid-Rise
+                                                <input type="radio" name="typeof" class="typeofbuildcheck"
+                                                       value="mid-Rise">
+                                            </label>
+                                        </div>
+                                        <div class="new-custom-radio typeofbuild">
+                                            <label>
+                                                High-Rise
+                                                <input type="radio" name="typeof" class="typeofbuildcheck"
+                                                       value="high-Rise">
+                                            </label>
+                                        </div>
+                                        <div class="new-custom-radio typeofbuild ">
+                                            <label>
+                                                Townhomes
+                                                <input type="radio" name="typeof" class="typeofbuildcheck"
+                                                       value="Townhomes">
+                                            </label>
+                                        </div>
+
                                     </div>
 
-                                </div>
+                                    <div class="profile-input-custom mb-12">
 
-                                <div class="profile-input-custom mb-12">
+                                        <div class="input-custom flex-auto self no-logo w-100">
 
-                                    <div class="input-custom flex-auto self no-logo w-100">
-
-                                        <input type="text" class="phase-txt" placeholder="Type Name Of Phase...">
+                                            <input type="text" class="phase-txt" placeholder="Type Name Of Phase...">
+                                        </div>
                                     </div>
-                                </div>
-                                <div class="">
-                                    <p class="d-inline-block cursor-pointer green-btn in-add-property p-11"
-                                       onclick="addPhase()">Add Pase</p>
+                                    <div class="">
+                                        <p class="d-inline-block cursor-pointer green-btn in-add-property p-11"
+                                           onclick="addPhase()">Add Pase</p>
 
-                                </div>
-
-
-                                <!--            -------------------------                compitopn  date-->
+                                    </div>
 
 
-                                <h3 class="admin-sec-subtitle admin-sec-title">
-                                    Completion Date:
-                                </h3>
+                                    <!--            -------------------------                compitopn  date-->
 
-                                <div class="input-custom">
-                                    <div class='date' id='datetimepicker'>
+
+                                    <h3 class="admin-sec-subtitle admin-sec-title">
+                                        Completion Date:
+                                    </h3>
+
+                                    <div class="input-custom">
+                                        <div class='date' id='datetimepicker'>
                                             <span class="input-group-addon calender-btn">
 
                                             <svg width="15" height="15" viewBox="0 0 15 15" fill="none"
@@ -281,130 +282,130 @@
                                             choose on calendar
 
                                              </span>
-                                        <input type='text' name="completion_date" class="date-input"/>
+                                            <input type='text' name="completion_date" class="date-input"/>
+
+                                        </div>
+                                    </div>
+
+                                    <!--            -------------------------                pet  date-->
+
+
+                                    <h3 class="admin-sec-subtitle admin-sec-title">
+                                        Pet Friendly:
+                                    </h3>
+
+
+                                    <div class="profile-radio-custom mb-2">
+                                        <div class="new-custom-radio pet-fre ">
+                                            <label>
+                                                yes
+                                                <input type="radio" name="pet" value="yes">
+                                            </label>
+                                        </div>
+                                        <div class="new-custom-radio pet-fre active">
+                                            <label>
+                                                no
+                                                <input type="radio" name="pet" checked="" value="no">
+                                            </label>
+                                        </div>
+
 
                                     </div>
                                 </div>
 
-                                <!--            -------------------------                pet  date-->
-
-
-                                <h3 class="admin-sec-subtitle admin-sec-title">
-                                    Pet Friendly:
-                                </h3>
-
-
-                                <div class="profile-radio-custom mb-2">
-                                    <div class="new-custom-radio pet-fre ">
-                                        <label>
-                                            yes
-                                            <input type="radio" name="pet" value="yes">
-                                        </label>
-                                    </div>
-                                    <div class="new-custom-radio pet-fre active">
-                                        <label>
-                                            no
-                                            <input type="radio" name="pet" checked="" value="no">
-                                        </label>
-                                    </div>
-
-
-                                </div>
                             </div>
+
 
                         </div>
 
 
-                </div>
+                        <div class="have-back-shadow add-developer-padding section-input-bdrs-unset mt-70">
+                            <h3 class="admin-sec-subtitle admin-sec-title mb-3">
+                                Features:
+                            </h3>
+                            <div class="d-flex feature-box">
+                                @foreach($features as $feature )
 
-
-                <div class="have-back-shadow add-developer-padding section-input-bdrs-unset mt-70">
-                    <h3 class="admin-sec-subtitle admin-sec-title mb-3">
-                        Features:
-                    </h3>
-                    <div class="d-flex feature-box">
-                        @foreach($features as $feature )
-
-                            <div>
-                                <label class="custom-check-box">{{$feature->name}}
-                                    <input type="checkbox" name="feature[]" value="{{$feature->id}}">
-                                    <span class="checkmark"></span>
-                                </label>
-                            </div>
-
-                        @endforeach
-
-
-                    </div>
-                    <div class="profile-input-custom d-flex mt-4">
-
-                        <div class="input-custom flex-auto self no-logo">
-
-                            <input type="text" placeholder="is there other features? type it down....">
-                        </div>
-
-                    </div>
-
-                </div>
-
-
-                <div class="have-back-shadow add-developer-padding section-input-bdrs-unset mt-70">
-                    <h3 class="admin-sec-subtitle admin-sec-title mb-3">
-                        Building Promotion:
-                    </h3>
-                    <div class="d-flex">
-                        <div>
-                            <div class="promotion-section">
-                                <div style="width: 219px">
                                     <div>
-                                        <input type="file" name="promotion" id="select-promotion">
+                                        <label class="custom-check-box">{{$feature->name}}
+                                            <input type="checkbox" name="feature[]" value="{{$feature->id}}">
+                                            <span class="checkmark"></span>
+                                        </label>
                                     </div>
-                                </div>
+
+                                @endforeach
 
 
-                                <div class="preview_image">
-
-                                    <div id="promotion"></div>
-                                </div>
                             </div>
-
-                        </div>
-                        <div class=" flex-auto ms-4 vertical-top border-left-custom developer-general-info">
-                            <div class="profile-input-custom d-flex">
+                            <div class="profile-input-custom d-flex mt-4">
 
                                 <div class="input-custom flex-auto self no-logo">
 
-                                    <input type="text" name="promotion_title"
-                                           placeholder="do you want to add a promotion? type it down....">
+                                    <input type="text" placeholder="is there other features? type it down....">
                                 </div>
 
                             </div>
-                            <div class="profile-textarea-custom">
-                                        <textarea name="promotion_text"
-                                                  placeholder="type down description here..."></textarea>
-
-                            </div>
-                            <title>Integrate Bootstrap Datepicker in Laravel </title>
-                            <link rel="stylesheet"
-                                  href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
-                            <link rel="stylesheet"
-                                  href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.10.0/css/bootstrap-datepicker.min.css">
 
                         </div>
 
-                    </div>
 
+                        <div class="have-back-shadow add-developer-padding section-input-bdrs-unset mt-70">
+                            <h3 class="admin-sec-subtitle admin-sec-title mb-3">
+                                Building Promotion:
+                            </h3>
+                            <div class="d-flex">
+                                <div>
+                                    <div class="promotion-section">
+                                        <div style="width: 219px">
+                                            <div>
+                                                <input type="file" name="promotion" id="select-promotion">
+                                            </div>
+                                        </div>
+
+
+                                        <div class="preview_image">
+
+                                            <div id="promotion"></div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                                <div class=" flex-auto ms-4 vertical-top border-left-custom developer-general-info">
+                                    <div class="profile-input-custom d-flex">
+
+                                        <div class="input-custom flex-auto self no-logo">
+
+                                            <input type="text" name="promotion_title"
+                                                   placeholder="do you want to add a promotion? type it down....">
+                                        </div>
+
+                                    </div>
+                                    <div class="profile-textarea-custom">
+                                        <textarea name="promotion_text"
+                                                  placeholder="type down description here..."></textarea>
+
+                                    </div>
+                                    <title>Integrate Bootstrap Datepicker in Laravel </title>
+                                    <link rel="stylesheet"
+                                          href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
+                                    <link rel="stylesheet"
+                                          href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.10.0/css/bootstrap-datepicker.min.css">
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                        <div class="mt-5 mb-5 text-center">
+                            <input type="submit" class="btn-green w-50" value="submit">
+                        </div>
+
+                    </form>
                 </div>
-
-                <div class="mt-5 mb-5 text-center">
-                    <input type="submit" class="btn-green w-50" value="submit">
-                </div>
-
-                </form>
             </div>
-        </div>
 
-    </div>
+        </div>
 
     </div>
 
@@ -445,7 +446,7 @@
             acceptedFileTypes: ['image/*'],
             labelIdle: '<p>Set Builds Images</p>' +
                 'Drag & Drop your files or <span class="filepond--label-action"> Browse </span>',
-            // stylePanelLayout : 'integrated'
+            // stylePanelLayout: 'integrated'
         });
 
         const pond2 = FilePond.create(promotion, {

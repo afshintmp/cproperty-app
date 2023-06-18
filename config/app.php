@@ -184,8 +184,7 @@ return [
     */
 
     'aliases' => Facade::defaultAliases()->merge([
-        'Arr' => Illuminate\Support\Arr::class,
-        'Str' => Illuminate\Support\Str::class,
+
     ])->toArray(),
 
 ];

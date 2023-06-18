@@ -132,8 +132,8 @@
                                 <p class="f-regular">
                                     Units :
                                     <span class="text-green">
-
-                       </span>
+                                        {{$item->unit_count}}
+                                     </span>
                                 </p>
                                 <p class="f-regular">
                                     Promotion :

@@ -135,12 +135,14 @@
 .assignment-active.Assignment-no-secto {
     border: 1px solid #B3865D;
 }
+
 .delete-deposit-btn > svg > path,
 .delete-pase-btn > svg > path,
 .delete-btn > svg > path {
     fill: #fff;
 }
-.delete-deposit-btn{
+
+.delete-deposit-btn {
 
     -webkit-border-radius: 50%;
     -moz-border-radius: 50%;
@@ -157,6 +159,7 @@
     cursor: pointer;
 
 }
+
 .delete-pase-btn {
     position: absolute;
     right: 5px;
@@ -236,44 +239,54 @@
     padding: 10px;
     background: #F3F2F2;
 }
+
 .filepond--credits {
     display: none !important;
 }
+
 .uploader {
     background: #F1F0EF;
-    border:0;
+    border: 0;
     padding: 60px 30px;
 }
-.prolect-not-foun-c:hover{
+
+.prolect-not-foun-c:hover {
     color: #B3865D;
 }
-.prolect-not-foun-c{
+
+.prolect-not-foun-c {
 
 }
-.admin-build-cart-btn-orange:hover{
+
+.admin-build-cart-btn-orange:hover {
     background: #7a4b00;
 }
-.admin-build-cart-btn-orange{
+
+.admin-build-cart-btn-orange {
     background: #FF9900;
-    padding: 15px 0px!important;
+    padding: 15px 0px !important;
     box-shadow: 0px 20px 46px 0px rgba(179, 134, 93, 0.51);
     width: 220px;
     text-align: center;
 }
-.admin-build-cart-btn-brown:hover{
+
+.admin-build-cart-btn-brown:hover {
     background: #463423;
 }
-.admin-build-cart-btn-brown{
+
+.admin-build-cart-btn-brown {
     width: 220px;
     background: #B3865D;
-    padding: 15px 0px!important;
+    padding: 15px 0px !important;
     box-shadow: 0px 20px 46px 0px rgba(179, 134, 93, 0.51);
     text-align: center;
 
 }
-.admin-build-cart-btn-sec > a{
+
+.admin-build-cart-btn-sec > a {
     margin-right: 10px;
 }
+
 #deposit-sec-maker {
     margin-bottom: 16px;
     display: flex;
@@ -313,6 +326,138 @@
 .error-text {
     font-size: 16px !important;
 }
-.phase-section > p{
 
+.phase-section > p {
+
+}
+
+.image-wrraper {
+    width: 219px;
+}
+
+.preview_image img {
+    /*width: 100%;*/
+}
+
+.image-wrraper {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+    margin-bottom: 16px;
+
+}
+
+.uploader.small {
+    padding-top: 0px;
+    padding-bottom: 7px;
+}
+
+/*.filepond--drop-label{*/
+/*    min-height: 250px!important;*/
+/*}*/
+.image_box img {
+    width: 100%;
+}
+
+.total-deposit {
+    display: inline-block;
+    background: rgba(179, 134, 93, 1);
+    color: #fff;
+    width: 46px;
+    height: 39px;
+    text-align: center;
+    line-height: 39px;
+    margin-right: 11px;
+    vertical-align: top;
+}
+.view-deposit-tab-btn {
+    background: rgba(74, 85, 104, 1);
+    color: #fff;
+    line-height: 39px;
+    height: 39px;
+    display: inline-block;
+    padding-right: 11px;
+    padding-left: 11px;
+    margin-bottom: 0;
+}
+.fz-14{
+    font-size: 14px;
+}
+.overview{
+    padding: 35px;
+}
+
+.overview-item-head > p{
+    margin-bottom: 0;
+    font-size: 14px;
+    color: rgba(74, 85, 104, 1);
+
+}
+.overview-item-head{
+    margin-bottom: 14px;
+}
+.overview-item-body{
+    margin-bottom: 22px;
+}
+.overview-item-body-gray{
+    background: rgba(241, 240, 240, 1);
+
+    color: rgba(74, 85, 104, 1);
+
+    line-height: 39px;
+    height: 39px;
+    display: inline-block;
+    padding-right: 11px;
+    padding-left: 11px;
+    margin-bottom: 0;
+
+}
+
+.overview-item-body-item-brown{
+    display: inline-block;
+    background: rgba(179, 134, 93, 1);
+    color: #fff;
+    padding-right: 11px;
+    padding-left: 11px;
+    height: 39px;
+    text-align: center;
+    line-height: 39px;
+    margin-right: 11px;
+    vertical-align: top;
+
+}
+.overview-item-body > * {
+    font-size: 14px;
+
+    font-weight: 500;
+    font-family: 'mazzard_m_regular';
+}
+.view-deposit-tab-btn{
+    cursor: pointer;
+}
+.promotion{
+    padding: 25px;
+}
+.promotion-text-ui{
+    font-size: 14px;
+    line-height: 23px;
+    font-weight: 400;
+    font-family: 'mazzard_m_light';
+    text-align: justify;
+    color: #979797;
+}
+.unit{
+    padding: 17px;
+}
+.unit > ul > li > p:nth-child(1) {
+    padding-left: 0!important;
+}
+.unit > ul > li > p:last-child {
+    text-align: right;
+}
+.unit > ul > li > p {
+    flex: 0 0 calc(100% / 7);
+    line-height: 39px;
+    margin-bottom: 0;
+    font-size: 13px;
+    border-right: 1px solid rgba(225,225,225,1);
+    padding-left: 15px;
 }

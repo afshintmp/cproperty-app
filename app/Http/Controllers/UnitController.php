@@ -30,7 +30,7 @@ class UnitController extends Controller
     public function create(Request $request, Build $build)
     {
 
-//        dd($request->all());
+
         $request->validate([
             'name' => ['required'],
             'floor_plan' => ['required'],
@@ -43,15 +43,25 @@ class UnitController extends Controller
             'bedroom' => ['required'],
             'dens' => ['required'],
             'flex' => ['required'],
+            'phase' => ['required'],
         ]);
-        $data = $request->all('name', 'price', 'face', 'size', 'storage', 'parking', 'bedroom', 'bathroom', 'dens', 'flex', 'garden', 'balcony');
+
+        $endData = [];
         $floor_plan = $this->uploadFloorPlan($request);
-        $data['floor_plan'] = $floor_plan;
-        $data['phase_id'] = 1;
-        $data['floor'] = 1;
+
+        foreach ($request->floor as $floor) {
+            $data = $request->all('name', 'price', 'face', 'size', 'storage', 'parking', 'bedroom', 'bathroom', 'dens', 'flex', 'garden', 'balcony');
+            $data['floor_plan'] = $floor_plan;
+            $data['phase_id'] = $request->phase;
+            $data['floor'] = $floor;
+//            $data['name'] = $request->name;
+            $endData[] = $data;
+            $build->units()->create($data);
+        }
+
+//        dd($endData);
 
 
-        $build->units()->create($data);
 
         return redirect()->route('developer.unit.list', $build->id)->with('success', 'Unit was craate');
 

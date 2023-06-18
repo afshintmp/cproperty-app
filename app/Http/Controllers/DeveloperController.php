@@ -80,6 +80,7 @@ class DeveloperController extends Controller
             'phasesType' => ['required'],
             'phasesName' => ['required'],
             'completion_date' => ['required'],
+            'cover' => ['required'],
         ]);
 
 

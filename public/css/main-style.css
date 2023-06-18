@@ -366,7 +366,8 @@ p {
     height: 60px;
 }
 
-.tabs > span:nth-child(1) {
+.promotion-head {
+    /*.tabs > span:nth-child(1) {*/
     border-right: 1px solid #E3E3E3;
 }
 
@@ -2223,17 +2224,17 @@ p {
 }
 
 .calender-btn {
-    background: #B3865D!important;
-    color: #fff!important;
-    border: 0!important;
-    padding: 11px!important;
-    font-size: 16px!important;
-    font-weight: 500!important;
-    font-family: 'mazzard_m_regular'!important;
-    margin-right: 15px!important;
+    background: #B3865D !important;
+    color: #fff !important;
+    border: 0 !important;
+    padding: 11px !important;
+    font-size: 16px !important;
+    font-weight: 500 !important;
+    font-family: 'mazzard_m_regular' !important;
+    margin-right: 15px !important;
     cursor: pointer;
-    width: 300px!important;
-    display: inline-block!important;
+    width: 300px !important;
+    display: inline-block !important;
 }
 
 .input-custom.compilition-date-input.flex-auto.self.no-logo > input {
@@ -2504,9 +2505,11 @@ p {
 .sorted-list:hover > .sorted-list-sec {
     display: block;
 }
-.deposit-add-more{
+
+.deposit-add-more {
 
 }
+
 .unit-face.new-custom-radio {
     margin-right: 8px;
 }
@@ -2568,10 +2571,12 @@ p {
     color: #000;
 
 }
-.mt-11{
+
+.mt-11 {
     margin-top: 11px;
 }
-.unit-developer-cart-btn > button >a{
+
+.unit-developer-cart-btn > button > a {
     padding: 10px;
     display: block;
     text-decoration: 0;
@@ -2581,10 +2586,12 @@ p {
     font-size: 16px;
     line-height: 18px;
 }
-.unit-developer-cart-btn > .btn.btn-brown{
+
+.unit-developer-cart-btn > .btn.btn-brown {
     background: rgba(179, 134, 93, 1);
 }
-.unit-developer-cart-btn > button{
+
+.unit-developer-cart-btn > button {
     padding: 0;
     box-shadow: unset;
 }

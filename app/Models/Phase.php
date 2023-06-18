@@ -18,11 +18,29 @@ class Phase extends Model
         return $this->hasMany(Unit::class);
     }
 
-    public function getFloorUnistsAttribute()
+    public function getUnitSortAttribute()
     {
-//         return $this->units()->get();
-        return Arr::keyBy($this->units()->get(), 'floor');
-//        return Arr::keyBy($units, 'floor');
+        $units = $this->units()->get();
+        $endData = [];
+        foreach ($units as $unit) {
+            $data = [
+                'id' => $unit->id,
+                'name' => $unit->name,
+                'floor' => $unit->floor,
+                'floor_plan' => $unit->floor_plan,
+                'phase' => $this->type,
+                'price' => $unit->price
+
+            ];
+            $endData[] = $data;
+        }
+        $mapped = [];
+        foreach ($endData as $key => $val) {
+            $key = 'Floor' . $val['floor'];
+            $mapped [$key][] = $val;
+        }
+        return $mapped;
+
     }
 
 }

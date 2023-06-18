@@ -2,12 +2,14 @@
 
 namespace App\Models;
 
+
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\MorphMany;
+use Illuminate\Support\Arr;
 
 class Build extends Model
 {
@@ -16,7 +18,7 @@ class Build extends Model
 
     protected $fillable = ['name',
         'location', 'description', 'completion_date', 'assignment', 'maintenance', 'pet', 'slug', 'developer',
-        'promotion_title' , 'promotion_text'];
+        'promotion_title', 'promotion_text'];
 
 //    protected $with = ['images'];
 
@@ -79,11 +81,27 @@ class Build extends Model
     {
 
         return $this->images()->where('tag', '=', 'cover')->first();
+
+    }
+
+    public function getCoverImageUrlAttribute()
+    {
+
+        $image_object = $this->images()->where('tag', '=', 'cover')->first();
+
+        if ($image_object) return asset('storage') . DIRECTORY_SEPARATOR . $image_object?->slug;
+    }
+
+    public function getPromotionImageUrlAttribute()
+    {
+        $image_object = $this->images()->where('tag', '=', 'promotion')->first();
+        if ($image_object) return asset('storage') . DIRECTORY_SEPARATOR . $image_object?->slug;
     }
 
     public function getPromotionImageAttribute()
     {
         return $this->images()->where('tag', '=', 'promotion')->first();
+
     }
 
     public function units()
@@ -91,4 +109,30 @@ class Build extends Model
         return $this->hasMany(Unit::class);
     }
 
+    public function getUnitCountAttribute()
+    {
+        return $this->units()->count();
+    }
+
+    public function getMaxPriceAttribute()
+    {
+        $unit = $this->units()->orderBy('price', 'desc')->first();
+        if ($unit) return $unit->price;
+    }
+
+    public function getMinPriceAttribute()
+    {
+        $unit = $this->units()->orderBy('price', 'asc')->first();
+        if ($unit) return $unit->price;
+    }
+
+    public function getSumDepositAttribute()
+    {
+        $deposits = $this->deposits()->pluck('number')->toArray();
+        $sum = 0;
+        foreach ($deposits as $deposit){
+            $sum = $sum + intval($deposit);
+        };
+        return $sum;
+    }
 }
