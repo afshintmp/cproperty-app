@@ -323,7 +323,7 @@
                             <h3 class="admin-sec-subtitle admin-sec-title mb-3">
                                 Features:
                             </h3>
-                            <div class="d-flex feature-box">
+                            <div class="feature-box">
                                 @foreach($features as $feature )
 
                                     <div>

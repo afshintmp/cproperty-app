@@ -45,3 +45,10 @@ function showUnit(){
     jQuery('.tabs>span').removeClass('active')
     jQuery('.unit-head').addClass('active')
 }
+
+function showFeature(){
+    jQuery('#pro_tab > div').hide()
+    jQuery('.feature').show()
+    jQuery('.tabs>span').removeClass('active')
+    jQuery('.feature-head').addClass('active')
+}

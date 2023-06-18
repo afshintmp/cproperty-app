@@ -276,7 +276,7 @@
                     @endif
                     <span class="overview-head" onclick="showOverView()">Overview</span>
                     <span class="unit-head" onclick="showUnit()">Units</span>
-                    <span>Feature</span>
+                    <span class="feature-head" onclick="showFeature()">Feature</span>
                     <span>Deposit Structure</span>
                     <span>Developer</span>
                     <span>tabs</span>
@@ -468,6 +468,9 @@
                             @endforeach
 
                         </ul>
+                    </div>
+                    <div class="feature" style="display: none">
+
                     </div>
                 </div>
             </div>
