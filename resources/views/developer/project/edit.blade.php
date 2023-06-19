@@ -21,7 +21,7 @@
                             >
                         </span>
                         <p>
-                            Add Build
+                            Edit Build
                         </p>
                     </div>
                 </div>
@@ -79,6 +79,7 @@
                                         </div>
 
                                     </div>
+
                                     <div class="profile-input-custom d-flex">
 
                                         <div class="input-custom flex-auto self">
@@ -96,14 +97,22 @@
                                                 </svg>
 
                                              </span>
+
                                             <input type="text" name="location"
                                                    placeholder="Add Project Location" value="{{$build->location}}">
                                         </div>
                                     </div>
-                                    <div class="profile-textarea-custom">
-                                        <textarea name="description"
+                                    <input type="text" name="city" value="stable" placeholder="city">
+                                    <input type="text" name="place_id" value="stable"
+                                           placeholder="place_id">
+                                    <div class="profile-textarea-custom position-relative">
+                                        <textarea id="develop-desc" maxlength="80" onkeyup="decriptiocCounter(this)"
+                                                  name="description"
                                                   placeholder="type down description here...">{{$build->description}}</textarea>
-
+                                        <span class="ch-counter-sec">
+                                        <span class="ch-counter">0</span>
+                                            / <span class="ch-total">80</span>
+                                            </span>
                                     </div>
 
 
@@ -368,12 +377,14 @@
                             <h3 class="admin-sec-subtitle admin-sec-title mb-3">
                                 Features:
                             </h3>
-                            <div class="d-flex feature-box">
+                            <div class="feature-box">
                                 @foreach($features as $feature )
 
                                     <div>
                                         <label class="custom-check-box">{{$feature->name}}
-                                            <input type="checkbox" name="feature[]" value="{{$feature->id}}">
+                                            <input type="checkbox"
+                                                   @if( $build->features->contains($feature->id)) checked=""
+                                                   @endif name="feature[]" value="{{$feature->id}}">
                                             <span class="checkmark"></span>
                                         </label>
                                     </div>
@@ -386,13 +397,14 @@
 
                                 <div class="input-custom flex-auto self no-logo">
 
-                                    <input type="text" placeholder="is there other features? type it down....">
+                                    <input type="text" name="feature_text"
+                                           placeholder="is there other features? type it down and with '|' separate...."
+                                           value="{{$build->feature_text}}">
                                 </div>
 
                             </div>
 
                         </div>
-
 
                         <div class="have-back-shadow add-developer-padding section-input-bdrs-unset mt-70">
                             <h3 class="admin-sec-subtitle admin-sec-title mb-3">
@@ -601,6 +613,25 @@
         });
     </script>
     <script>
+        jQuery(document).ready(function () {
+                len = jQuery('#develop-desc').val().length
+                jQuery('.ch-counter').html(len)
+            }
+        )
+    </script>
+    <script>
+        function decriptiocCounter(e) {
+
+            len = jQuery('#develop-desc').val().length
+            if (len > 80) {
+                e.preventDefault()
+                return false;
+
+            } else {
+                jQuery('.ch-counter').html(len)
+            }
+        }
+
         function AssignmentNo() {
 
             jQuery('#assi-yes').removeClass('assignment-active')

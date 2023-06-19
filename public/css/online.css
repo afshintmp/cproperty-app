@@ -633,7 +633,7 @@ textarea:focus {
 }
 
 
-.pagination .page-item-custom-arow{
+.pagination .page-item-custom-arow {
     display: inline-block;
 
     width: 35px;
@@ -644,22 +644,113 @@ textarea:focus {
     text-align: center;
     line-height: 30px;
 }
-.page-item-custom-arow >a{
+
+.page-item-custom-arow > a {
     color: #BF9977;
 }
-.cat-title{
+
+.cat-title {
     font-size: 20px;
     font-family: 'mazzard_m_light';
     font-weight: 400;
     line-height: 36px;
 }
-.cat-section .custom-check-box{
+
+.cat-section .custom-check-box {
     font-size: 16px;
     font-family: 'mazzard_m_light';
     font-weight: 400;
     line-height: 39px;
     padding-left: 26px;
 }
+
 .cat-section .checkmark {
     margin-bottom: 7px;
+}
+
+.inner-property-title {
+    font-size: 31px;
+    line-height: 36px;
+    font-weight: 700;
+    font-family: 'mazzard_m_bold';
+    margin-bottom: 16px;
+    color: #000;
+}
+
+.price-field-sepr-- {
+    display: inline-block;
+    font-size: 26px;
+    line-height: 30px;
+    font-weight: 600;
+    font-family: 'mazzard_m_bold';
+    color: #4F4F4F !important;
+}
+
+.price-field-to-- {
+    color: #4F4F4F !important;
+}
+
+.price-field {
+    font-size: 26px;
+    line-height: 30px;
+    font-weight: 600;
+    font-family: 'mazzard_m_bold';
+    margin-bottom: 0;
+}
+
+.price-head {
+    font-weight: 400;
+    font-size: 10px;
+    font-family: 'mazzard_m_light';
+    padding: 3px 12px;
+    margin-bottom: 2px;
+}
+
+.price {
+    margin-bottom: 10px;
+}
+
+.loc--- {
+    font-weight: 600;
+    font-family: 'mazzard_m_bold';
+    font-size: 16px;
+    line-height: 18px;
+    margin-bottom: 8px;
+}
+
+.loc-icon-- {
+    margin-right: 6px;
+    vertical-align: 2px;
+}
+
+.dec--ui-- {
+    font-size: 14px;
+    font-weight: 400;
+    font-family: mazzard_m_light;
+    /*height: 147px;*/
+}
+
+.tabs-controller-- {
+    height: 80px;
+}
+
+.mb-33 {
+    margin-bottom: 33px;
+}
+
+.tabs > span {
+    color: rgba(74, 85, 104, 1);
+    font-size: 16px;
+    line-height: 18px;
+    font-weight: 600;
+    font-family: 'mazzard_m_bold';
+    margin-top: 32px;
+    margin-bottom: 30px;
+    height: 19px;
+    vertical-align: top;
+}
+
+.tabs > span::after {
+
+    top: 48px;
 }

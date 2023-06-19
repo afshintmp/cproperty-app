@@ -97,7 +97,8 @@
                             @foreach($build->image_gallery as $photo)
 
                                 <div class="swiper-slide">
-                                    <img src="{{$photo->slug}}" alt="{{$build->cover_image->alt_text}}"/>
+                                    <img src="{{asset('storage/'.$photo->slug)}}"
+                                         alt="{{$build->cover_image->alt_text}}"/>
                                 </div>
                             @endforeach
 
@@ -123,27 +124,30 @@
             </div>
 
             <div class="col-4">
-                <h1 class="b-title fs-3 mb-2">{{$build->name}}</h1>
-                <div class="price mb-3">
+                <h1 class="b-title inner-property-title  ">{{$build->name}}</h1>
+                <div class="price">
                     @if($build->min_price)
                         <div class="price-wrapper d-inline-block">
-                            <span class="price-head p-1">from</span>
-                            <p class="price-field fw-bold mt-1 mb-0 ">
+                            <span class="price-head ">from</span>
+                            <p class="price-field price-field-from--  ">
                                 ${{number_format($build->min_price)}} </p>
                         </div>
                     @endif
                     @if($build->max_price)
-                        <div class="ms-3 price-wrapper d-inline-block">
-                            <span class="price-head p-1">from</span>
-                            <p class="price-field fw-bold mt-1 mb-0 ">
+                        <div class="price-field-sepr--">
+                            -
+                        </div>
+                        <div class=" price-wrapper d-inline-block">
+                            <span class="price-head ">from</span>
+                            <p class="price-field price-field-to--  ">
                                 ${{number_format($build->max_price)}}
                             </p>
                         </div>
                     @endif
                 </div>
                 <div class="mb-3">
-                    <div class="fw-bold color-4a">
-                        <span>
+                    <div class="loc--- color-4a">
+                        <span class="loc-icon--">
                             <svg width="15" height="15" viewBox="0 0 15 15" fill="none"
                                  xmlns="http://www.w3.org/2000/svg">
                                 <path
@@ -156,7 +160,8 @@
                         </span>
                         Location : <span>{{ $build->location }}</span>
                     </div>
-                    <div class="fw-bold color-4a">
+                    <div class="loc--- color-4a">
+                        <span class="loc-icon--">
                         <svg width="15" height="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path
                                 d="M5 3.59375C4.74375 3.59375 4.53125 3.38125 4.53125 3.125V1.25C4.53125 0.99375 4.74375 0.78125 5 0.78125C5.25625 0.78125 5.46875 0.99375 5.46875 1.25V3.125C5.46875 3.38125 5.25625 3.59375 5 3.59375Z"
@@ -189,18 +194,18 @@
                                 d="M10 14.2188H5C2.71875 14.2188 1.40625 12.9063 1.40625 10.625V5.3125C1.40625 3.03125 2.71875 1.71875 5 1.71875H10C12.2813 1.71875 13.5938 3.03125 13.5938 5.3125V10.625C13.5938 12.9063 12.2813 14.2188 10 14.2188ZM5 2.65625C3.2125 2.65625 2.34375 3.525 2.34375 5.3125V10.625C2.34375 12.4125 3.2125 13.2812 5 13.2812H10C11.7875 13.2812 12.6562 12.4125 12.6562 10.625V5.3125C12.6562 3.525 11.7875 2.65625 10 2.65625H5Z"
                                 fill="#4A5568"/>
                         </svg>
-
+                        </span>
 
                         Completion Date : <span>{{ $build->completion_date }}</span>
                     </div>
                 </div>
 
-                <div class="color-97">
+                <div class="dec--ui-- color-97">
                     {{$build->description}}
                 </div>
 
 
-                <div class="container-fluid">
+                <div class="">
                     <div thumbsSlider="" class="swiper mySwiper">
                         <div class="swiper-wrapper">
                             @if($build->cover_image)
@@ -211,7 +216,7 @@
                             @foreach($build->image_gallery as $photo)
 
                                 <div class="swiper-slide">
-                                    <img src="{{$photo->slug}}"/>
+                                    <img src="{{asset('storage/'.$photo->slug)}}"/>
                                 </div>
                             @endforeach
                         </div>
@@ -254,9 +259,9 @@
 
     <div class="container">
 
-        <div class="row">
+        <div class="row mb-33">
             <div class="col-12">
-                <div class="tabs mt-4 mb-4 shadow-clear fw-bold">
+                <div class="tabs  shadow-clear tabs-controller--">
                     @if($build->promotion_text)
                         <span class="active promotion-head" onclick="showPromotion()">
                         <span class="for-vertical">

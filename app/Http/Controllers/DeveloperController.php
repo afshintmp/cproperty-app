@@ -29,7 +29,7 @@ class DeveloperController extends Controller
 
     public function editProject(Build $build)
     {
-        $build->load(['deposits', 'phases', 'cover']);
+        $build->load(['deposits', 'phases', 'cover' , 'features']);
         $features = Feature::all();
         return view('developer.project.edit', compact('features', 'build'));
     }
@@ -144,12 +144,25 @@ class DeveloperController extends Controller
             'phasesType' => ['required'],
             'phasesName' => ['required'],
             'completion_date' => ['required'],
+            'place_id' => ['required'],
+            'city' => ['required'],
+
         ]);
 
         $buildData = $request->all('name', 'location', 'assignment', 'completion_date', 'pet', 'promotion_text',
-            'promotion_title', 'maintenance', 'description');
+            'promotion_title', 'maintenance', 'description' , 'feature_text');
 
         $buildData['slug'] = Str::slug($request->name);
+
+        if ($request->city !== 'stable'){
+            $city = City::firstOrCreate([
+                'name' => $request->city
+            ]);
+            $build['city_id'] = $city->id;
+        }
+        if ($request->place_id !== 'stable'){
+            $build['place_id'] = $request->place_id;
+        }
 
         $build->update($buildData);
 
