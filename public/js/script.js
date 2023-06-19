@@ -52,3 +52,10 @@ function showFeature(){
     jQuery('.tabs>span').removeClass('active')
     jQuery('.feature-head').addClass('active')
 }
+
+function  showDepositStructure(){
+    jQuery('#pro_tab > div').hide()
+    jQuery('.deposit-structure').show()
+    jQuery('.tabs>span').removeClass('active')
+    jQuery('.deposit-structure-head').addClass('active')
+}

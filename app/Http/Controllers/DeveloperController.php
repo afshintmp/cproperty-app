@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Build;
+use App\Models\City;
 use App\Models\Deposit;
 use App\Models\Feature;
 use App\Models\Image;
@@ -72,6 +73,10 @@ class DeveloperController extends Controller
     private function createBuild($request)
     {
 
+        $city = City::firstOrCreate([
+            'name' => $request->city
+        ]);
+
         $request->validate([
             'name' => ['required'],
             'location' => ['required'],
@@ -81,13 +86,15 @@ class DeveloperController extends Controller
             'phasesName' => ['required'],
             'completion_date' => ['required'],
             'cover' => ['required'],
+            'city' => ['required'],
+            'place_id' => ['required'],
         ]);
 
 
         $build = $request->all('name', 'location', 'assignment', 'completion_date', 'pet', 'promotion_text',
-            'promotion_title', 'maintenance', 'description');
+            'promotion_title', 'maintenance', 'description' , 'place_id' , 'feature_text');
         $build['slug'] = Str::slug($request->name);
-
+        $build['city_id'] = $city->id;
 
         $build = Build::create($build);
 

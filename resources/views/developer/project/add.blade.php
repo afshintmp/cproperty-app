@@ -74,7 +74,7 @@
                                         <div class="input-custom flex-auto self no-logo">
 
                                             <input type="text" required name="name"
-                                                   placeholder="Type Your Project Name" value="{{old('title')}}">
+                                                   placeholder="Type Your Project Name" value="{{old('name')}}">
                                         </div>
 
                                     </div>
@@ -97,11 +97,16 @@
                                              </span>
                                             <input type="text" name="location"
                                                    placeholder="Add Project Location" value="{{old('location')}}">
+
+
                                         </div>
                                     </div>
+                                    <input type="text" name="city" value="{{old('city')}}" placeholder="city">
+                                    <input type="text" name="place_id" value="{{old('place_id')}}"
+                                           placeholder="place_id">
                                     <div class="profile-textarea-custom">
                                         <textarea name="description"
-                                                  placeholder="type down description here..."></textarea>
+                                                  placeholder="type down description here...">{{old('description')}}</textarea>
 
                                     </div>
 
@@ -341,7 +346,8 @@
 
                                 <div class="input-custom flex-auto self no-logo">
 
-                                    <input type="text" placeholder="is there other features? type it down....">
+                                    <input type="text" name="feature_text"
+                                           placeholder="is there other features? type it down and with '|' separate...." value="{{old('feature_text')}}">
                                 </div>
 
                             </div>

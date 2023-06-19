@@ -274,10 +274,11 @@
                         </span>
 					Promotion</span>
                     @endif
-                    <span class="overview-head" onclick="showOverView()">Overview</span>
+                    <span class="overview-head     @if(!$build->promotion_text) active @endif "
+                          onclick="showOverView()">Overview</span>
                     <span class="unit-head" onclick="showUnit()">Units</span>
                     <span class="feature-head" onclick="showFeature()">Feature</span>
-                    <span>Deposit Structure</span>
+                    <span class="deposit-structure-head" onclick="showDepositStructure()">Deposit Structure</span>
                     <span>Developer</span>
                     <span>tabs</span>
                 </div>
@@ -285,9 +286,9 @@
         </div>
         <div class="row mb-4">
             <div class="col-9">
-                <div class="box-shadow-one shadow-clear img-fix color-97" id="pro_tab">
+                <div class="box-shadow-one shadow-clear  color-97" id="pro_tab">
                     @if($build->promotion_text)
-                        <div class="promotion" style="">
+                        <div class="promotion img-fix" style="">
                             @if($build->promotion_image)
                                 <img class="mb-2" src="{{$build->promotion_image_url}}">
                             @endif
@@ -326,7 +327,7 @@
                                     <span class="total-deposit font-regular fz-14">
                                          {{$build->sum_deposit}}%
                                     </span>
-                                    <p class="view-deposit-tab-btn fz-14">
+                                    <p class="view-deposit-tab-btn fz-14" onclick="showDepositStructure()">
                                         view deposit structure
                                     </p>
                                 </div>
@@ -358,7 +359,7 @@
 
                                     @if($build->assignment == 'No')
                                         <span class="total-deposit font-regular fz-14">
-                                        NO
+                                        no
                                     </span>
                                     @else
                                         <span class="total-deposit font-regular fz-14">
@@ -445,7 +446,8 @@
                     </div>
                     <div class="unit" style="display: none">
                         <ul>
-                            @foreach($build->units as $unit)
+                            @forelse($build->units as $unit)
+                                {
                                 <li>
                                     <p>Floor Plan:{{$unit->name}} </p>
                                     <p>Bedroom: {{$unit->bedroom}}</p>
@@ -465,12 +467,63 @@
                                         </button>
                                     </p>
                                 </li>
-                            @endforeach
+                            @empty
+                                <li><p>unit not create yet !</p></li>
+                            @endforelse
 
                         </ul>
                     </div>
                     <div class="feature" style="display: none">
+                        <div class="row">
+                            @forelse($build->features as $feature)
+                                <div class="col-6">
+                                    <img src="{{asset($feature->icon)}}" width="30" alt="">
+                                    <p>{{$feature->name}}</p>
+                                </div>
+                            @empty
+                                <div class="col-12"></div>
+                            @endforelse
+                            @if($build->feature_text)
+                                    <?php $feature_creator = explode(' | ', $build->feature_text);
 
+                                    ?>
+
+                                <div class="col-12">
+                                    <p class="feature-other-title">Others:</p>
+                                    <div>
+                                        @foreach($feature_creator as $it)
+                                            <div class="other-feature">{{$it}}</div>
+
+                                        @endforeach
+                                    </div>
+                                </div>
+                            @endif
+
+                        </div>
+                    </div>
+
+                    <div class="deposit-structure" style="display: none">
+                        <div id="deposit-sec-maker">
+                            @foreach($build->deposits as $deposit)
+                                <div class="deposit-cart deposit-cart-ui"><p>{{$deposit->number}}%</p>
+                                    <p class="mb-0">{{$deposit->text}}
+                                    </p></div>
+
+
+                                <div class="deposit-cart-seprator"><img
+                                        src="{{asset('img/Line 67.svg')}}" alt=""></div>
+
+                            @endforeach
+
+
+                        </div>
+                        <div id="deposit-all-show">
+                            <img
+                                src="{{asset('img/Line 68.svg')}}" alt="">
+                            <p class="deposit-all-show-text">
+                                {{$build->sum_deposit}}% total deposit
+                            </p>
+                        </div>
                     </div>
                 </div>
             </div>

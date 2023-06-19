@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Database\Eloquent\Relations\HasOne;
 use Illuminate\Database\Eloquent\Relations\MorphMany;
 use Illuminate\Support\Arr;
 
@@ -18,7 +19,7 @@ class Build extends Model
 
     protected $fillable = ['name',
         'location', 'description', 'completion_date', 'assignment', 'maintenance', 'pet', 'slug', 'developer',
-        'promotion_title', 'promotion_text'];
+        'promotion_title', 'promotion_text' , 'place_id' , 'city_id' , 'feature_text'];
 
 //    protected $with = ['images'];
 
@@ -47,6 +48,10 @@ class Build extends Model
         return $this->belongsToMany(Feature::class);
     }
 
+    public function city(): HasOne
+    {
+        return $this->hasOne(City::class);
+    }
 
     public function developer()
     {
@@ -130,7 +135,7 @@ class Build extends Model
     {
         $deposits = $this->deposits()->pluck('number')->toArray();
         $sum = 0;
-        foreach ($deposits as $deposit){
+        foreach ($deposits as $deposit) {
             $sum = $sum + intval($deposit);
         };
         return $sum;
