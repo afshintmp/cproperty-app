@@ -647,3 +647,19 @@ textarea:focus {
 .page-item-custom-arow >a{
     color: #BF9977;
 }
+.cat-title{
+    font-size: 20px;
+    font-family: 'mazzard_m_light';
+    font-weight: 400;
+    line-height: 36px;
+}
+.cat-section .custom-check-box{
+    font-size: 16px;
+    font-family: 'mazzard_m_light';
+    font-weight: 400;
+    line-height: 39px;
+    padding-left: 26px;
+}
+.cat-section .checkmark {
+    margin-bottom: 7px;
+}

@@ -160,87 +160,129 @@
 
                 </div>
                 <div class="col-3 d-none d-md-block">
-                    <div class="c-cart-shadow p-4 cat-main">
+                    <form action="">
+                        <div class="c-cart-shadow p-4 cat-main">
 
-                        <div class="cat-section">
-                            <p class="cat-title">
-                                <img class="cat-vector" src="{{asset('img/CategoryVector.svg')}}" alt="">
-                                Location
-                            </p>
-                            <ul>
-                                @foreach($cities as $city)
+                            <div class="cat-section">
+                                <p class="cat-title">
+                                    <img class="cat-vector" src="{{asset('img/Vectorblack.svg')}}" alt="">
+                                    Location
+                                </p>
+                                <ul>
+                                    @foreach($cities as $city)
+                                        <li>
+                                            <label class="custom-check-box">{{$city->name}}
+                                                <input type="checkbox" name="city[]" value="{{$city->id}}" checked="checked">
+                                                <span class="checkmark"></span>
+                                            </label>
+                                        </li>
+                                    @endforeach
+
+                                </ul>
+                            </div>
+
+                            <div class="cat-section">
+                                <p class="cat-title">
+                                    <img class="cat-vector closed-cat-list-icon" src="{{asset('img/Vectorblack.svg')}}"
+                                         alt="">
+                                    Completion Date
+                                </p>
+                                <ul>
                                     <li>
-                                        <label class="custom-check-box">{{$city->name}}
+                                        <div class="slider"></div>
+                                        <span class="slider-start">2023</span>
+                                        <span class="slider-end">2033</span>
+                                    </li>
+                                </ul>
+                                <script>
+                                    let slider = new RangeSlider('.slider', {
+                                        values: [500, 2033],
+                                        min: 2023,
+                                        max: 2033,
+                                        step: 1,
+                                        pointRadius: 10,
+                                        railHeight: 1,
+                                        trackHeight: 1,
+                                        colors: {
+                                            points: "#B3865D",
+                                            rail: "#000",
+                                            tracks: "#B3865D"
+                                        }
+
+                                    }).onChange(val => console.log(val));
+
+                                </script>
+
+
+                            </div>
+                            <style>
+                                .slider-start {
+                                    color: #000;
+                                    font-size: 14px;
+                                    font-weight: 400;
+                                    font-family: 'mazzard_m_light';
+                                }
+
+                                .slider-end {
+                                    float: right;
+                                    color: #000;
+                                    font-size: 14px;
+                                    font-weight: 400;
+                                    font-family: 'mazzard_m_light';
+                                }
+
+                                .range-slider__container {
+                                    margin-bottom: 2px !important;
+                                }
+                            </style>
+                            <div class="cat-section">
+                                <p class="cat-title">
+                                    <img class="cat-vector" src="{{asset('img/Vectorblack.svg')}}" alt="">
+                                    Deposit
+                                </p>
+                                <ul>
+
+                                    <li>
+                                        <label class="custom-check-box">Below 5%
                                             <input type="checkbox" checked="checked">
                                             <span class="checkmark"></span>
                                         </label>
                                     </li>
-                                @endforeach
+                                    <li>
+                                        <label class="custom-check-box">6% - 10%
+                                            <input type="checkbox">
+                                            <span class="checkmark"></span>
+                                        </label>
+                                    </li>
+                                    <li>
+                                        <label class="custom-check-box">11% - 15%
+                                            <input type="checkbox">
+                                            <span class="checkmark"></span>
+                                        </label>
+                                    </li>
 
-                            </ul>
+                                    <li>
+                                        <label class="custom-check-box">16% - 25%
+                                            <input type="checkbox">
+                                            <span class="checkmark"></span>
+                                        </label>
+                                    </li>
+                                    <li>
+                                        <label class="custom-check-box">Above 25%
+                                            <input type="checkbox">
+                                            <span class="checkmark"></span>
+                                        </label>
+                                    </li>
+
+
+                                </ul>
+
+                            </div>
+
+                            <input class="c-btn-one menu-btn-padding w-100" type="submit" value="filter">
                         </div>
+                    </form>
 
-                        <div class="cat-section">
-                            <p class="cat-title">
-                                <img class="cat-vector closed-cat-list-icon" src="{{asset('img/CategoryVector.svg')}}"
-                                     alt="">
-                                Completion Date
-                            </p>
-                            <div class="slider"></div>
-
-                            <script>
-                                let slider = new RangeSlider('.slider', {
-                                    // values: [500, 2030],
-                                    min: 2020,
-                                    max: 2030,
-                                    step: 1,
-                                    pointRadius: 10,
-                                    railHeight: 1,
-                                    trackHeight: 1,
-                                    colors: {
-                                        points: "#B3865D",
-                                        rail: "#000",
-                                        tracks: "#B3865D"
-                                    }
-
-                                }).onChange(val => console.log(val));
-
-                            </script>
-
-
-                        </div>
-                        <style>
-                            .range-slider__container {
-                                margin-bottom: 17px !important;
-                            }
-                        </style>
-                        <div class="cat-section">
-                            <p class="cat-title">
-                                <img class="cat-vector" src="{{asset('img/CategoryVector.svg')}}" alt="">
-                                Deposit
-                            </p>
-                            <ul>
-
-                                <li>
-                                    <label class="custom-check-box">Langley
-                                        <input type="checkbox" checked="checked">
-                                        <span class="checkmark"></span>
-                                    </label>
-                                </li>
-                                <li>
-                                    <label class="custom-check-box">Vancouver
-                                        <input type="checkbox">
-                                        <span class="checkmark"></span>
-                                    </label>
-                                </li>
-
-
-                            </ul>
-
-                        </div>
-
-
-                    </div>
 
                 </div>
 

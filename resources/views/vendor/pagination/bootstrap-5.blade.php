@@ -65,7 +65,7 @@
                                 @if ($page == $paginator->currentPage())
                                     <li class="page-item-custom active-custom" aria-current="page"><span class="page-link-custom">{{ $page }}</span></li>
                                 @else
-                                    <li class="page-item-custom"><a class="page-link-custom" href="{{ $url }}">{{ $page }}</a></li>
+                                    <li class="page-item-custom"><a class="page-link-custom" href="{{ $url }}.getfe">{{ $page }}</a></li>
                                 @endif
                             @endforeach
                         @endif
