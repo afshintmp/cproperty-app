@@ -19,7 +19,7 @@ class Build extends Model
 
     protected $fillable = ['name',
         'location', 'description', 'completion_date', 'assignment', 'maintenance', 'pet', 'slug', 'developer',
-        'promotion_title', 'promotion_text' , 'place_id' , 'city_id' , 'feature_text'];
+        'promotion_title', 'promotion_text', 'place_id', 'city_id', 'feature_text'];
 
 //    protected $with = ['images'];
 
@@ -94,7 +94,7 @@ class Build extends Model
 
         $image_object = $this->images()->where('tag', '=', 'cover')->first();
 
-        if ($image_object) return asset('storage') . DIRECTORY_SEPARATOR . $image_object?->slug;
+        if ($image_object) return asset('storage/' . $image_object?->slug);
     }
 
     public function getPromotionImageUrlAttribute()
@@ -139,5 +139,10 @@ class Build extends Model
             $sum = $sum + intval($deposit);
         };
         return $sum;
+    }
+
+    public function getExpertDescriptionAttribute()
+    {
+        return substr($this->description, 0, 50) . '...';
     }
 }

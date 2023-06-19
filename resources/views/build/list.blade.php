@@ -6,9 +6,8 @@
         <div class="">
             <img class="w-100 category-baner" src="{{asset('img/Rectangle 1.png')}}" height="498" width="1440"/>
         </div>
-        <div class="container-fluid c-mt-categ">
+        <div class="container c-mt-categ">
             <div class="row">
-
                 <div class="col-12 col-md-9">
                     <div class="row">
                         <div class="col-12 mb-3 d-md-none">
@@ -113,8 +112,8 @@
                             <div class="col-12 col-md-4">
                                 <div class="c-cart-shadow mb-4">
                                     <a class="cart-info--link" href="{{route('builds.show' , $build->id)}}">
-                                        <div>
-                                            <img class="w-100" src="{{$build->cover_image_url}}"/>
+                                        <div class="show-build-project-image">
+                                            <img class="" height="180" width="270" src="{{$build->cover_image_url}}"/>
                                         </div>
 
                                         <div class="ps-2 pe-2 pt-2">
@@ -123,14 +122,14 @@
                                                 {{$build->name}}
                                             </h2>
                                             <p class="cart-info-- mb-0 color-97">
-                                                {{$build->description}}
+                                                {{$build->expert_description}}
                                             </p>
 
                                         </div>
-                                        <div class="ps-2 pe-2 mt-8">
+                                        <div class="ps-2 pe-2 mt-8 p-sc---">
                                             @if($build->min_price)
                                                 <p class=" c-cart-price-from color-green d-inline-block  pb-11">
-                                                    ${{$build->min_price}}
+                                                    ${{number_format($build->min_price)}}
                                                 </p>
 
                                             @endif
@@ -153,88 +152,72 @@
                         @endforeach
 
 
-                    </div>
-                    <div class="page-in text-center">
-             <span class="page-in-vector page-in-before vector-page-deactive">
-                <a href="">
-                    <img src="assets/img/vettorrightactive.svg" alt="">
-                </a>
-            </span>
 
-                        <span class="page-active">
-              <a href="">
-                  1
-                  </a>
-            </span>
-                        <span>
-              <a href="">
-                  2
-                  </a>
-            </span>
-                        <span>
-              <a href="">
-                  3
-                  </a>
-            </span>
-                        <span class="page-in-vector page-in-after">
-                <a href="">
-                    <img src="assets/img/vettorrightactive.svg" alt="">
-                </a>
-            </span>
+                        {{ $builds->links('vendor.pagination.bootstrap-5') }}
+
                     </div>
+
+
                 </div>
                 <div class="col-3 d-none d-md-block">
                     <div class="c-cart-shadow p-4 cat-main">
 
                         <div class="cat-section">
                             <p class="cat-title">
-                                <img class="cat-vector" src="assets/img/CategoryVector.svg" alt="">
+                                <img class="cat-vector" src="{{asset('img/CategoryVector.svg')}}" alt="">
                                 Location
                             </p>
                             <ul>
-                                <li>
-                                    <label class="custom-check-box">Langley
-                                        <input type="checkbox" checked="checked">
-                                        <span class="checkmark"></span>
-                                    </label>
-                                </li>
-                                <li>
-                                    <label class="custom-check-box">Vancouver
-                                        <input type="checkbox">
-                                        <span class="checkmark"></span>
-                                    </label>
-                                </li>
+                                @foreach($cities as $city)
+                                    <li>
+                                        <label class="custom-check-box">{{$city->name}}
+                                            <input type="checkbox" checked="checked">
+                                            <span class="checkmark"></span>
+                                        </label>
+                                    </li>
+                                @endforeach
+
                             </ul>
                         </div>
 
                         <div class="cat-section">
                             <p class="cat-title">
-                                <img class="cat-vector closed-cat-list-icon" src="assets/img/CategoryVector.svg" alt="">
-                                Location
+                                <img class="cat-vector closed-cat-list-icon" src="{{asset('img/CategoryVector.svg')}}"
+                                     alt="">
+                                Completion Date
                             </p>
-                            <ul class="">
-                                <li>
-                                    <label class="custom-check-box">Langley
-                                        <input type="checkbox" checked="checked">
-                                        <span class="checkmark"></span>
-                                    </label>
-                                </li>
-                                <li>
-                                    <label class="custom-check-box">Vancouver
-                                        <input type="checkbox">
-                                        <span class="checkmark"></span>
-                                    </label>
-                                </li>
+                            <div class="slider"></div>
 
+                            <script>
+                                let slider = new RangeSlider('.slider', {
+                                    // values: [500, 2030],
+                                    min: 2020,
+                                    max: 2030,
+                                    step: 1,
+                                    pointRadius: 10,
+                                    railHeight: 1,
+                                    trackHeight: 1,
+                                    colors: {
+                                        points: "#B3865D",
+                                        rail: "#000",
+                                        tracks: "#B3865D"
+                                    }
 
-                            </ul>
+                                }).onChange(val => console.log(val));
+
+                            </script>
+
 
                         </div>
-
+                        <style>
+                            .range-slider__container {
+                                margin-bottom: 17px !important;
+                            }
+                        </style>
                         <div class="cat-section">
                             <p class="cat-title">
-                                <img class="cat-vector" src="assets/img/CategoryVector.svg" alt="">
-                                Location
+                                <img class="cat-vector" src="{{asset('img/CategoryVector.svg')}}" alt="">
+                                Deposit
                             </p>
                             <ul>
 
@@ -261,9 +244,20 @@
 
                 </div>
 
+
             </div>
         </div>
 
     </div>
+
+@endsection
+
+
+@section('custom-head')
+    <script src="https://unpkg.com/@spreadtheweb/multi-range-slider@1.0.2/dist/range-slider.main.min.js"></script>
+
+@endsection
+@section('custom-script')
+
 
 @endsection

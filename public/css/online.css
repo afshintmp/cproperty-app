@@ -527,13 +527,16 @@
     text-align: center;
 
 }
-.deposit-structure{
+
+.deposit-structure {
     padding: 35px;
 }
-#deposit-all-show > img{
+
+#deposit-all-show > img {
     width: 100%;
 }
-.deposit-all-show-text{
+
+.deposit-all-show-text {
     text-align: center;
     font-size: 16px;
     color: #000;
@@ -541,7 +544,8 @@
     line-height: 18px;
     font-family: 'mazzard_m_regular';
 }
-.deposit-cart-ui > p{
+
+.deposit-cart-ui > p {
     color: #000;
     font-size: 16px;
     line-height: 18px;
@@ -549,7 +553,97 @@
     margin-bottom: 0;
     font-weight: 500;
 }
-.deposit-cart-ui{
+
+.deposit-cart-ui {
     padding-top: 20px;
     padding-bottom: 20px;
+}
+
+.show-build-project-image > img {
+    object-fit: revert;
+}
+
+.show-build-project-image {
+    overflow: hidden;
+    height: 170px;
+}
+
+.ch-counter-sec {
+    position: absolute;
+    bottom: 8px;
+    right: 8px;
+}
+
+textarea:focus {
+    outline: none;
+}
+
+.month.focused.active {
+    background: rgba(179, 134, 93, 1) !important;
+}
+
+.cart-info-- {
+    height: 46px;
+    line-height: 23px;
+    line-break: anywhere;
+}
+
+.p-sc--- p {
+    margin-bottom: 0;
+    padding-bottom: 0;
+}
+
+.p-sc--- {
+    height: 31px;
+}
+
+.pagination .active::after {
+    display: none !important;
+}
+
+.pagination .page-item-custom.active-custom .page-link-custom {
+    color: #fff;
+}
+
+.pagination .page-item-custom.active-custom {
+    background: #BF9977;
+}
+
+.pagination .page-item-custom .page-link-custom {
+    color: #7C7C7C;
+    display: block;
+}
+
+.pagination a {
+    text-decoration: none;
+    display: block;
+}
+
+.pagination .page-item-custom {
+    display: inline-block;
+    background: rgba(241, 241, 241, 0.40);
+    width: 35px;
+    height: 35px;
+    margin-right: 8px;
+    margin-left: 8px;
+    color: #7C7C7C;
+    text-align: center;
+    line-height: 35px;
+
+}
+
+
+.pagination .page-item-custom-arow{
+    display: inline-block;
+
+    width: 35px;
+    height: 35px;
+    margin-right: 8px;
+    margin-left: 8px;
+    color: #7C7C7C;
+    text-align: center;
+    line-height: 30px;
+}
+.page-item-custom-arow >a{
+    color: #BF9977;
 }

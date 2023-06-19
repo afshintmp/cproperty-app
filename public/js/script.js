@@ -59,3 +59,5 @@ function  showDepositStructure(){
     jQuery('.tabs>span').removeClass('active')
     jQuery('.deposit-structure-head').addClass('active')
 }
+
+

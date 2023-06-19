@@ -13,6 +13,6 @@ class BuildSeeder extends Seeder
      */
     public function run(): void
     {
-        Build::factory()->count(4)->hasImages(4)->hascover(['tag' => 'cover'])->haspromotion(['tag' => 'promotion'])->create();
+        Build::factory()->count(50)->hasImages(4)->hascover(['tag' => 'cover'])->haspromotion(['tag' => 'promotion'])->create();
     }
 }

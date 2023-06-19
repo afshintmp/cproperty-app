@@ -104,10 +104,14 @@
                                     <input type="text" name="city" value="{{old('city')}}" placeholder="city">
                                     <input type="text" name="place_id" value="{{old('place_id')}}"
                                            placeholder="place_id">
-                                    <div class="profile-textarea-custom">
-                                        <textarea name="description"
-                                                  placeholder="type down description here...">{{old('description')}}</textarea>
-
+                                    <div class="profile-textarea-custom position-relative">
+                                        <textarea name="description" maxlength="80"
+                                                  placeholder="type down description here..." id="develop-desc"
+                                                  onkeyup="decriptiocCounter(this)">{{old('description')}}</textarea>
+                                        <span class="ch-counter-sec">
+                                        <span class="ch-counter">0</span>
+                                            / <span class="ch-total">80</span>
+                                            </span>
                                     </div>
 
 
@@ -347,7 +351,8 @@
                                 <div class="input-custom flex-auto self no-logo">
 
                                     <input type="text" name="feature_text"
-                                           placeholder="is there other features? type it down and with '|' separate...." value="{{old('feature_text')}}">
+                                           placeholder="is there other features? type it down and with '|' separate...."
+                                           value="{{old('feature_text')}}">
                                 </div>
 
                             </div>
@@ -464,6 +469,26 @@
         });
     </script>
     <script>
+        jQuery(document).ready(function () {
+                len = jQuery('#develop-desc').val().length
+                jQuery('.ch-counter').html(len)
+            }
+        )
+    </script>
+    <script>
+        function decriptiocCounter(e) {
+
+            len = jQuery('#develop-desc').val().length
+            if (len >80){
+                e.preventDefault()
+                return false;
+
+            }else {
+                jQuery('.ch-counter').html(len)
+            }
+        }
+
+
         function AssignmentNo() {
 
             jQuery('#assi-yes').removeClass('assignment-active')

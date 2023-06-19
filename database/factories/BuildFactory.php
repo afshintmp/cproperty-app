@@ -23,12 +23,11 @@ class BuildFactory extends Factory
             'description' => fake()->text(),
             'promotion_text' => fake()->text(),
             'slug' => fake()->slug(),
-            'deposit' => fake()->text(10),
             'assignment' => fake()->text(10),
             'maintenance' => fake()->text(10),
-            'tower' => fake()->randomDigit(1, 4),
-            'type' => fake()->text(10),
             'pet' => fake()->randomElement(['yes', 'no']),
+            'place_id' => 'ChIJs0-pQ_FzhlQRi_OBm-qWkbs',
+            'city_id' => 1
         ];
     }
 }
