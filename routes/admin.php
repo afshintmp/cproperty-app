@@ -30,4 +30,7 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'role:admin']], func
     Route::post('/features', [FeatureController::class, 'create'])->name('admin.features.create');
     Route::post('/features/delete', [FeatureController::class, 'delete'])->name('admin.features.delete');
 
+    Route::get('/page/checkout', [PageContentController::class, 'editCheckout'])->name('admin.page.checkout.edit');
+    Route::post('/page/checkout', [PageContentController::class, 'updateCheckout'])->name('admin.page.checkout.update');
+
 });

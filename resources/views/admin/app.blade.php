@@ -106,6 +106,12 @@
                             Plans
                         </a>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{route('admin.page.checkout.edit')}}">
+                            <span data-feather="file-text"></span>
+                            Checkout
+                        </a>
+                    </li>
 
                 </ul>
             </div>

@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\BasketController;
 use App\Http\Controllers\BuildController;
+use App\Http\Controllers\CouponController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\DeveloperController;
 use App\Http\Controllers\FeatureController;
@@ -51,12 +52,13 @@ Route::get('/basket/add/{plan}', [BasketController::class, 'add'])->name('basket
 
 Route::get('/checkout', [BasketController::class, 'checkout'])->name('checkout');
 
-Route::get('/map', function (){
+Route::get('/map', function () {
     return view('test');
-}  );
+});
 Route::get('file/create', [FileController::class, 'create'])->name('file.create');
 Route::post('file/create', [FileController::class, 'upload'])->name('file.new');
-
+Route::post('coupon', [CouponController::class, 'store'])->name('coupon');
+Route::get('coupon/remove', [CouponController::class, 'remove'])->name('coupon.remove');
 
 require __DIR__ . '/auth.php';
 require __DIR__ . '/developer.php';

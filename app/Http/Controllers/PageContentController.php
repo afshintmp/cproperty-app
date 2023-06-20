@@ -44,4 +44,19 @@ class PageContentController extends Controller
         $page = DB::table('page_content')->where('name', 'plan')->update($data);
         return back()->with('success', 'page was updated');
     }
+
+
+    public function updateCheckout(Request $request)
+    {
+        $page = DB::table('page_content')
+            ->where('name', 'checkout')->updateOrInsert(['name' => 'checkout', 'content' => $request->description]);
+        return back()->with('success', 'page was updated');
+    }
+
+    public function editCheckout()
+    {
+        $page = DB::table('page_content')->where('name', 'checkout')->first();
+        return view('admin.pages.checkout', compact('page'));
+    }
+
 }

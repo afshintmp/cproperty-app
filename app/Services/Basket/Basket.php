@@ -31,6 +31,16 @@ class Basket
         $plan = $this->storage->get('plan');
         return $plan;
     }
+    public function getName()
+    {
+        $plan = $this->storage->get('plan');
+        return Plan::find($plan)->title;
+    }
+    public function getSummery()
+    {
+        $plan = $this->storage->get('plan');
+        return Plan::find($plan)->tag;
+    }
 
     public function clear()
     {

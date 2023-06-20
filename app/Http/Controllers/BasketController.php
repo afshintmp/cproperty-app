@@ -8,6 +8,7 @@ use App\Services\Payment\Transaction;
 use App\Services\Storage\Contracts\StorageInterface;
 use App\Services\Storage\SessionStorage;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class BasketController extends Controller
 {
@@ -40,6 +41,7 @@ class BasketController extends Controller
         $this->transaction->checkout();
         $plan = (resolve(StorageInterface::class)->get('plan'));
         $plan = Plan::find($plan);
-        return view('checkout' , compact('plan'));
+        $page = DB::table('page_content')->where('name', 'checkout')->first();
+        return view('checkout', compact('plan', 'page'));
     }
 }
