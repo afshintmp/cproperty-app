@@ -9,6 +9,7 @@ use App\Services\Permission\Traits\HasRoles;
 use App\Services\Subscription\Traits\HasSubscription;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Http\Request;
@@ -52,9 +53,14 @@ class User extends Authenticatable
         return $this->belongsTo(Plan::class);
     }
 
-    public function builds() : HasMany
+    public function info(): BelongsTo
     {
-       return $this->hasMany(Build::class);
+        return $this->belongsTo(Info::class);
+    }
+
+    public function builds(): HasMany
+    {
+        return $this->hasMany(Build::class);
 
     }
 
@@ -62,5 +68,18 @@ class User extends Authenticatable
     {
         if (isNull($this->belongsTo(Plan::class))) return false;
         return $this->plan();
+    }
+
+    public function realtorIsActive()
+    {
+        $user_id = auth()->user()->id;
+
+        $info = Info::where('user_id', $user_id)->first();
+
+        if ($info && $info->phone !== null) {
+            return true;
+        }
+
+        return false;
     }
 }

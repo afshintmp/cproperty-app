@@ -52,6 +52,9 @@ Route::get('/basket/add/{plan}', [BasketController::class, 'add'])->name('basket
 
 Route::get('/checkout', [BasketController::class, 'checkout'])->name('checkout');
 
+
+Route::get('/tank-you', [BasketController::class, 'tankspage'])->name('tanks');
+
 Route::get('/map', function () {
     return view('test');
 });
@@ -60,6 +63,9 @@ Route::post('file/create', [FileController::class, 'upload'])->name('file.new');
 Route::post('coupon', [CouponController::class, 'store'])->name('coupon');
 Route::get('coupon/remove', [CouponController::class, 'remove'])->name('coupon.remove');
 
+
+
 require __DIR__ . '/auth.php';
 require __DIR__ . '/developer.php';
+require __DIR__ . '/realtor.php';
 require __DIR__ . '/admin.php';

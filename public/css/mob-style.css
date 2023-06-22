@@ -1,4 +1,7 @@
-@media only screen and (max-width: 576px) {
+@media only screen and (max-width: 992px) {
+    .login-end-cart {
+        margin-bottom: 30px;
+    }
 
     .dreamstm-title {
         font-size: 26px;
@@ -131,40 +134,61 @@
         background: unset;
         box-shadow: unset;
     }
-    .brardcurmbs{
+
+    .brardcurmbs {
         display: none;
     }
+
     .uploader {
 
-        padding:  30px;
+        padding: 30px;
         display: inline-block;
     }
-    .ms-31{
+
+    .ms-31 {
         margin-left: 0;
     }
+
     .profile-input-custom > .input-custom {
-        width: unset!important;
+        width: unset !important;
     }
-    .profile-input-custom{
+
+    .profile-input-custom {
         display: flex;
         justify-content: space-between;
     }
-    .profile-input-custom{
+
+    .profile-input-custom {
         margin-bottom: 16px;
     }
-    .uploader{
+
+    .uploader {
         margin-bottom: 32px;
     }
+
     .profile-input-custom > label {
 
         line-height: 40px;
     }
+
     .admin-nav-bar {
         margin-top: 21px;
         padding-top: 30px;
         margin-bottom: 21px;
     }
-    .m-b-mob-25{
+
+    .m-b-mob-25 {
         margin-bottom: 25px;
+    }
+
+    .plans-add-to-cart > a {
+        font-size: 20px !important;
+    }
+
+    .login-end-cart-title {
+        font-size: 16px;
+        font-weight: 400;
+        font-family: 'mazzard_m_light';
+        line-height: 18px;
     }
 }

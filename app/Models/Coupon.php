@@ -10,6 +10,7 @@ class Coupon extends Model
 {
     use HasFactory;
 
+    protected $fillable = ['code', 'limit_uses', 'expire_time', 'present'];
 
     public function isExpires(): bool
     {

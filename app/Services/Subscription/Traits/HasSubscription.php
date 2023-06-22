@@ -21,10 +21,10 @@ trait HasSubscription
         return $this->hasPlan();
     }
 
-    public function addPlanToUser($order)
+    public function addPlanToUser($plan_id, $start_time, $end_time)
     {
 
-        $this->plans()->sync([1 => ['started_time' => '2023-06-06 20:03:16' , 'end_life_time' => '2023-06-06 20:03:16']]);
+        $this->plans()->sync([$plan_id => ['started_time' => $start_time, 'end_life_time' => $end_time]]);
 
     }
 

@@ -33,11 +33,21 @@ class PageContentController extends Controller
             ];
 
         } else {
-            $data = ['title' => $request->title,
-                'content' => $request->description,
-                'image' => 'image' . DIRECTORY_SEPARATOR . $request->file->getClientOriginalName()
-            ];
-            $this->uploader->upload();
+            if($request->file){
+
+                $data = ['title' => $request->title,
+                    'content' => $request->description,
+                    'image' => 'image' . DIRECTORY_SEPARATOR . $request->file->getClientOriginalName()
+                ];
+                $this->uploader->upload();
+
+
+            }else{
+                $data = ['title' => $request->title,
+                    'content' => $request->description,
+                    'image' => Null
+                ];
+            }
 
 
         }

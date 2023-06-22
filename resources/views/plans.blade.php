@@ -11,7 +11,7 @@
     <div class="dreamstm">
         <div class="container">
             <div class="row pt-5">
-                <div class="col-12 col-md-5">
+                <div class="col-12 col-lg-5">
                     @if(!empty($page->image))
 
                         <img src="{{asset('storage/' .$page->image)}}" class="w-100"/>
@@ -20,7 +20,7 @@
                         <img src="{{asset('img/Group 1000004540.png')}}" class="w-100"/>
                     @endif
                 </div>
-                <div class="col-md-7 col-12  d-flex align-items-center pr-34">
+                <div class="col-lg-7 col-12  d-flex align-items-center">
                     <div class="align-items-center">
                         <h2 class="dreamstm-title mb-35">
                             {{$page->title}}
@@ -47,7 +47,7 @@
                         <div class="plan-head">
                             <h3 class="plan-title">Enhanced</h3>
 
-                            <span class="plan-sub-title">3 Mounth</span>
+                            <span class="plan-sub-title">{{$enhanced->tag}}</span>
                             <div class="clear-fix"></div>
                         </div>
                         <div class="plan-body info-- text-00">
@@ -76,7 +76,7 @@
                         <div class="plan-head">
                             <h3 class="plan-title">Enhanced</h3>
 
-                            <span class="plan-sub-title">Annual</span>
+                            <span class="plan-sub-title">{{$annualEnhanced->tag}}</span>
                             <div class="clear-fix"></div>
                         </div>
                         <div class="plan-body info-- text-00">
@@ -113,7 +113,7 @@
                         <div class="plan-head">
                             <h3 class="plan-title">Starter</h3>
 
-                            <span class="plan-sub-title">3 Mounth</span>
+                            <span class="plan-sub-title">{{$starter->tag}}</span>
                             <div class="clear-fix"></div>
                         </div>
                         <div class="plan-body info--">
@@ -143,7 +143,7 @@
                         <div class="plan-head">
                             <h3 class="plan-title">Starter</h3>
 
-                            <span class="plan-sub-title">Annual</span>
+                            <span class="plan-sub-title">{{$annualStarter->tag}}</span>
                             <div class="clear-fix"></div>
                         </div>
                         <div class="plan-body info--">

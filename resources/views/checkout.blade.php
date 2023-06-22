@@ -3,12 +3,11 @@
     <link rel="stylesheet" href="{{ asset('css/admin-style.css') }}">
 @endsection
 @section('content')
-    @inject('cost' , 'App\Services\Cost\Contracts\CostInterface')
+    @inject('cart' , 'App\Services\Basket\Cart')
     @inject('basket' , 'App\Services\Basket\Basket')
     @inject('coupon' , 'App\Services\Basket\Coupon')
-{{--    {{dd($basket->getSummery())}}--}}
-    {{$coupon->total()}}
-    <div class="container">
+
+    <div class="container mt-70">
 
         <div class="row">
 
@@ -16,13 +15,13 @@
 
 
         <div class="row">
-            <div class="col-4">
+            <div class="col-12 col-md-4">
                 <div class=" pe-1 ps-1">
-                    <h4>Rules</h4>
+                    <h4 class="login-end-cart-title">Rules</h4>
                     <div class="login-end-cart condition-parent box-shadow-login p-4">
 
                         <div class="custom-scroll-bar text-4a">
-                            {!! $page->content !!}
+                            {!! $page?->content !!}
                         </div>
 
 
@@ -35,9 +34,9 @@
 
                 </div>
             </div>
-            <div class="col-4">
+            <div class="col-12 col-md-4">
                 <div class=" pe-1 ps-1">
-                    <h4>Payment Method</h4>
+                    <h4 class="login-end-cart-title">Payment Method</h4>
                     <div class="login-end-cart checkout-cart box-shadow-login p-4">
                         <div>
                             <div class="payment-method">
@@ -87,22 +86,24 @@
 
                 </div>
             </div>
-            <div class="col-4">
+            <div class="col-12 col-md-4">
                 <div class=" pe-1 ps-1">
-                    <h4>Order details</h4>
+                    <h4 class="login-end-cart-title">Order details</h4>
                     <div class="login-end-cart price-table-sec checkout-cart  box-shadow-login p-4">
                         <div>
-                            <p class="price-table-title">{{$plan->title}}</p><span><a href="">change plan</a></span>
+                            <p class="price-table-title d-inline-block">{{$basket->getName()}}</p>
+
+                            <div class="clear-fix"></div>
                             <table class="price-table top-table">
                                 <tr>
                                     <td>
                                         <p>
-                                            {{$plan->tag}} subscription
+                                            {{$basket->getSummery()}} subscription
                                         </p>
                                     </td>
                                     <td>
                                         <p class="fw-bold text-green">
-                                            {{$plan->price}} <span>Dollar</span>
+                                            {{$basket->subTotal()}} <span>Dollar</span>
                                         </p>
                                     </td>
                                 </tr>
@@ -111,32 +112,18 @@
                                         <form action="{{route('coupon.remove')}}" method="get">
                                             <td>
                                                 <p>
-                                                    {{session()->get('coupon')->code}}
+                                                    {!! $coupon->getCouponName() !!}
                                                 </p>
                                             </td>
                                             <td class="">
-                                                <p class="fw-bold text-green">
-                                                    <input type="submit" value="delete">
+                                                <p class="fw-bold text-green d-inline-block">
+                                                    {{$coupon->getCouponDiscount()}} <span>Dollar</span>
                                                 </p>
                                             </td>
                                         </form>
                                     </tr>
                                 @endif
 
-                                @if(0 == 1)
-                                    <tr>
-                                        <td>
-                                            <p>
-                                                GST/Sales taxes (5%)
-                                            </p>
-                                        </td>
-                                        <td class="">
-                                            <p class="fw-bold text-green">
-                                                20 <span>Dollar</span>
-                                            </p>
-                                        </td>
-                                    </tr>
-                                @endif
                             </table>
                             <table class="price-table">
                                 <tr>
@@ -147,7 +134,7 @@
                                     </td>
                                     <td>
                                         <p class="text-green fw-bold">
-                                            {{$plan->price}} <span>Dollar</span>
+                                            {{$cart->total()}} <span>Dollar</span>
                                         </p>
                                     </td>
                                 </tr>
@@ -171,12 +158,23 @@
                                             {{session('promo_success')}}
                                         </div>
                                     @endif
-                                    <input class="form-control mb-3" name="coupon"
-                                           placeholder="type promo code if you have">
-                                    <input type="submit" name="promo" value="submit">
+                                    <table>
+                                        <tr>
+                                            <td>
+                                                <input class="form-control mb-3 outline-none" name="coupon"
+                                                       placeholder="type promo code if you have">
+                                            </td>
+                                            <td class="vertical-top">
+                                                <input type="submit" class="c-btn-one add-promo-code" name="promo"
+                                                       value="submit">
+                                            </td>
+                                        </tr>
+                                    </table>
                                 </form>
                             @endif
-                            <input type="submit" class="btn-green w-100 text-center" value="Confirm and pay">
+                            <form action="{{route('tanks')}}">
+                                <input type="submit" class="btn-green w-100 text-center" value="Confirm and pay">
+                            </form>
                         </div>
                     </div>
 

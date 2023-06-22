@@ -14,21 +14,17 @@ class Coupon
         $this->storage = $storage;
     }
 
-    public function total()
+    public function getCouponName()
+    {
+        return session()->get('coupon')->code . '<span class="text-green">(' . session()->get('coupon')->present . '%) </span>';
+    }
+
+    public function getCouponDiscount()
     {
         $plan = (session()->get('cart.plan'));
         $plan_price = Plan::find(session()->get('cart.plan'))->price;
         $coupon = (session()->get('coupon'));
-        if (!is_null($coupon)){
-            dump($plan_price - ($plan_price * $coupon->present / 100));
-
-
-
-        }
-        dump($plan_price);
-        //        return session()->->get('coupon');
-
+        return $plan_price * $coupon->present / 100;
     }
-
 
 }

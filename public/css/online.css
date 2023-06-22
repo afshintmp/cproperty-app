@@ -754,3 +754,79 @@ textarea:focus {
 
     top: 48px;
 }
+
+.brardcurmbs {
+
+    z-index: 1;
+    position: relative;
+}
+
+.admin-nav-bar-list {
+    position: relative;
+    z-index: 6;
+    background: #fff;
+}
+
+.label-required,
+.required {
+    color: red;
+    font-size: 14px;
+    font-family: 'mazzard_m_light';
+}
+
+.label-required {
+    display: block;
+    margin-left: 10px;
+    font-size: 12px;
+}
+
+.profile-input-custom-icon-input-fix .w-fix {
+    width: calc(100% - 35px);
+}
+
+.plan-body ul {
+
+    list-style: disc;
+}
+
+.plans-add-to-cart > a {
+    font-weight: 600;
+    font-size: 26px;
+
+    font-family: 'mazzard_m_bold';
+}
+
+
+.custom-scroll-bar > p {
+    font-family: 'mazzard_m_light';
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 18px;
+    text-align: justify;
+}
+
+body {
+    min-height: 100vh;
+}
+
+.btn-a-controller:hover {
+    color: #fff;
+    background: rgba(179, 134, 93, 0.84) !important;
+}
+
+.btn-a-controller {
+    text-decoration: 0;
+    margin-top: -5px;
+    display: inline-block;
+    color: #fff;
+}
+
+.price-table.top-table {
+    margin-top: 20px;
+}
+
+.add-promo-code {
+    padding-top: 6px;
+    padding-bottom: 7px;
+
+}

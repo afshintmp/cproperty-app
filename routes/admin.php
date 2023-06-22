@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CouponController;
 use App\Http\Controllers\FeatureController;
 use App\Http\Controllers\PageContentController;
 use App\Http\Controllers\PlanController;
@@ -32,5 +33,10 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'role:admin']], func
 
     Route::get('/page/checkout', [PageContentController::class, 'editCheckout'])->name('admin.page.checkout.edit');
     Route::post('/page/checkout', [PageContentController::class, 'updateCheckout'])->name('admin.page.checkout.update');
+
+
+    Route::get('/discount-code', [CouponController::class, 'adminList'])->name('admin.discount.list');
+    Route::post('/discount-code', [CouponController::class, 'adminListStore'])->name('admin.discount.store');
+    Route::post('/discount-code/delete', [CouponController::class, 'adminListDelete'])->name('admin.discount.delete');
 
 });
