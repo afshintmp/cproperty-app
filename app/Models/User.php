@@ -70,6 +70,22 @@ class User extends Authenticatable
         return $this->plan();
     }
 
+
+    public function dashboardLink()
+    {
+
+
+        if ($this->hasRole('admin')) {
+            return 'admin';
+        }
+        if ($this->hasRole('developer')) {
+            return 'developer';
+        }
+
+        return 'realtor';
+
+    }
+
     public function realtorIsActive()
     {
         $user_id = auth()->user()->id;

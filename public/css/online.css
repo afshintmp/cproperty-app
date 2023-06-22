@@ -830,3 +830,42 @@ body {
     padding-bottom: 7px;
 
 }
+
+.list-view-profile-img > img {
+    width: 120px;
+    height: 120px;
+}
+
+.list-view-profile-img {
+    display: inline-block;
+    width: 120px;
+    height: 120px;
+}
+
+.list-view-profile-sec {
+    display: inline-block;
+}
+
+.list-view-profile-sec{
+    margin-left: 45px;
+    vertical-align: middle;
+}
+.list-view-profile-title{
+    font-family: 'mazzard_m_bold';
+    font-size: 26px;
+    font-weight: 600;
+}
+.list-view-profile-des > p{
+    font-family: mazzard_m_regular;
+    font-weight: 500;
+    font-size: 16px;
+    display: inline-block;
+    margin-bottom: 0;
+    vertical-align: -1px;
+}
+.list-view-profile-cart-icon{
+
+}
+.list-view-profile-des{
+    margin-right: 10px;
+}
