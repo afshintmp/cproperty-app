@@ -59,11 +59,15 @@
 
                                 <div style="flex: 0 0 219px;">
                                     <div>
-                                        <input type="file" name="cover" id="select-cover">
+                                        <input type="file" name="cover" id="">
                                     </div>
-                                    <div>
 
-                                        <input type="file" name="images[]" id="select-images" multiple>
+{{--                                    <div>--}}
+{{--                                        <input type="file" name="cover" id="select-cover">--}}
+{{--                                    </div>--}}
+                                    <div class="mt-5">
+
+                                        <input type="file" name="images[]" id="" multiple>
                                     </div>
                                 </div>
 

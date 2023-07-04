@@ -6,7 +6,9 @@ use App\Models\Build;
 use App\Models\City;
 use App\Models\Deposit;
 use App\Models\Feature;
-use App\Models\Image;
+
+//use App\Models\Image;
+use App\Models\Info;
 use App\Services\Uploader\StorageManager;
 use App\Services\Uploader\Uploader;
 use Illuminate\Http\Request;
@@ -14,6 +16,7 @@ use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Str;
 use function PHPUnit\Framework\isNull;
+use Intervention\Image\Facades\Image;
 
 class DeveloperController extends Controller
 {
@@ -29,7 +32,7 @@ class DeveloperController extends Controller
 
     public function editProject(Build $build)
     {
-        $build->load(['deposits', 'phases', 'cover' , 'features']);
+        $build->load(['deposits', 'phases', 'cover', 'features']);
         $features = Feature::all();
         return view('developer.project.edit', compact('features', 'build'));
     }
@@ -42,9 +45,20 @@ class DeveloperController extends Controller
         return back();
     }
 
-    public function index()
+    public function dashboard()
     {
-        return view('developer.index');
+        $user = auth()->user();
+        $info = null;
+        $alarm = !($user->realtorIsActive());
+
+        return view('developer.dashboard', compact('info', 'user'))->with('alarm', $alarm);
+    }
+
+    public function editProfile()
+    {
+        $user = auth()->user();
+        $info = Info::where('user_id', $user->id)?->first();
+        return view('developer.index', compact('user', 'info'));
     }
 
     public function listProject()
@@ -65,6 +79,7 @@ class DeveloperController extends Controller
     public function createProject(Request $request)
     {
 
+
         $this->createBuild($request);
         return redirect()->route('developer.project.list')->with('success', 'build was create');
 
@@ -72,6 +87,7 @@ class DeveloperController extends Controller
 
     private function createBuild($request)
     {
+
 
         $city = City::firstOrCreate([
             'name' => $request->city
@@ -89,13 +105,15 @@ class DeveloperController extends Controller
             'city' => ['required'],
             'place_id' => ['required'],
         ]);
-
+        $completion_year = explode('-', $request->completion_date);
+        $completion_year = $completion_year[1];
 
         $build = $request->all('name', 'location', 'assignment', 'completion_date', 'pet', 'promotion_text',
-            'promotion_title', 'maintenance', 'description' , 'place_id' , 'feature_text');
+            'promotion_title', 'maintenance', 'description', 'place_id', 'feature_text');
         $build['slug'] = Str::slug($request->name);
         $build['city_id'] = $city->id;
-
+        $build['completion_year'] = $completion_year;
+        $build['sum_deposit'] = (array_sum($request->depositNumber));
         $build = Build::create($build);
 
         if (!empty($request->feature)) {
@@ -106,6 +124,7 @@ class DeveloperController extends Controller
         $depositNum = $request->depositNumber;
         $depositTxt = $request->depositText;
         $date = [];
+
         foreach ($depositNum as $key => $num) {
             $date[] = ['number' => $num, 'text' => $depositTxt[$key]];
         }
@@ -150,17 +169,17 @@ class DeveloperController extends Controller
         ]);
 
         $buildData = $request->all('name', 'location', 'assignment', 'completion_date', 'pet', 'promotion_text',
-            'promotion_title', 'maintenance', 'description' , 'feature_text');
+            'promotion_title', 'maintenance', 'description', 'feature_text');
 
         $buildData['slug'] = Str::slug($request->name);
 
-        if ($request->city !== 'stable'){
+        if ($request->city !== 'stable') {
             $city = City::firstOrCreate([
                 'name' => $request->city
             ]);
             $build['city_id'] = $city->id;
         }
-        if ($request->place_id !== 'stable'){
+        if ($request->place_id !== 'stable') {
             $build['place_id'] = $request->place_id;
         }
 
@@ -253,8 +272,32 @@ class DeveloperController extends Controller
                         'tag' => ''
                     ];
 
-                };
+                    $src = 'storage/' . 'image' . DIRECTORY_SEPARATOR . $img->getClientOriginalName();
 
+                    $mainImage = Image::make($src);
+
+                    $width = $mainImage->width();
+
+                    $height = $mainImage->height();
+
+                    if ($width > $height) {
+                        $width = 400;
+                        $height = null;
+                    } else {
+                        $height = 400;
+                        $width = null;
+                    }
+
+
+                    $background = $mainImage->blur(100)->resize(400, 400);
+
+                    $background->insert(Image::make($src)->resize($width, $height, function ($constraint) {
+                        $constraint->aspectRatio();
+                    }), 'center');
+
+                    $background->save($src);
+
+                };
 
             }
             if (!empty($stable)) {
@@ -290,7 +333,35 @@ class DeveloperController extends Controller
                 'imageable_id' => $buildId,
                 'tag' => 'cover'
             ];
+
             DB::table('images')->insert($data);
+            $src = 'storage/' . 'image' . DIRECTORY_SEPARATOR . $request->cover->getClientOriginalName();
+
+
+            $mainImage = Image::make($src);
+
+            $width = $mainImage->width();
+
+            $height = $mainImage->height();
+
+            if ($width > $height) {
+                $width = 400;
+                $height = null;
+            } else {
+                $height = 400;
+                $width = null;
+            }
+
+
+            $background = $mainImage->blur(100)->resize(400, 400);
+
+            $background->insert(Image::make($src)->resize($width, $height, function ($constraint) {
+                $constraint->aspectRatio();
+            }), 'center');
+
+            $background->save($src);
+
+
         }
         if (is_null($request->cover)) {
             DB::table('images')->where([

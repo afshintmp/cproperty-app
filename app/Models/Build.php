@@ -18,8 +18,8 @@ class Build extends Model
 
 
     protected $fillable = ['name',
-        'location', 'description', 'completion_date', 'assignment', 'maintenance', 'pet', 'slug', 'developer',
-        'promotion_title', 'promotion_text', 'place_id', 'city_id', 'feature_text'];
+        'location', 'description', 'completion_date', 'completion_year', 'assignment', 'maintenance', 'pet', 'slug', 'developer',
+        'promotion_title', 'promotion_text', 'place_id', 'city_id', 'sum_deposit', 'feature_text'];
 
 //    protected $with = ['images'];
 
@@ -121,14 +121,18 @@ class Build extends Model
 
     public function getMaxPriceAttribute()
     {
-        $unit = $this->units()->orderBy('price', 'desc')->first();
-        if ($unit) return $unit->price;
+//        return 200;
+        $unit = $this->units()->orderBy('end_price', 'desc')->first();
+        if ($unit) return '$' . number_format($unit->end_price); else return 'unknown';
+
     }
 
     public function getMinPriceAttribute()
     {
-        $unit = $this->units()->orderBy('price', 'asc')->first();
-        if ($unit) return $unit->price;
+        $unit = $this->units()->orderBy('start_price', 'asc')->first();
+//        return 100;
+//        dump($unit);
+        if ($unit) return '$' . number_format($unit->start_price); else return 'unknown';
     }
 
     public function getSumDepositAttribute()

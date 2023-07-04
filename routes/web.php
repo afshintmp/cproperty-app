@@ -52,6 +52,7 @@ Route::get('/basket/add/{plan}', [BasketController::class, 'add'])->name('basket
 
 Route::get('/checkout', [BasketController::class, 'checkout'])->name('checkout');
 
+Route::get('/you-have-early-account' , [BasketController::class, 'youHaveEarlyAccount'])->name('youHaveEarlyAccount');
 
 Route::get('/tank-you', [BasketController::class, 'tankspage'])->name('tanks');
 

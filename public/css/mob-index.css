@@ -1,0 +1,69 @@
+@media only screen and (max-width: 576px) {
+    .main-slide{
+        display: none;
+    }
+    .main-loc{
+        width: 100%!important;
+    }
+    .w-custom{
+        width: 100%;
+    }
+
+
+
+    .block-title h3{
+        color: #000;
+        font-size: 26px;
+        font-family: Mazzard;
+        font-style: normal;
+        font-weight: 600;
+        line-height: normal;
+    }
+
+
+    .bloc-title-description{
+        color: #6F6F6F;
+        text-align: center;
+        font-size: 16px;
+        font-family: Inter;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 170.523%;
+    }
+
+    .mob-mb-31{
+        margin-bottom: 31px;
+    }
+    .small-loc{
+        display: none!important;
+    }
+    .latest-project {
+        padding-bottom: 65px;
+    }
+    .building-new-home-cart{
+        flex: 0 0 100%;
+    }
+    .dreamstm-title{color: #555;
+        text-align: center;
+        font-size: 38px;
+        font-family: Mazzard;
+        font-style: normal;
+        font-weight: 700;
+        line-height: normal;
+    }
+    .dreamstm-prag{
+        color: #757095;
+        text-align: center;
+        font-size: 15px;
+        font-family: Manrope;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 34.5px;
+        letter-spacing: -0.3px;
+    }
+
+    .mob-mb-10{
+        margin-bottom: 10px;
+    }
+   
+}

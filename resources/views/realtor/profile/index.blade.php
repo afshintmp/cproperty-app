@@ -68,7 +68,7 @@
                                 <div>
                                     <input type="file" name="cover" id="select-image">
                                     <div class="image-preview mt-3">
-                                        <img class="w-100" src="{{asset('storage/' .$info->image)}}" alt="">
+                                        <img class="w-100" src="{{asset('storage/' .$info?->image)}}" alt="">
                                     </div>
                                 </div>
 
@@ -91,33 +91,34 @@
                                     </svg>
 
                                 </span>
-                                        <input type="text" readonly value="{{$user->name}}">
+                                        <input type="text" readonly value="{{$user?->name}}">
                                     </div>
 
                                 </div>
                                 <div class="profile-input-custom">
-                                    <label for="">Fullname:</label>
-                                    <div class="input-custom w-420">
-                                <span>
-                                    <svg width="15" height="15" viewBox="0 0 15 15" fill="none"
-                                         xmlns="http://www.w3.org/2000/svg">
-                                        <path
-                                            d="M10 9.375H5C3.61929 9.375 2.5 10.4943 2.5 11.875V13.125H12.5V11.875C12.5 10.4943 11.3807 9.375 10 9.375Z"
-                                            stroke="#4A5568" stroke-width="1.5" stroke-linecap="round"
-                                            stroke-linejoin="round"/>
-                                        <path
-                                            d="M7.5 6.875C8.88071 6.875 10 5.75571 10 4.375C10 2.99429 8.88071 1.875 7.5 1.875C6.11929 1.875 5 2.99429 5 4.375C5 5.75571 6.11929 6.875 7.5 6.875Z"
-                                            stroke="#4A5568" stroke-width="1.5" stroke-linecap="round"
-                                            stroke-linejoin="round"/>
-                                    </svg>
+                                    <label for="">Fullname:
+                                        <span class="label-required">* required</span>
+                                    </label>
 
-                                </span>
+                                    <div class="input-custom w-420">
+                                            <span>
+                                                <svg width="15" height="15" viewBox="0 0 15 15" fill="none"
+                                                     xmlns="http://www.w3.org/2000/svg">
+                                                    <path
+                                                        d="M10 9.375H5C3.61929 9.375 2.5 10.4943 2.5 11.875V13.125H12.5V11.875C12.5 10.4943 11.3807 9.375 10 9.375Z"
+                                                        stroke="#4A5568" stroke-width="1.5" stroke-linecap="round"
+                                                        stroke-linejoin="round"/>
+                                                    <path
+                                                        d="M7.5 6.875C8.88071 6.875 10 5.75571 10 4.375C10 2.99429 8.88071 1.875 7.5 1.875C6.11929 1.875 5 2.99429 5 4.375C5 5.75571 6.11929 6.875 7.5 6.875Z"
+                                                        stroke="#4A5568" stroke-width="1.5" stroke-linecap="round"
+                                                        stroke-linejoin="round"/>
+                                                </svg>
+
+                                            </span>
                                         <input type="text" placeholder="type down your fullname" name="fullName"
                                                value="{{$info?->full_name}}">
                                     </div>
-                                    <span class="required">
-                                    * required
-                                </span>
+
 
                                 </div>
                                 <div class="profile-input-custom">
@@ -141,7 +142,7 @@
 
                             <div class="text-center">
 
-                                <input type="hidden" name="email" value="{{$user->email}}">
+                                <input type="hidden" name="email" value="{{$user?->email}}">
                                 <button class="green-btn float-md-end p-30-17 mt-25 mb-50 m-b-mob-25">add changes
                                 </button>
                                 <div class="clear-fix"></div>
@@ -170,7 +171,7 @@
 
 '
                                                                      type="text" name="email"
-                                                                     valueTxt="{{$user->email}}"
+                                                                     valueTxt="{{$user?->email}}"
                                                                      placeholderTxt="type down your facebook account">
                                         </x-CustomForms.ReadonlyInput>
                                     </div>
@@ -193,7 +194,7 @@
 
                                 </span>
                                         <input type="text" placeholder="type down your phone number" name="phone"
-                                               value="{{$info->phone}}">
+                                               value="{{$info?->phone}}">
                                     </div>
 
                                 </div>

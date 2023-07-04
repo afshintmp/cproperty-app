@@ -12,6 +12,135 @@
 
 @section('content')
     @parent
+    <div id="unit-box" class="unit-modal-sec">
+
+        <div class="container vh-100 ">
+            <div class="row vh-100 justify-content-center align-content-center">
+                <div class="col-9">
+                    <div class="unit-box">
+                        <div class="row">
+                            <div class="col-12 justify-content-end">
+                            <span class="close d-inline-block float-end cursor-pointer" onclick="closeModal()">
+                                 <svg width="22" height="22" viewBox="0 0 22 22" fill="none"
+                                      xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M10.7489 12.1037L6.15203 16.7006L4.91531 15.4639L9.51221 10.867L4.91531 6.27008L6.1287 5.05668L10.7256 9.65358L15.3225 5.05668L16.5592 6.29341L11.9623 10.8903L16.5592 15.4872L15.3458 16.7006L10.7489 12.1037Z"
+                                    fill="#4A5568"/>
+                                </svg>
+
+                            </span>
+                            </div>
+                            <div class="col-4">
+                                <div class="unit-image">
+                                    <img src="{{asset('img/Rectangle 9792.svg')}}" alt="">
+                                </div>
+                            </div>
+                            <div class="col-8">
+                                <div class="unit-info">
+                                    <h3>Floor Plan : A2</h3>
+                                </div>
+                                <div class="row">
+                                    <div class="col-6">
+                                        <span>
+                                            price :
+                                        </span>
+                                        <span id="start_price" class="unit-box-field"></span>
+                                        <span class="seprator">-</span>
+                                        <span id="end_price" class="unit-box-field"></span>
+
+                                    </div>
+                                    <div class="col-6">
+                                           <span>
+                                                size :
+                                            </span>
+                                        <span id="start_size" class="unit-box-field"></span>
+                                        <span class="seprator">-</span>
+                                        <span id="end_size" class="unit-box-field"></span>
+                                        <span>Sq/Ft</span>
+                                    </div>
+                                    <div class="col-6">
+                                        <span>
+                                            number of bedroom :
+                                        </span>
+                                        <span id="start_bedroom" class="unit-box-field"></span>
+                                        <span class="seprator">-</span>
+                                        <span id="end_bedroom" class="unit-box-field"></span>
+                                    </div>
+                                    <div class="col-6">
+                                        <span>
+                                            number of bathroom :
+                                        </span>
+
+                                        <span id="start_bedroom" class="unit-box-field"></span>
+                                        <span class="seprator">-</span>
+                                        <span id="end_bedroom" class="unit-box-field"></span>
+                                    </div>
+                                    <div class="col-6">
+                                        <span>
+                                            number of dens :
+                                        </span>
+                                        <span id="start_dens" class="unit-box-field"></span>
+                                        <span class="seprator">-</span>
+                                        <span id="end_dens" class="unit-box-field"></span>
+
+                                    </div>
+                                    <div class="col-6">
+                                        <span>
+                                            storage :
+                                        </span>
+                                        <span id="start_storage" class="unit-box-field"></span>
+                                        <span class="seprator">-</span>
+                                        <span id="end_storage" class="unit-box-field"></span>
+                                    </div>
+                                    <div class="col-6">
+                                        <span>
+                                            parking :
+                                        </span>
+                                        <span id="start_parking" class="unit-box-field"></span>
+                                        <span class="seprator">-</span>
+                                        <span id="end_parking" class="unit-box-field"></span>
+                                    </div>
+                                    <div class="col-6">
+                                        <span>
+                                            balcony :
+                                        </span>
+                                        <span id="start_balcony" class="unit-box-field"></span>
+                                        <span class="seprator">-</span>
+                                        <span id="end_balcony" class="unit-box-field"></span>
+                                    </div>
+                                    <div class="col-6">
+                                        <span>
+                                            garden :
+                                        </span>
+                                        <span id="start_garden" class="unit-box-field"></span>
+                                        <span class="seprator">-</span>
+                                        <span id="end_garden" class="unit-box-field"></span>
+                                    </div>
+                                    <div class="col-6">
+                                        <span>
+                                            floor :
+                                        </span>
+                                    </div>
+                                    <div class="col-6">
+                                        <span>
+                                            face :
+                                        </span>
+                                    </div>
+                                    <div class="col-6">
+                                        <span>
+                                            tower :
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+    </div>
 
 
     <div class="container">
@@ -130,7 +259,7 @@
                         <div class="price-wrapper d-inline-block">
                             <span class="price-head ">from</span>
                             <p class="price-field price-field-from--  ">
-                                ${{number_format($build->min_price)}} </p>
+                                {{($build->min_price)}} </p>
                         </div>
                     @endif
                     @if($build->max_price)
@@ -140,7 +269,7 @@
                         <div class=" price-wrapper d-inline-block">
                             <span class="price-head ">from</span>
                             <p class="price-field price-field-to--  ">
-                                ${{number_format($build->max_price)}}
+                                {{($build->max_price)}}
                             </p>
                         </div>
                     @endif
@@ -452,20 +581,24 @@
                     <div class="unit" style="display: none">
                         <ul>
                             @forelse($build->units as $unit)
-                                {
+
                                 <li>
                                     <p>Floor Plan:{{$unit->name}} </p>
-                                    <p>Bedroom: {{$unit->bedroom}}</p>
-                                    <p>Bathroom: {{$unit->bathroom}}</p>
-                                    <p>Size: {{$unit->size}} Sq/ft</p>
+                                    <p>Bedroom: {{$unit->start_bedroom}} - {{$unit->end_bedroom}}</p>
+                                    <p>Bathroom: {{$unit->start_bathroom}} - {{$unit->end_bathroom}}</p>
+                                    <p>Size: {{$unit->start_size}} {{$unit->end_size}} Sq/ft</p>
                                     <p>Floor: {{$unit->floor}}</p>
                                     <p>Price:
                                         <span class="text-green">
-                                        ${{number_format($unit->price)}}
+                                        ${{number_format($unit->start_price)}}
+                                        </span>
+
+                                        <span class="text-green">
+                                        ${{number_format($unit->end_price)}}
                                         </span>
                                     </p>
-                                    <p class="line-height-unset">
-                                        <button class="more"> more
+                                    <p class="line-height-unset border-r-unset">
+                                        <button class="more" onclick="showUnitBox('{{$unit->id}}')"> more
                                             <img class="vector"
                                                  src="https://cproperty.ca/wp-content/themes/astra-child/svg/Vector.svg"
                                                  alt="">
@@ -577,4 +710,31 @@
         </div>
 
     </div>
+@endsection
+
+@section('custom-script')
+
+    <script>
+        const unitData = <?php echo json_encode($unitObject) ?>;
+
+        console.log(unitData)
+        function showUnitBox(id) {
+            console.log(unitData[id]);
+            console.log(unitData[id]['start_price'])
+            jQuery('#unit-box').show()
+
+            jQuery('.unit-box-field').each(function () {
+                key = (jQuery(this).attr('id'));
+
+                jQuery(this).html(unitData[id][key])
+            });
+
+
+        }
+
+        function closeModal() {
+            jQuery('#unit-box').hide()
+        }
+    </script>
+
 @endsection

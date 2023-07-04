@@ -27,16 +27,16 @@
                             <div class="clear-fix"></div>
                         </div>
                     </div>
-                    <div {{$active == 'developer'? 'class=active' : '' }} >
-                        Developer
+                    <div {{$active == 'realtor'? 'class=active' : '' }} >
+                        Realtor
                         <div class="admin-nav-bar-list-wrapper">
                             <ul class="admin-nav-bar-list">
                                 <li>
-                                    <a href="{{route('developer.project.add')}}">
+                                    <a href="{{route('realtor.favouriteUnits.list')}}">
                                     <span>
-                                        <img src="{{asset('img/image%2042(2).svg')}}" alt="">
+                                        <img src="{{asset('img/like.svg')}}" alt="">
                                     </span>
-                                        add project
+                                       favorite units
                                     </a>
                                 </li>
                                 <li>

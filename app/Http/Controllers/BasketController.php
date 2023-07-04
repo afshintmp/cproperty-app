@@ -16,9 +16,9 @@ class BasketController extends Controller
     private $basket;
 
     private $transaction;
-     private $cart ;
+    private $cart;
 
-    public function __construct(Basket $basket, Transaction $transaction , Cart $cart)
+    public function __construct(Basket $basket, Transaction $transaction, Cart $cart)
     {
         $this->basket = $basket;
         $this->transaction = $transaction;
@@ -33,6 +33,7 @@ class BasketController extends Controller
         if (!auth()->user()) {
             return view('auth.register');
         } else {
+
             return redirect()->route('checkout');
         }
 
@@ -40,7 +41,10 @@ class BasketController extends Controller
 
     public function checkout()
     {
-
+        if (auth()->user()->hasPlan()) {
+            resolve(StorageInterface::class)->clear();
+            return redirect()->route('youHaveEarlyAccount');
+        }
         $page = DB::table('page_content')->where('name', 'checkout')->first();
         return view('checkout', compact('page'));
     }
@@ -49,9 +53,16 @@ class BasketController extends Controller
     function tankspage()
     {
 
-        $this->transaction->checkout();
 
+        $this->transaction->checkout();
+        resolve(StorageInterface::class)->clear();
         return view('tanks');
 
     }
+
+    function youHaveEarlyAccount()
+    {
+        return view('youHaveEarlyAccount');
+    }
+
 }

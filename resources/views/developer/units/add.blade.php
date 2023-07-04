@@ -21,7 +21,7 @@
                             >
                         </span>
                         <p>
-                            Add Build
+                            Add Unit
                         </p>
                     </div>
                 </div>
@@ -49,7 +49,8 @@
                         Add Unit
                     </h3>
 
-                    <form action="{{route('developer.unit.create' ,$build->id)}}" method="post" enctype="multipart/form-data">
+                    <form action="{{route('developer.unit.create' ,$build->id)}}" method="post"
+                          enctype="multipart/form-data">
                         {{csrf_field()}}
                         <div class="have-back-shadow add-developer-padding section-input-bdrs-unset add-unit-form">
                             <h3 class="admin-sec-subtitle admin-sec-title mb-3">
@@ -58,7 +59,7 @@
                             <div class="d-flex">
                                 <div style="flex: 0 0 219px;">
                                     <div>
-                                        <input type="file" name="floor_plan" id="select-image"/>
+                                        <input type="file" name="floor_plan" id=""/>
                                     </div>
                                 </div>
 
@@ -69,8 +70,9 @@
 
                                         <div class="input-custom flex-auto w-100 price-input self no-logo">
 
-                                            <input type="text" required class="w-100" name="name" placeholder="Floor Plan Name"
-                                                   value="{{old('price')}}">
+                                            <input type="text"  class="w-100" name="name"
+                                                   placeholder="Floor Plan Name"
+                                                   value="">
                                         </div>
 
 
@@ -184,17 +186,17 @@
                                         Floors:
                                     </h3>
                                     <div id="floor-sec-maker">
-{{--                                        <div class="floor-cart">--}}
-{{--                                            <p>--}}
-{{--                                                Floor2--}}
-{{--                                            </p>--}}
-{{--                                            <span class="delete-deposit-btn" onclick="deleteFloor(this)"> <svg--}}
-{{--                                                    width="15" height="15" viewBox="0 0 22 22" fill="none"--}}
-{{--                                                    xmlns="http://www.w3.org/2000/svg"> <path--}}
-{{--                                                        d="M10.7489 12.1037L6.15203 16.7006L4.91531 15.4639L9.51221 10.867L4.91531 6.27008L6.1287 5.05668L10.7256 9.65358L15.3225 5.05668L16.5592 6.29341L11.9623 10.8903L16.5592 15.4872L15.3458 16.7006L10.7489 12.1037Z"--}}
-{{--                                                        fill="#4A5568"> &lt; /path&gt;</path></svg></span>--}}
-{{--                                            <input type="hidden" name="floors[]">--}}
-{{--                                        </div>--}}
+                                        {{--                                        <div class="floor-cart">--}}
+                                        {{--                                            <p>--}}
+                                        {{--                                                Floor2--}}
+                                        {{--                                            </p>--}}
+                                        {{--                                            <span class="delete-deposit-btn" onclick="deleteFloor(this)"> <svg--}}
+                                        {{--                                                    width="15" height="15" viewBox="0 0 22 22" fill="none"--}}
+                                        {{--                                                    xmlns="http://www.w3.org/2000/svg"> <path--}}
+                                        {{--                                                        d="M10.7489 12.1037L6.15203 16.7006L4.91531 15.4639L9.51221 10.867L4.91531 6.27008L6.1287 5.05668L10.7256 9.65358L15.3225 5.05668L16.5592 6.29341L11.9623 10.8903L16.5592 15.4872L15.3458 16.7006L10.7489 12.1037Z"--}}
+                                        {{--                                                        fill="#4A5568"> &lt; /path&gt;</path></svg></span>--}}
+                                        {{--                                            <input type="hidden" name="floors[]">--}}
+                                        {{--                                        </div>--}}
                                     </div>
                                     <div class="alert alert-danger mt-2 floor-error" style="display: none">
                                         <p class="font-light error-text">please insert valid value</p>
@@ -223,9 +225,20 @@
 
                                     <div class="profile-input-custom ">
 
-                                        <div class="input-custom w-320 flex-auto price-input self no-logo">
+                                        <div class="input-custom flex-auto price-input self no-logo"
+                                             style="width: 200px;">
 
-                                            <input type="number" required name="price" placeholder="Type Number Here..."
+                                            <input type="number"  name="start_price"
+                                                   placeholder="Type Number Here..."
+                                                   value="{{old('price')}}">
+                                        </div>
+
+
+                                        <div class="input-custom flex-auto price-input self no-logo"
+                                             style="width: 200px;">
+
+                                            <input type="number"  name="end_price"
+                                                   placeholder="Type Number Here..."
                                                    value="{{old('price')}}">
                                         </div>
 
@@ -238,71 +251,87 @@
                                     </h3>
 
                                     <div class="profile-radio-custom ">
-                                        <div class="new-custom-radio unit-face active">
-                                            <label>
-                                                north
-                                                <input type="radio" name="face" value="north" checked>
-                                            </label>
-                                        </div>
-                                        <div class="new-custom-radio unit-face">
-                                            <label>
-                                                north-east
-                                                <input type="radio" name="face" value="north-east">
-                                            </label>
-                                        </div>
-                                        <div class="new-custom-radio unit-face">
-                                            <label>
-                                                east
-                                                <input type="radio" name="face" value="east">
-                                            </label>
-                                        </div>
-                                        <div class="new-custom-radio unit-face">
-                                            <label>
-                                                south-east
-                                                <input type="radio" name="face" value="south-east">
-                                            </label>
-                                        </div>
-                                        <div class="new-custom-radio unit-face">
-                                            <label>
-                                                south
-                                                <input type="radio" name="face" value="south">
-                                            </label>
-                                        </div>
-                                        <div class="new-custom-radio unit-face">
-                                            <label>
-                                                south-west
-                                                <input type="radio" name="face" value="south-west">
-                                            </label>
-                                        </div>
-                                        <div class="new-custom-radio unit-face">
-                                            <label>
-                                                west
-                                                <input type="radio" name="face" value="west">
-                                            </label>
-                                        </div>
-                                        <div class="new-custom-radio unit-face">
-                                            <label>
-                                                north-west
-                                                <input type="radio" name="face" value="north-west">
-                                            </label>
-                                        </div>
+                                        <label class="new-custom-checkbox unit-face mb-2 active">
+
+                                            unknown
+                                            <input type="checkbox" name="face[]" value="unknown" checked>
+
+                                        </label>
+                                        <label class="new-custom-checkbox unit-face mb-2">
+
+                                            north
+                                            <input type="checkbox" name="face[]" value="north">
+
+                                        </label>
+                                        <label class="new-custom-checkbox unit-face mb-2">
+
+                                            north-east
+                                            <input type="checkbox" name="face[]" value="north-east">
+
+                                        </label>
+                                        <label class="new-custom-checkbox unit-face mb-2">
+
+                                            east
+                                            <input type="checkbox" name="face[]" value="east">
+
+                                        </label>
+                                        <label class="new-custom-checkbox unit-face mb-2">
+
+                                            south-east
+                                            <input type="checkbox" name="face[]" value="south-east">
+
+                                        </label>
+                                        <label class="new-custom-checkbox unit-face mb-2">
+
+                                            south
+                                            <input type="checkbox" name="face[]" value="south">
+
+                                        </label>
+                                        <label class="new-custom-checkbox unit-face mb-2">
+
+                                            south-west
+                                            <input type="checkbox" name="face[]" value="south-west">
+
+                                        </label>
+                                        <label class="new-custom-checkbox unit-face mb-2">
+
+                                            west
+                                            <input type="checkbox" name="face[]" value="west">
+
+                                        </label>
+                                        <label class="new-custom-checkbox unit-face mb-2">
+
+                                            north-west
+                                            <input type="checkbox" name="face[]" value="north-west">
+
+                                        </label>
 
                                     </div>
 
 
-                                    <div class="row unit-custom-padding">
-                                        <div class="col-4">
+                                    <div class="row unit-custom-padding all-w-unset">
+
+
+                                        <div class="col-6">
                                             <h3 class="admin-sec-subtitle admin-sec-title">
                                                 <img src="{{asset('img/Scalability.svg')}}" alt="">
 
                                                 Unit Size:
                                             </h3>
 
-                                            <div class="profile-input-custom d-flex">
+                                            <div class="profile-input-custom ">
 
-                                                <div class="input-custom w-320 flex-auto self no-logo">
+                                                <div class="input-custom flex-auto self no-logo w-120">
 
-                                                    <input type="text" required name="size" value="{{old('size')}}"
+                                                    <input type="text"  name="start_size"
+                                                           value="{{old('size')}}"
+                                                           placeholder="Type Here...">
+                                                </div>
+
+                                                <div class="input-custom flex-auto self no-logo w-120">
+
+                                                    <input type="text"  name="end_size"
+                                                           value="{{old('size')}}"
                                                            placeholder="Type Here...">
                                                 </div>
                                                 <span class="dec----- unit-dec---">
@@ -311,7 +340,9 @@
                                             </span>
                                             </div>
                                         </div>
-                                        <div class="col-4">
+
+
+                                        <div class="col-6">
                                             <h3 class="admin-sec-subtitle admin-sec-title">
                                                 <img src="{{asset('img/Combined-Shape.svg')}}" alt="">
 
@@ -320,15 +351,23 @@
 
                                             <div class="profile-input-custom ">
 
-                                                <div class="input-custom w-320 flex-auto self no-logo">
+                                                <div class="input-custom w-120 flex-auto self no-logo">
 
-                                                    <input type="text" required name="storage"
+                                                    <input type="text"  name="start_storage"
+                                                           value="{{old('storage')}}" placeholder="Type Here...">
+                                                </div>
+
+
+                                                <div class="input-custom w-120 flex-auto self no-logo">
+
+                                                    <input type="text"  name="end_storage"
                                                            value="{{old('storage')}}" placeholder="Type Here...">
                                                 </div>
 
                                             </div>
                                         </div>
-                                        <div class="col-4">
+
+                                        <div class="col-6">
                                             <h3 class="admin-sec-subtitle admin-sec-title">
                                                 <img src="{{asset('img/Parking%20area.svg')}}" alt="">
 
@@ -337,15 +376,20 @@
 
                                             <div class="profile-input-custom ">
 
-                                                <div class="input-custom w-320 flex-auto self no-logo">
+                                                <div class="input-custom w-120 flex-auto self no-logo">
 
-                                                    <input type="text" required name="parking"
+                                                    <input type="text"  name="start_parking"
                                                            value="{{old('parking')}}" placeholder="Type Here...">
                                                 </div>
+                                                <div class="input-custom w-120 flex-auto self no-logo">
 
+                                                    <input type="text"  name="end_parking"
+                                                           value="{{old('parking')}}" placeholder="Type Here...">
+                                                </div>
                                             </div>
                                         </div>
-                                        <div class="col-4">
+
+                                        <div class="col-6">
                                             <h3 class="admin-sec-subtitle admin-sec-title">
                                                 <img src="{{asset('img/image%2045.svg')}}" alt="">
 
@@ -354,15 +398,21 @@
 
                                             <div class="profile-input-custom ">
 
-                                                <div class="input-custom w-320 flex-auto self no-logo">
+                                                <div class="input-custom w-120 flex-auto self no-logo">
 
-                                                    <input type="number" required name="bedroom"
+                                                    <input type="number"  name="start_bedroom"
+                                                           value="{{old('bedroom')}}" placeholder="Type Here...">
+                                                </div>
+                                                <div class="input-custom w-120 flex-auto self no-logo">
+
+                                                    <input type="number"  name="end_bedroom"
                                                            value="{{old('bedroom')}}" placeholder="Type Here...">
                                                 </div>
 
                                             </div>
                                         </div>
-                                        <div class="col-4">
+
+                                        <div class="col-6">
                                             <h3 class="admin-sec-subtitle admin-sec-title">
                                                 <img src="{{asset('img/Shower.svg')}}" alt="">
 
@@ -371,35 +421,49 @@
 
                                             <div class="profile-input-custom ">
 
-                                                <div class="input-custom w-320 flex-auto self no-logo">
+                                                <div class="input-custom w-120 flex-auto self no-logo">
 
-                                                    <input type="number" required name="bathroom"
+                                                    <input type="number"  name="start_bathroom"
+                                                           value="{{old('bathroom')}}" placeholder="Type Here...">
+                                                </div>
+                                                <div class="input-custom w-120 flex-auto self no-logo">
+
+                                                    <input type="number"  name="end_bathroom"
                                                            value="{{old('bathroom')}}" placeholder="Type Here...">
                                                 </div>
 
                                             </div>
                                         </div>
-                                        <div class="col-4">
+
+                                        <div class="col-6">
                                             <h3 class="admin-sec-subtitle admin-sec-title">
                                                 <img src="{{asset('img/Grass.svg')}}" alt="">
 
                                                 Garden:
                                             </h3>
 
-                                            <div class="profile-input-custom d-flex">
+                                            <div class="profile-input-custom ">
 
-                                                <div class="input-custom w-320 flex-auto self no-logo">
+                                                <div class="input-custom self no-logo w-120">
 
-                                                    <input type="number"  name="garden"
+                                                    <input type="number" name="start_garden"
                                                            value="{{old('garden')}}" placeholder="Type Here...">
                                                 </div>
-                                                <span class="dec----- unit-dec---">
+
+                                                <div class="input-custom self no-logo w-120">
+
+                                                    <input type="number" name="end_garden"
+                                                           value="{{old('garden')}}" placeholder="Type Here...">
+                                                </div>
+                                            </div>
+                                            <span class="dec----- unit-dec---">
 
                                                  SQ/FT
                                             </span>
-                                            </div>
                                         </div>
-                                        <div class="col-4">
+
+
+                                        <div class="col-6">
                                             <h3 class="admin-sec-subtitle admin-sec-title">
                                                 <img src="{{asset('img/Sofa.svg')}}" alt="">
 
@@ -408,15 +472,21 @@
 
                                             <div class="profile-input-custom ">
 
-                                                <div class="input-custom w-320 flex-auto self no-logo">
+                                                <div class="input-custom w-120 flex-auto self no-logo">
 
-                                                    <input type="text" required name="dens" value="{{old('dens')}}"
+                                                    <input type="text"  name="start_dens"
+                                                           value="{{old('dens')}}"
                                                            placeholder="Type Here...">
                                                 </div>
+                                                <div class="input-custom w-120 flex-auto self no-logo">
 
+                                                    <input type="text"  name="end_dens"
+                                                           value="{{old('dens')}}"
+                                                           placeholder="Type Here...">
+                                                </div>
                                             </div>
                                         </div>
-                                        <div class="col-4">
+                                        <div class="col-6">
                                             <h3 class="admin-sec-subtitle admin-sec-title">
                                                 <img src="{{asset('img/image%2044.svg')}}" alt="">
 
@@ -425,35 +495,45 @@
 
                                             <div class="profile-input-custom ">
 
-                                                <div class="input-custom w-320 flex-auto self no-logo">
+                                                <div class="input-custom w-120 flex-auto self no-logo">
 
-                                                    <input type="text" required name="flex" value="{{old('flex')}}"
+                                                    <input type="text"  name="start_flex"
+                                                           value="{{old('flex')}}"
                                                            placeholder="Type Here...">
                                                 </div>
+                                                <div class="input-custom w-120 flex-auto self no-logo">
 
+                                                    <input type="text"  name="end_flex"
+                                                           value="{{old('flex')}}"
+                                                           placeholder="Type Here...">
+                                                </div>
                                             </div>
                                         </div>
-                                        <div class="col-4">
+
+                                        <div class="col-6">
                                             <h3 class="admin-sec-subtitle admin-sec-title">
                                                 <img src="{{asset('img/image%2045.svg')}}" alt="">
 
                                                 Balcony:
                                             </h3>
 
-                                            <div class="profile-input-custom d-flex">
+                                            <div class="profile-input-custom ">
 
-                                                <div class="input-custom w-320 flex-auto self no-logo">
+                                                <div class="input-custom self no-logo w-120">
 
-                                                    <input type="number"  name="balcony"
+                                                    <input type="number" name="start_balcony"
+                                                           value="{{old('balcony')}}" placeholder="Type Here...">
+                                                </div>
+                                                <div class="input-custom self no-logo w-120">
+
+                                                    <input type="number" name="end_balcony"
                                                            value="{{old('balcony')}}" placeholder="Type Here...">
                                                 </div>
                                                 <span class="dec----- unit-dec---">
-
-                                                 SQ/FT
-                                            </span>
+                                                    SQ/FT
+                                               </span>
                                             </div>
                                         </div>
-
 
                                     </div>
 
@@ -559,12 +639,31 @@
             jQuery(this).find('input').prop('checked', 'checked')
         })
 
-        jQuery('.new-custom-radio.unit-face').on('click', function () {
+        jQuery('.new-custom-checkbox.unit-face>input').on('click', function (e) {
 
-            jQuery('.new-custom-radio.unit-face').removeClass('active')
-            jQuery('.new-custom-radio.unit-face').find('input').prop('checked', '')
-            jQuery(this).addClass('active')
-            jQuery(this).find('input').prop('checked', 'checked')
+            e.stopPropagation();
+        })
+        jQuery('.new-custom-checkbox.unit-face').on('click', function (e) {
+
+            // jQuery('.new-custom-radio.unit-face').removeClass('active')
+            // jQuery('.new-custom-radio.unit-face').find('input').prop('checked', '')
+            // var senderElement = e.target;
+
+
+            console.log(jQuery(this).hasClass('active'))
+
+            if (jQuery(this).hasClass('active')) {
+                jQuery(this).removeClass('active')
+                // jQuery(this).find('input').prop('checked', false)
+
+            } else {
+                jQuery(this).addClass('active')
+
+                // jQuery(this).find('input').prop('checked', true)
+
+
+            }
+            // e.stopPropagation();
         })
 
     </script>

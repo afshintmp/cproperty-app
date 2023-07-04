@@ -5,7 +5,11 @@ use App\Http\Controllers\UnitController;
 use Illuminate\Support\Facades\Route;
 
 Route::group(['prefix' => 'developer', 'middleware' => ['auth', 'role:developer']], function () {
-    Route::get('/', [DeveloperController::class, 'index'])->name('developer.dashboard');
+    Route::get('/', [DeveloperController::class, 'dashboard'])->name('developer.dashboard');
+
+    Route::get('/edit-profile', [DeveloperController::class, 'editProfile'])->name('developer.dashboard.editProfile');
+
+
     Route::get('/project/add', [DeveloperController::class, 'addProject'])->name('developer.project.add');
     Route::post('/project/add', [DeveloperController::class, 'createProject'])->name('developer.project.create');
 
@@ -19,7 +23,6 @@ Route::group(['prefix' => 'developer', 'middleware' => ['auth', 'role:developer'
     Route::post('/project/{build}/unit/add', [UnitController::class, 'create'])->name('developer.unit.create');
 
     Route::get('/project/{build}/unit/list', [UnitController::class, 'list'])->name('developer.unit.list');
-
 
 
 });

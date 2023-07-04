@@ -32,19 +32,75 @@
 
                 </div>
             </div>
+            <style>
+                .admin-menu-profile-list-sec {
+                    display: none;
+                }
+
+                .admin-menu-profile-list-sec {
+                    position: absolute;
+
+                    width: 100%;
+
+                    left: 0;
+                    top: 100%;
+
+
+                }
+
+                .admin-menu-profile-list {
+                    background: #fff;
+                    margin-top: 15px;
+                    box-shadow: 0px 4px 38px 3px rgba(0, 0, 0, 0.13);
+                    padding: 20px 59px 20px 18px;
+                    text-align: left;
+                }
+
+                .user-logged-in:hover > .admin-menu-profile-list-sec {
+                    display: block;
+                }
+
+                .admin-menu-profile-list > li,
+                .admin-menu-profile-list > li > a {
+                    color: #000;
+                    text-decoration: none;
+                    font-size: 14px;
+                    font-weight: 500;
+                    line-height: 16px;
+                    font-family: 'mazzard_m_regular';
+                    width: 190px;
+                    display: block;
+                    margin-bottom: 10px;
+                    text-decoration: none;
+
+
+                }
+            </style>
+
             <div class="float-end d-none d-md-block col-auto ">
                 <div class="">
                     <button class="c-btn-one h-40 img-control search-padding">
 
                         <img src="{{asset('img/search-normal.svg')}}"/></button>
                     @if(auth()->user())
-                        <button class="c-btn-one menu-btn-padding">
-                            {{auth()->user()->dashboardLink()}}
+                        <button class="c-btn-one menu-btn-padding position-relative user-logged-in">
+
+                            welcome {{auth()->user()->name}}
+                            <div class="admin-menu-profile-list-sec">
+                                <ul class="admin-menu-profile-list">
+                                    <li>
+                                        <a href="">view profile</a>
+                                    </li>
+                                    <li>log out</li>
+                                </ul>
+                            </div>
                         </button>
 
                     @else
                         <button class="c-btn-one menu-btn-padding">
-                            login/sign in
+                            <a href="{{route('login')}}">
+                                login/sign in
+                            </a>
                         </button>
                     @endif
                 </div>

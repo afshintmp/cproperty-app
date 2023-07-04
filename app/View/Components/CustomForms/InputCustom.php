@@ -15,7 +15,8 @@ class InputCustom extends Component
                                 public string $svg,
                                 public string $type,
                                 public string $name,
-                                public string $placeholderTxt)
+                                public string $placeholderTxt ,
+                                public string $value = '' )
     {
         //
     }

@@ -6,21 +6,16 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="{{ asset('css/bootstrap.min.css') }}">
-    <link rel="stylesheet" href="{{ asset('/css/main-style.css') }}">
+    <link rel="stylesheet" href="{{asset('css/main-style.css')}}">
 
-    {{--    <link--}}
-    {{--        rel="stylesheet"--}}
-    {{--        href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css"--}}
-    {{--    />--}}
+    <link rel="stylesheet" href="{{asset('font/font-face.css')}}">
+    <link rel="stylesheet" href="{{asset('css/index.css')}}">
 
-    {{--    <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>--}}
-    <style>
-        .swiper {
-            width: 600px;
-            height: 300px;
-        }
-    </style>
+    <link rel="stylesheet" href="{{asset('css/mob-index.css')}}">
 </head>
 <body class="home-page">
 
@@ -36,13 +31,10 @@
                 <div>
                     <ul class="in-top menu-list">
                         <li class="menu-active">
-                            <a href="{{route('index')}}">Home</a>
+                            <a href="#">Home</a>
                         </li>
                         <li>
-                            <a href="{{route('plan.index')}}">Plans</a>
-                        </li>
-                        <li>
-                            <a href="{{route('builds.index')}}">Builds</a>
+                            <a href="#">Cities</a>
                         </li>
                         <li>
                             <a href="#">Articles</a>
@@ -62,10 +54,9 @@
                 <div>
                     <button class="c-btn-one h-40 img-control">
 
-                        <img src="{{asset('img/search-normal.png')}}"/></button>
+                        <img src="{{asset('img/search-normal.png')}}/"/></button>
                     <button class="c-btn-one">
-                        <a href="{{route('login')}}">login/sign in </a>
-
+                        login/sign in
                     </button>
                 </div>
             </div>
@@ -80,7 +71,7 @@
         <div class="menu-wrapper d-flex ">
             <div>
                 <div class="logo">
-                    <img src="assets/img/Logo 1.png" height="31" width="159"/>
+                    <img src="{{asset('img/Logo 1.png')}}" height="31" width="159"/>
                 </div>
             </div>
             <div class="d-none d-md-block">
@@ -110,7 +101,7 @@
                 <div>
                     <button class="c-btn-one h-40 img-control">
 
-                        <img src="assets/img/search-normal.png"/></button>
+                        <img src="{{asset('img/search-normal.png')}}"/></button>
                     <button class="c-btn-one">
                         login/sign in
                     </button>
@@ -159,115 +150,108 @@
 </div>
 
 <div class="main-slide">
-    <img src="{{asset('img/Rectangle 4367.png')}}"/>
+    <img src="{{asset('img/IMG.png')}}"/>
 </div>
 
 
-<div class="latest-project" style="background-image: url('{{asset('img/Mask group.png')}}')">
-    <div class="block-title pt-5 text-center">
-        <div class="text-center  ">
-            <h3 class="position-relative">
-                latest projects
-                <span class="block-title-vector">
-                    <img src="{{asset('img/Vector.png')}}" height="23" width="37"/>
-                </span>
-            </h3>
+<div class="latest-project" style="background-image: url('{{asset("img/Mask group.png")}}')">
+    <div class="container">
+        <div class="block-title text-center mb-61 mob-mb-31">
+            <div class="text-center  ">
+                <h3 class="position-relative">
+                    latest projects
+                    <span class="block-title-vector">
+                        <img src="{{asset('img/Vector.png')}}" height="23" width="37"/>
+                    </span>
+                </h3>
+
+            </div>
+            <span class="text-center bloc-title-description">
+            commonly used in the graphic, print, and publishing industries for
+            </span>
+        </div>
+        <div class="w-custom">
+
+            <div class="d-inline-block main-loc" style="width: 300px">
+                <div class="c-cart-shadow main-loc-cart">
+                    <div class="main-loc-cart-img" style="background-image: url('{{asset('img/rectangle-4362.png')}})">
+                        <!-- <img class="h-100" src="assets/img/sing.png"/> -->
+                    </div>
+
+                    <div class="p-s-e-23">
+                        <h2 class="c-card-title">
+                            <img src="{{asset('img/Vectorloc.svg')}}" height="20" alt="">
+                            NY
+                        </h2>
+                        <p class="mb-0 color-97 main-loc-info">
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+                            incididunt ut labore et dolore magna aliqua.
+                        </p>
+
+                    </div>
+                    <div class="p-s-e-23">
+                        <p class=" c-cart-price color-green d-inline-block mb-0">
+                            $265,0000,000
+                        </p>
+
+                        <div class="clear-fix"></div>
+                    </div>
+
+
+                </div>
+            </div>
+
+            <div class="d-inline-block small-loc">
+                <div class="loc-cart loc-cart-small ">
+
+                    <img src="assets/img/Rectangle 4364.png" height="294" width="248"/>
+
+
+                    <div class="loc-cart-info ">
+
+                        <img src="assets/img/VectorWhite.png" height="39" width="33"/>
+
+                        <p>New York</p>
+                    </div>
+                </div>
+                <div class="loc-cart loc-cart-small ">
+
+                    <img src="assets/img/Rectangle 4364.png" height="294" width="248"/>
+
+
+                    <div class="loc-cart-info">
+
+                        <img src="assets/img/VectorWhite.png" height="39" width="33"/>
+
+                        <p>New York</p>
+                    </div>
+                </div>
+                <div class="loc-cart loc-cart-small ">
+
+                    <img src="assets/img/Rectangle 4364.png" height="294" width="248"/>
+
+
+                    <div class="loc-cart-info">
+
+                        <img src="assets/img/VectorWhite.png" height="39" width="33"/>
+
+                        <p>New York</p>
+                    </div>
+                </div>
+
+            </div>
+
 
         </div>
-        <span class="text-center">
-         commonly used in the graphic, print, and publishing industries for
-        </span>
-    </div>
-    <div class="mt-4 pb-custom w-custom">
-
-        <div class="d-inline-block main-loc" style="width: 300px">
-            <div class="c-cart-shadow ">
-                <div>
-                    <img class="w-100" src="{{asset('img/sing.png')}}/"/>
-                </div>
-
-                <div class="ps-2 pe-2 pt-2">
-                    <h2 class="c-card-title">
-                        <img src="{{asset('img/Vectorloc.svg')}}" height="20" alt="">
-                        NY
-                    </h2>
-                    <p class="mb-0 color-97">
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-                        incididunt ut labore et dolore magna aliqua.
-                    </p>
-
-                </div>
-                <div class="ps-2 pe-2">
-                    <p class=" c-cart-price color-green d-inline-block mb-0">
-                        $265,0000,000
-                    </p>
-
-                    <div class="clear-fix"></div>
-                </div>
-
-
-            </div>
-        </div>
-
-        <div class="d-inline-block small-loc">
-            <div class="loc-cart ">
-
-                <img src="{{asset('img/Rectangle 4364.png')}}" height="294" width="248"/>
-
-
-                <div class="loc-cart-info">
-
-                    <img src="{{asset('img/VectorWhite.png')}}" height="39" width="33"/>
-
-                    <p>New York</p>
-                </div>
-            </div>
-            <div class="loc-cart ">
-
-                <img src="{{asset('img/Rectangle 4364.png')}}" height="294" width="248"/>
-
-
-                <div class="loc-cart-info">
-
-                    <img src="{{asset('img/VectorWhite.png')}}" height="39" width="33"/>
-
-                    <p>New York</p>
-                </div>
-            </div>
-            <div class="loc-cart ">
-
-                <img src="{{asset('img/Rectangle 4364.png')}}" height="294" width="248"/>
-
-
-                <div class="loc-cart-info">
-
-                    <img src="{{asset('img/VectorWhite.png')}}" height="39" width="33"/>
-
-                    <p>New York</p>
-                </div>
-            </div>
-            <div class="loc-cart ">
-
-                <img src="{{asset('img/Rectangle 4364.png')}}" height="294" width="248"/>
-
-
-                <div class="loc-cart-info">
-
-                    <img src="{{asset('img/VectorWhite.png')}}" height="39" width="33"/>
-
-                    <p>New York</p>
-                </div>
-            </div>
-        </div>
-
-
     </div>
 </div>
 
 <div class="building-new-home">
-    <div class="building-new-home-cart">
-        <div>
-            <img src="{{asset('img/Rectangle 9734.png')}}"/>
+
+    <div class="building-new-home-cart" style="background-image: url('public/images/rectangle-9733.png');">
+        <div class="position-relative h-100">
+            <!-- <img src="public//images/rectangle-9733.png"/> -->
+            <div class="building-new-home-cart-cover"></div>
             <div>
                 <span class="building-new-home-cart-num">01</span>
                 <div class="building-new-home-cart-text">
@@ -277,7 +261,7 @@
 
                         dreamsTM
                     </p>
-                    <p>
+                    <p class="building-new-home-cart-p-small">
                         Find your new construction home
                     </p>
                 </div>
@@ -286,8 +270,9 @@
         </div>
     </div>
     <div class="building-new-home-cart">
-        <div>
-            <img src="{{asset('img/Rectangle 9734.png')}}"/>
+        <div class="position-relative">
+            <img src="public//images/rectangle-9733.png"/>
+            <div class="building-new-home-cart-cover"></div>
             <div>
                 <span class="building-new-home-cart-num">01</span>
                 <div class="building-new-home-cart-text">
@@ -297,7 +282,7 @@
 
                         dreamsTM
                     </p>
-                    <p>
+                    <p class="building-new-home-cart-p-small">
                         Find your new construction home
                     </p>
                 </div>
@@ -306,8 +291,9 @@
         </div>
     </div>
     <div class="building-new-home-cart">
-        <div>
-            <img src="{{asset('img/Rectangle 9734.png')}}"/>
+        <div class="position-relative">
+            <img src="public//images/rectangle-9733.png"/>
+            <div class="building-new-home-cart-cover"></div>
             <div>
                 <span class="building-new-home-cart-num">01</span>
                 <div class="building-new-home-cart-text">
@@ -317,7 +303,7 @@
 
                         dreamsTM
                     </p>
-                    <p>
+                    <p class="building-new-home-cart-p-small">
                         Find your new construction home
                     </p>
                 </div>
@@ -326,8 +312,9 @@
         </div>
     </div>
     <div class="building-new-home-cart">
-        <div>
-            <img src="{{asset('img/Rectangle 9734.png')}}"/>
+        <div class="position-relative">
+            <img src="public//images/rectangle-9733.png"/>
+            <div class="building-new-home-cart-cover"></div>
             <div>
                 <span class="building-new-home-cart-num">01</span>
                 <div class="building-new-home-cart-text">
@@ -337,7 +324,7 @@
 
                         dreamsTM
                     </p>
-                    <p>
+                    <p class="building-new-home-cart-p-small">
                         Find your new construction home
                     </p>
                 </div>
@@ -345,26 +332,23 @@
             </div>
         </div>
     </div>
+
 </div>
 
 <div class="dreamstm">
     <div class="container">
-        <div class="row pt-5">
-            <div class="col-6 ps-5 pe-5">
+        <div class="row">
+            <div class="col-lg-6 col-12 ps-5 pe-5">
 
-                <img src="{{asset('img/Group 1000004577.png')}}" class="w-100"/></div>
-            <div class="col-6  d-flex align-items-center p-5">
+                <img src="assets/img/Group 1000004577.png" class="w-100"/></div>
+            <div class="col-lg-6 col-12  d-flex align-items-center p-5">
                 <div class="align-items-center">
-                    <h2 class="dreamstm-title mb-4">
+                    <h2 class="dreamstm-title">
                         Building new home dreamsTM
                     </h2>
                     <p class="dreamstm-prag">
                         Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-                        labore
-                        et dolore magna aliqua.
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-                        labore
-                        et dolore magna aliqua.
+                        labore et dolore magna aliqua.
                     </p>
                 </div>
 
@@ -375,23 +359,25 @@
 </div>
 
 <div class="locations">
-    <div class="block-title pt-5 text-center">
-        <div class="text-center  ">
-            <h3 class="position-relative">
-                locations
-                <span class="block-title-vector">
+    <div class="container ">
+        <div class="block-title text-center mb-61 mob-mb-10">
+            <div class="text-center  ">
+                <h3 class="position-relative">
+                    latest projects
+                    <span class="block-title-vector">
                     <img src="assets/img/Vector.png" height="23" width="37"/>
                 </span>
-            </h3>
+                </h3>
 
-        </div>
-        <span class="text-center">
-         commonly used in the graphic, print, and publishing industries for
+            </div>
+            <span class="text-center bloc-title-description">
+        commonly used in the graphic, print, and publishing industries for
         </span>
+        </div>
     </div>
-    <div class="container mt-4">
+    <div class="container ">
         <div class="row">
-            <div class="col-4">
+            <div class="col-lg-4 col-12">
                 <div class="row">
                     <div class="col-12">
                         <div class="locations-cart position-relative">
@@ -441,7 +427,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-4">
+            <div class="col-lg-4 col-12">
                 <div class="row h-100">
                     <div class="col-12  h-100 pb-c">
                         <div class="locations-cart position-relative h-100">
@@ -460,7 +446,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-4">
+            <div class="col-lg-4 col-12">
                 <div class="row">
 
                     <div class="col-6 ">
@@ -574,10 +560,10 @@
             </div>
         </div>
     </div>
-    <script src="assets/lib/bootstrap-5.2.3-dist/js/bootstrap.bundle.min.js"></script>
+    <script src="{{ asset('js/bootstrap.bundle.min.js') }}"></script>
     <script src="https://code.jquery.com/jquery-1.12.4.min.js"
             integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
-    <script src="assets/js/script.js"></script>
+    <script src="{{asset('js/script.js')}}"></script>
 </footer>
 </body>
 </html>

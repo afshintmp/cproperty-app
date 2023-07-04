@@ -1,5 +1,6 @@
 @extends('app')
 @section('content')
+    @inject('shop' , 'App\Services\Shop\Shop')
     @parent
 
     <div class="">
@@ -113,7 +114,9 @@
                                 <div class="c-cart-shadow mb-4">
                                     <a class="cart-info--link" href="{{route('builds.show' , $build->id)}}">
                                         <div class="show-build-project-image">
-                                            <img class="" height="180" width="270" src="{{$build->cover_image_url}}"/>
+                                            <img class="" height="180" width="270"
+                                                 src="{{$shop->getCoverImage($build->id)}}"/>
+
                                         </div>
 
                                         <div class="ps-2 pe-2 pt-2">
@@ -122,27 +125,27 @@
                                                 {{$build->name}}
                                             </h2>
                                             <p class="cart-info-- mb-0 color-97">
-                                                {{$build->expert_description}}
+                                                {{$shop->getExpertDescription($build->id)}}
                                             </p>
 
                                         </div>
                                         <div class="ps-2 pe-2 mt-8 p-sc---">
-                                            @if($build->min_price)
-                                                <p class=" c-cart-price-from color-green d-inline-block  pb-11">
-                                                    ${{number_format($build->min_price)}}
-                                                </p>
+                                            {{--                                                                                        @if($build->min_price)--}}
+                                            <p class=" c-cart-price-from color-green d-inline-block  pb-11">
+                                                {{$shop->getMinPrice($build->id)}}
+                                            </p>
 
-                                            @endif
-                                            @if($build->max_price)
-                                                <span class="c-cart-price-dash">
+                                            {{--                                            @endif--}}
+                                            {{--                                            @if($build->max_price)--}}
+                                            <span class="c-cart-price-dash">
                                     -
                                 </span>
-                                                <p class=" c-cart-price-to color-green d-inline-block  pb-11">
+                                            <p class=" c-cart-price-to color-green d-inline-block  pb-11">
 
 
-                                                    ${{number_format($build->max_price)}}
-                                                </p>
-                                            @endif
+                                                {{$shop->getMaxPrice($build->id)}}
+                                            </p>
+                                            {{--                                            @endif--}}
                                             <div class="clear-fix"></div>
                                         </div>
 
@@ -161,6 +164,7 @@
                 </div>
                 <div class="col-3 d-none d-md-block">
                     <form action="">
+
                         <div class="c-cart-shadow p-4 cat-main">
 
                             <div class="cat-section">
@@ -172,7 +176,13 @@
                                     @foreach($cities as $city)
                                         <li>
                                             <label class="custom-check-box">{{$city->name}}
-                                                <input type="checkbox" name="city[]" value="{{$city->id}}" checked="checked">
+                                                <input type="checkbox" name="city[]" value="{{$city->id}}"
+                                                       <?php if (isset($_GET['city'])) {
+                                                           if (in_array($city->id, $_GET['city'])) echo 'checked="checked"';
+                                                       }else{ ?>  checked="checked"
+                                                    <?php } ?>
+
+                                                >
                                                 <span class="checkmark"></span>
                                             </label>
                                         </li>
@@ -192,6 +202,11 @@
                                         <div class="slider"></div>
                                         <span class="slider-start">2023</span>
                                         <span class="slider-end">2033</span>
+
+                                        <input type="hidden" id="start_completion_date" name="start_completion_date"
+                                               value="2023">
+                                        <input type="hidden" id="end_completion_date" name="end_completion_date"
+                                               value="2033">
                                     </li>
                                 </ul>
                                 <script>
@@ -209,7 +224,11 @@
                                             tracks: "#B3865D"
                                         }
 
-                                    }).onChange(val => console.log(val));
+                                    }).onChange(function (val) {
+                                        document.getElementById('start_completion_date').value = val[0]
+                                        document.getElementById('end_completion_date').value = val[1]
+
+                                    });
 
                                 </script>
 
@@ -235,6 +254,7 @@
                                     margin-bottom: 2px !important;
                                 }
                             </style>
+
                             <div class="cat-section">
                                 <p class="cat-title">
                                     <img class="cat-vector" src="{{asset('img/Vectorblack.svg')}}" alt="">
@@ -244,32 +264,44 @@
 
                                     <li>
                                         <label class="custom-check-box">Below 5%
-                                            <input type="checkbox" checked="checked">
+                                            <input type="checkbox" <?php if (isset($_GET['sum_deposit'])) {
+                                                if (in_array('a', $_GET['sum_deposit'])) echo 'checked="checked"';
+                                            }else{ ?> checked="checked" <?php } ?> name="sum_deposit[]" value="a">
                                             <span class="checkmark"></span>
                                         </label>
                                     </li>
                                     <li>
                                         <label class="custom-check-box">6% - 10%
-                                            <input type="checkbox">
+                                            <input type="checkbox"
+                                                   <?php if (isset($_GET['sum_deposit'])) {
+                                                       if (in_array('b', $_GET['sum_deposit'])) echo 'checked="checked"';
+                                                   }else{ ?> checked="checked" <?php } ?>
+                                                   name="sum_deposit[]" value="b">
                                             <span class="checkmark"></span>
                                         </label>
                                     </li>
                                     <li>
                                         <label class="custom-check-box">11% - 15%
-                                            <input type="checkbox">
+                                            <input type="checkbox" <?php if (isset($_GET['sum_deposit'])) {
+                                                if (in_array('c', $_GET['sum_deposit'])) echo 'checked="checked"';
+                                            }else{ ?> checked="checked" <?php } ?>  name="sum_deposit[]" value="c">
                                             <span class="checkmark"></span>
                                         </label>
                                     </li>
 
                                     <li>
                                         <label class="custom-check-box">16% - 25%
-                                            <input type="checkbox">
+                                            <input type="checkbox" <?php if (isset($_GET['sum_deposit'])) {
+                                                if (in_array('d', $_GET['sum_deposit'])) echo 'checked="checked"';
+                                            }else{ ?> checked="checked" <?php } ?>  name="sum_deposit[]" value="d">
                                             <span class="checkmark"></span>
                                         </label>
                                     </li>
                                     <li>
                                         <label class="custom-check-box">Above 25%
-                                            <input type="checkbox">
+                                            <input type="checkbox" <?php if (isset($_GET['sum_deposit'])) {
+                                                if (in_array('e', $_GET['sum_deposit'])) echo 'checked="checked"';
+                                            }else{ ?> checked="checked" <?php } ?>  name="sum_deposit[]" value="e">
                                             <span class="checkmark"></span>
                                         </label>
                                     </li>

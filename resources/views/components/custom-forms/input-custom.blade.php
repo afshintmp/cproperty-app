@@ -4,7 +4,7 @@
                                 <span>
                                {!! $svg !!}
                                 </span>
-        <input class="w-fix" type="{{$type}}" name="{{$name}}" value="{{old($name)}}"
+        <input class="w-fix" type="{{$type}}" name="{{$name}}" value="{{$value}}"
                placeholder="{{$placeholderTxt}}">
     </div>
 

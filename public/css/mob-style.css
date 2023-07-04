@@ -1,4 +1,8 @@
 @media only screen and (max-width: 992px) {
+    .profile-input-custom > .input-custom > input{
+
+    }
+
     .login-end-cart {
         margin-bottom: 30px;
     }
@@ -168,7 +172,7 @@
 
     .profile-input-custom > label {
 
-        line-height: 40px;
+
     }
 
     .admin-nav-bar {

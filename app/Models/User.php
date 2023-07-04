@@ -3,6 +3,7 @@
 namespace App\Models;
 
 
+use Carbon\Carbon;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use App\Services\Permission\Traits\HasPermissions;
 use App\Services\Permission\Traits\HasRoles;
@@ -14,6 +15,7 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Http\Request;
 use Illuminate\Notifications\Notifiable;
+use Illuminate\Support\Facades\DB;
 use Laravel\Sanctum\HasApiTokens;
 use function PHPUnit\Framework\isNull;
 
@@ -66,8 +68,11 @@ class User extends Authenticatable
 
     public function hasPlan()
     {
-        if (isNull($this->belongsTo(Plan::class))) return false;
-        return $this->plan();
+        $plan = DB::table('plan_user')->where('user_id', $this->id)->orderByDesc('started_time')->first();
+
+        if (!$plan) return false;
+        return Carbon::now()->isBefore(Carbon::parse($plan->end_life_time));
+
     }
 
 
@@ -76,13 +81,13 @@ class User extends Authenticatable
 
 
         if ($this->hasRole('admin')) {
-            return 'admin';
+            return route('admin.dashboard');
         }
         if ($this->hasRole('developer')) {
-            return 'developer';
+            return route('developer.dashboard');
         }
 
-        return 'realtor';
+        return route('realtor.dashboard');
 
     }
 

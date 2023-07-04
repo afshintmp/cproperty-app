@@ -23,18 +23,22 @@ class RealtorController extends Controller
         $this->realtor = $realtor;
         $this->uploader = $uploader;
         $this->storageManager = $storageManager;
+
+
     }
 
     public function index()
     {
         $user = auth()->user();
         $info = Info::where('user_id', $user->id)?->first();
-        return view('realtor.index', compact('user', 'info'));
+        return view('realtor.profile.index', compact('user', 'info'));
     }
 
     public function viewProfile()
     {
-        return view('realtor.profile.list');
+        $user = auth()->user();
+        $info = Info::where('user_id', $user->id)?->first();
+        return view('realtor.profile.list', compact('user', 'info'));
     }
 
     public function generalInfoStore(Request $request)
@@ -80,7 +84,13 @@ class RealtorController extends Controller
             'user_id' => $user_id,
             'status' => 0,
             'phone' => $request->phone,
-
+            'facebook' => $request->facebook,
+            'website' => $request->website,
+            'instagram' => $request->instagram,
+            'pinterest' => $request->pinterest,
+            'linkedln' => $request->linkedln,
+            'twitter' => $request->twitter,
+            'youtube' => $request->youtube,
 
         ];
         DB::table('infos')->updateOrInsert([
@@ -92,4 +102,36 @@ class RealtorController extends Controller
 
 
     }
+
+
+    public function billingInfoStore(Request $request)
+    {
+//        dd('123');
+        $user = User::where('email', $request->email)->firstorfail();
+        $user_id = $user->id;
+        $data = [
+            'user_id' => $user_id,
+
+
+            'company' => $request->company,
+            'address' => $request->address,
+            'postcode' => $request->postcode,
+            'country' => $request->country,
+            'city' => $request->city,
+            'state' => $request->state
+
+        ];
+        DB::table('infos')->updateOrInsert([
+            'user_id' => $user_id,
+        ], $data);
+        return redirect()->back()->with('success', 'profile was updated');
+    }
+
+    public function favouriteUnits()
+    {
+
+        return view('realtor.units.list');
+    }
+
+
 }

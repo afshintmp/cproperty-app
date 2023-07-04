@@ -33,24 +33,22 @@ class UnitController extends Controller
 
         $request->validate([
             'name' => ['required'],
-            'floor_plan' => ['required'],
-            'floor' => ['required'],
-            'price' => ['required'],
-            'face' => ['required'],
-            'size' => ['required'],
-            'storage' => ['required'],
-            'parking' => ['required'],
-            'bedroom' => ['required'],
-            'dens' => ['required'],
-            'flex' => ['required'],
-            'phase' => ['required'],
+            'floor_plan' => ['required']
         ]);
+//        dd($request->all());
+        $data = $request->all('name', 'start_price', 'end_price', 'start_size', 'end_size', 'start_storage', 'end_storage',
+            'start_parking', 'end_parking', 'start_bedroom', 'end_bedroom', 'start_bathroom', 'end_bathroom', 'start_dens', 'end_dens', 'start_flex', 'end_flex',
+            'start_garden', 'end_garden', 'start_balcony', 'end_balcony');
 
+//        dd($data);
         $endData = [];
         $floor_plan = $this->uploadFloorPlan($request);
 
         foreach ($request->floor as $floor) {
-            $data = $request->all('name', 'price', 'face', 'size', 'storage', 'parking', 'bedroom', 'bathroom', 'dens', 'flex', 'garden', 'balcony');
+
+            $data = $request->all('name', 'start_price', 'end_price', 'start_size', 'end_size', 'start_storage', 'end_storage',
+                'start_parking', 'end_parking', 'start_bedroom','end_bedroom', 'start_bathroom', 'end_bathroom', 'start_dens', 'end_dens', 'start_flex', 'end_flex',
+                'start_garden', 'end_garden', 'start_balcony', 'end_balcony');
             $data['floor_plan'] = $floor_plan;
             $data['phase_id'] = $request->phase;
             $data['floor'] = $floor;
@@ -60,7 +58,6 @@ class UnitController extends Controller
         }
 
 //        dd($endData);
-
 
 
         return redirect()->route('developer.unit.list', $build->id)->with('success', 'Unit was craate');
