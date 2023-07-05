@@ -27,7 +27,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
 //    dd(auth()->user()->can('add build'));
 //    dump(auth()->user());
-    return view('index');
+    return view('index2');
 })->name('index');
 
 Route::get('/builds', [BuildController::class, 'show1'])->name('builds.index');
