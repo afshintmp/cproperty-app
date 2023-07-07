@@ -10,6 +10,7 @@ use App\Services\Uploader\Uploader;
 use Exception;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Str;
 
 class RealtorController extends Controller
 {
@@ -49,9 +50,10 @@ class RealtorController extends Controller
             'cover' => ['required'],
             'displayName' => ['required'],
             'email' => ['required'],
+            'bio' => ['required']
         ]);
-
-        $this->storageManager->putFileAsPublic($request->cover->getClientOriginalName(), $request->cover, 'image');
+        $nameCreator = Str::slug(Str::random(8), '-');
+        $this->storageManager->putFileAsPublic($nameCreator, $request->cover, 'image');
 
         $user = User::where('email', $request->email)->firstorfail();
         $user_id = $user->id;
@@ -60,8 +62,9 @@ class RealtorController extends Controller
             'user_id' => $user_id,
             'full_name' => $request->fullName,
             'display_name' => $request->displayName,
-            'image' => 'image' . DIRECTORY_SEPARATOR . $request->cover->getClientOriginalName(),
-            'image_name' => $request->cover->getClientOriginalName(),
+            'image' => 'image' . DIRECTORY_SEPARATOR . $nameCreator,
+            'image_name' => $nameCreator,
+            'bio' => $request->bio,
             'status' => 0
         ];
 

@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\City;
+use App\Models\Info;
+use App\Models\User;
 use Illuminate\Support\Facades\DB;
 use App\Models\Build;
 use Illuminate\Http\Request;
@@ -60,12 +62,19 @@ class BuildController extends Controller
     {
         $build = Build::find($id);
         $build->load(['images', 'units', 'features']);
+//        dump($build->user_id);
+        $user = User::where('id', $build->user_id)->first();
+
+        $user_active = $user->isActiveGG();
+        $info = Info::where('user_id', $build->user_id)->first();
+//        $user_active = false;
+
 
         $unitArray = ($build->units->toArray());
         $unitObject = [];
         foreach ($unitArray as $item) {
             $unitObject[$item['id']] = $item;
         }
-        return view('build.show', compact('build', 'unitObject'));
+        return view('build.show', compact('build', 'unitObject' , 'user_active' , 'info'));
     }
 }

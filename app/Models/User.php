@@ -91,13 +91,28 @@ class User extends Authenticatable
 
     }
 
+    public function isActiveGG()
+    {
+        $user_id = $this->id;
+
+        $info = Info::where('user_id', $user_id)->first();
+
+        if ($info && $info->phone !== null && $info->bio !== null) {
+            return true;
+        }
+
+        return false;
+
+    }
+
+
     public function realtorIsActive()
     {
         $user_id = auth()->user()->id;
 
         $info = Info::where('user_id', $user_id)->first();
 
-        if ($info && $info->phone !== null) {
+        if ($info && $info->phone !== null && $info->bio !== null) {
             return true;
         }
 

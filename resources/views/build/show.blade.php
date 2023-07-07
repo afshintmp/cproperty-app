@@ -32,7 +32,7 @@
                             </div>
                             <div class="col-4">
                                 <div class="unit-image">
-                                    <img src="{{asset('img/Rectangle 9792.svg')}}" alt="">
+                                    <img src="{{asset('img/Rectangle 9792.svg')}}" style="height: " alt="">
                                 </div>
                             </div>
                             <div class="col-8">
@@ -143,11 +143,17 @@
     </div>
 
 
-    <div class="container">
+    <div class="container set-it-blur">
         <div class="row">
-            <div class="col-4">
+            <div class="col-lg-4 col-12">
                 <style>
+                    .h-220 {
+                        height: 220px;
+                    }
 
+                    .form-it {
+                        height: 500px;
+                    }
 
                     .swiper {
                         width: 100%;
@@ -219,14 +225,14 @@
                         <div class="swiper-wrapper overflow-hidden-c">
                             @if($build->cover_image)
                                 <div class="swiper-slide">
-                                    <img src="{{$build->cover_image_url}}" alt=""/>
+                                    <img src="{{$build->cover_image_url}}" style="height: 400px" alt=""/>
                                 </div>
                             @endif
 
                             @foreach($build->image_gallery as $photo)
 
                                 <div class="swiper-slide">
-                                    <img src="{{asset('storage/'.$photo->slug)}}"
+                                    <img style="height: 400px;" src="{{asset('storage/'.$photo->slug)}}"
                                          alt="{{$build->cover_image->alt_text}}"/>
                                 </div>
                             @endforeach
@@ -248,12 +254,15 @@
                     </div>
 
 
+
                 </div>
 
             </div>
 
-            <div class="col-4">
-                <h1 class="b-title inner-property-title  ">{{$build->name}}</h1>
+            <div class="col-lg-4 col-12 h-400 position-relative bg-white">
+                <h1 class="b-title inner-property-title  ">{{$build->name}} <span>
+                        <img src="{{asset('img/Vector.png')}}" alt="">
+                    </span></h1>
                 <div class="price">
                     @if($build->min_price)
                         <div class="price-wrapper d-inline-block">
@@ -334,7 +343,7 @@
                 </div>
 
 
-                <div class="">
+                <div class="all-tumbs">
                     <div thumbsSlider="" class="swiper mySwiper">
                         <div class="swiper-wrapper">
                             @if($build->cover_image)
@@ -355,6 +364,7 @@
 
             </div>
             <script>
+
                 var swiper = new Swiper(".mySwiper", {
                     loop: true,
                     spaceBetween: 10,
@@ -375,18 +385,18 @@
                 });
             </script>
 
-            <div class="col-4">
+            <div class="col-lg-4 col-12">
 
                 <iframe
                     src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2990.274257380938!2d-70.56068388481569!3d41.45496659976631!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89e52963ac45bbcb%3A0xf05e8d125e82af10!2sDos%20Mas!5e0!3m2!1sen!2sus!4v1671220374408!5m2!1sen!2sus"
-                    style="border:0;width: 100%;" height="360px" allowfullscreen="" loading="lazy"
+                    style="border:0;width: 100%;" height="400px" allowfullscreen="" loading="lazy"
                     referrerpolicy="no-referrer-when-downgrade"></iframe>
 
             </div>
         </div>
     </div>
 
-    <div class="container">
+    <div class="container set-it-blur">
 
         <div class="row mb-33">
             <div class="col-12">
@@ -413,27 +423,38 @@
                     <span class="unit-head" onclick="showUnit()">Units</span>
                     <span class="feature-head" onclick="showFeature()">Feature</span>
                     <span class="deposit-structure-head" onclick="showDepositStructure()">Deposit Structure</span>
-                    <span>Developer</span>
+                    @if($user_active)
+
+                        <span class="developer-head" onclick="showDeveloper()">Developer</span>
+                    @endif
                     <span>tabs</span>
                 </div>
             </div>
         </div>
         <div class="row mb-4">
-            <div class="col-9">
+            <div class="col-lg-9 col-12">
                 <div class="box-shadow-one shadow-clear  color-97" id="pro_tab">
                     @if($build->promotion_text)
-                        <div class="promotion img-fix" style="">
-                            @if($build->promotion_image)
-                                <img class="mb-2" src="{{$build->promotion_image_url}}">
-                            @endif
-                            <p class="promotion-text-ui">
-                                {{$build->promotion_text}}
-                            </p>
+                        <div class="promotion" style="">
+
+                            <h3 class="text-center mb-3">{{$build->promotion_title}}</h3>
+                            <div class="promotion-tab-sec">
+                                <div class="">
+                                    @if($build->promotion_image)
+                                        <img class="mb-2 promotion-pi"  style="height: 400px" src="{{$build->promotion_image_url}}">
+                                    @endif
+                                </div>
+                                <div class="ps-3 promotion-text-ui">
+
+                                    {!! $build->promotion_text  !!}
+
+                                </div>
+                            </div>
                         </div>
                     @endif
                     <div class="overview" @if($build->promotion_text) style="display: none" @endif>
                         <div class="row">
-                            <div class="col-6">
+                            <div class="col-lg-6 col-12">
                                 <div class="overview-item-head">
                                     <p class="fz-14">
                                         <span>
@@ -466,7 +487,7 @@
                                     </p>
                                 </div>
                             </div>
-                            <div class="col-6">
+                            <div class="col-lg-6 col-12">
                                 <div class="overview-item-head">
                                     <p>
                                     <span><svg width="16" height="16" viewBox="0 0 16 16" fill="none"
@@ -508,7 +529,7 @@
                                 </div>
                             </div>
                             @if($build->maintenance)
-                                <div class="col-6">
+                                <div class="col-lg-6 col-12">
                                     <div class="overview-item-head">
                                         <p>
                                     <span><svg width="16" height="16" viewBox="0 0 16 16" fill="none"
@@ -532,7 +553,7 @@
                                     </div>
                                 </div>
                             @endif
-                            <div class="col-6">
+                            <div class="col-lg-6 col-12">
                                 <div class="overview-item-head">
                                     <p>
                                         <span><svg width="16" height="17" viewBox="0 0 16 17" fill="none"
@@ -559,10 +580,10 @@
                                     @endforeach
                                 </div>
                             </div>
-                            <div class="col-6">
+                            <div class="col-lg-6 col-12">
                                 <div class="overview-item-head">
                                     <p>
-                                            <span> <img src="{{asset('img/image 46.png')}}"
+                                            <span> <img src="{{asset('img/image 46.svg')}}"
                                                         style="width: 20px!important;" alt="">
                                             </span>
                                         Pet Friendly
@@ -578,38 +599,159 @@
 
                         </div>
                     </div>
-                    <div class="unit" style="display: none">
-                        <ul>
-                            @forelse($build->units as $unit)
+                    <style>
 
-                                <li>
-                                    <p>Floor Plan:{{$unit->name}} </p>
-                                    <p>Bedroom: {{$unit->start_bedroom}} - {{$unit->end_bedroom}}</p>
-                                    <p>Bathroom: {{$unit->start_bathroom}} - {{$unit->end_bathroom}}</p>
-                                    <p>Size: {{$unit->start_size}} {{$unit->end_size}} Sq/ft</p>
-                                    <p>Floor: {{$unit->floor}}</p>
-                                    <p>Price:
+                        .promotion-tab-sec > div {
+
+
+                        }
+
+                        .promotion-tab-sec {
+                            display: flex;
+                        }
+
+                        .unit-section > table {
+                            width: 100%;
+                        }
+
+                        .unit-section > table th p {
+                            margin-top: 16px;
+                            margin-bottom: 16px;
+                            font-size: 15px;
+                            font-weight: 700;
+                            font-family: 'mazzard_m_bold';
+                        }
+
+                        .unit-section > table td p {
+                            margin-top: 16px;
+                            margin-bottom: 16px;
+                            font-size: 13px;
+                            border-right: 1px solid rgba(225, 225, 225, 1);
+                            height: 20px;
+                        }
+
+                        .unit-section > table tr {
+                            border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+
+                        }
+
+                        .unit-section > table th {
+                            color: #000;
+                        }
+
+                        .unit {
+                            overflow: scroll;
+                        }
+
+                        .unit-section {
+
+                        }
+                    </style>
+
+                    <div class="unit" style="display: none">
+                        <div class="unit-section">
+                            <table>
+                                <tr>
+                                    <th>
+                                        <p>
+                                            Floor Plan
+                                        </p>
+                                    </th>
+                                    <th>
+                                        <p>
+                                            Bedroom
+
+                                        </p>
+                                    </th>
+                                    <th>
+                                        <p>
+                                            Bathroom
+                                        </p>
+                                    </th>
+                                    <th>
+                                        <p>
+                                            Size
+                                        </p>
+                                    </th>
+                                    <th>
+                                        <p>
+                                            Floor
+                                        </p>
+                                    </th>
+                                    <th>
+                                        <p>
+                                            Price
+                                        </p>
+                                    </th>
+                                </tr>
+                                @forelse($build->units as $unit)
+
+                                    <tr>
+                                        <td>
+                                            <p>
+                                                {{$unit->name}}
+                                            </p>
+                                        </td>
+                                        <td>
+                                            <p>
+                                                {{$unit->start_bedroom}}
+                                                @if(!empty($unit->end_bedroom))
+                                                    - {{$unit->end_bedroom}}
+
+                                                @endif
+                                            </p>
+                                        </td>
+                                        <td>
+                                            <p>
+                                                {{$unit->start_bathroom}}
+                                                @if(!empty($unit->end_bathroom))
+                                                    - {{$unit->end_bathroom}}
+                                                @endif
+                                            </p>
+                                        </td>
+                                        <td>
+                                            <p>
+                                                {{$unit->start_size}}
+                                                @if(!empty($unit->end_size))
+                                                    - {{$unit->end_size}}
+
+                                                @endif
+                                                Sq/ft
+                                            </p>
+                                        </td>
+                                        <td>
+                                            <p>
+                                                {{$unit->floor}}
+                                            </p>
+                                        </td>
+                                        <td>
                                         <span class="text-green">
                                         ${{number_format($unit->start_price)}}
                                         </span>
-
-                                        <span class="text-green">
+                                            @if(!empty($unit->end_price))
+                                                -       <span class="text-green">
                                         ${{number_format($unit->end_price)}}
                                         </span>
-                                    </p>
-                                    <p class="line-height-unset border-r-unset">
-                                        <button class="more" onclick="showUnitBox('{{$unit->id}}')"> more
-                                            <img class="vector"
-                                                 src="https://cproperty.ca/wp-content/themes/astra-child/svg/Vector.svg"
-                                                 alt="">
-                                        </button>
-                                    </p>
-                                </li>
-                            @empty
-                                <li><p>unit not create yet !</p></li>
-                            @endforelse
+                                            @endif
+                                        </td>
+                                        <td class="line-height-unset border-r-unset">
+                                            <button class="more" onclick="showUnitBox('{{$unit->id}}')"> more
+                                                <img class="vector"
+                                                     src="https://cproperty.ca/wp-content/themes/astra-child/svg/Vector.svg"
+                                                     alt="">
+                                            </button>
+                                        </td>
+                                    </tr>
+                                @empty
 
-                        </ul>
+                                @endforelse
+
+
+                            </table>
+
+
+                        </div>
+
                     </div>
                     <div class="feature" style="display: none">
                         <div class="row">
@@ -663,11 +805,33 @@
                             </p>
                         </div>
                     </div>
+                    <style>
+                        .developer-inner-sec {
+                            padding: 15px;
+                        }
+                    </style>
+                    <div class="developer" style="display: none">
+                        <div class="developer-inner-sec">
+                            <div class="h-100 d-inline-block vertical-top">
+                                <img class="develoepr-img" style="height: 100%;display: inline-block"
+                                     src="{{asset('storage/' . $info?->image)}}" alt="">
+                            </div>
+                            <div class="d-inline-block developer-bio vertical-top">
+                                <p class="ps-3">
+                                    {{$info?->bio}}
+                                </p>
+                            </div>
+
+
+                        </div>
+
+
+                    </div>
                 </div>
             </div>
 
-            <div class="col-3">
-                <div class="box-shadow-two p-4 form-section shadow-clear">
+            <div class="col-lg-3 col-12 mob-mt-18">
+                <div class="box-shadow-two p-4 form-section shadow-clear form-it">
 
                     <h3 class="mb-3 form-title">
                         contact sales center
@@ -689,7 +853,8 @@
                         </div>
 
                         <div>
-                        <textarea class="form-group-customize outline-none textarea-control mb-2 p-2" name="" id=""
+                        <textarea class="form-group-customize outline-none textarea-control h-220 mb-2 p-2" name=""
+                                  id=""
                                   placeholder="Message"></textarea>
 
 
@@ -718,6 +883,7 @@
         const unitData = <?php echo json_encode($unitObject) ?>;
 
         console.log(unitData)
+
         function showUnitBox(id) {
             console.log(unitData[id]);
             console.log(unitData[id]['start_price'])

@@ -61,3 +61,12 @@ function  showDepositStructure(){
 }
 
 
+
+function  showDeveloper(){
+    jQuery('#pro_tab > div').hide()
+    jQuery('.developer').show()
+    jQuery('.tabs>span').removeClass('active')
+    jQuery('.developer-head').addClass('active')
+}
+
+

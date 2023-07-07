@@ -959,6 +959,62 @@ body {
 }
 
 .dec--ui--.color-97 {
-    height: 84px;
+    height: 120px;
     overflow: hidden;
+}
+
+.h-400{
+    height: 400px;
+}
+.all-tumbs{
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+}
+.all-tumbs > div{
+    padding-bottom: 0!important;
+}
+.tabs-controller--{
+    margin-top: 30px;
+}
+.text-area-co-gn > textarea{
+    border: none;
+    height: 150px;
+    resize: none;
+}
+.text-area-co-gn > label{
+  vertical-align: top;
+}
+
+.profile-input-custom >textarea {
+
+    padding: 8px;
+    font-size: 16px;
+    font-weight: 500;
+    font-family: 'mazzard_m_regular';
+}
+#pro_tab > div{
+    height: 100%;
+}
+#pro_tab {
+    height: 500px;
+}
+.promotion-text-ui > *{
+    font-size: 14px;
+    line-height: 23px;
+    font-weight: 400;
+    font-family: 'mazzard_m_light';
+}
+
+.promotion-text-ui {
+    font-size: 14px;
+    line-height: 23px;
+    font-weight: 400;
+    font-family: 'mazzard_m_light';
+    text-align: justify;
+    color: #979797;
+    overflow: scroll;
+    height: 400px;
+    padding-right: 15px;
 }

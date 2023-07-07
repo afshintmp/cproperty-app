@@ -48,7 +48,7 @@ class DeveloperController extends Controller
     public function dashboard()
     {
         $user = auth()->user();
-        $info = null;
+        $info =  Info::where('user_id', $user->id)?->first();
         $alarm = !($user->realtorIsActive());
 
         return view('developer.dashboard', compact('info', 'user'))->with('alarm', $alarm);
@@ -225,18 +225,44 @@ class DeveloperController extends Controller
 
     private function uploadPromotionCover($request, $buildId)
     {
+        $nameCreator = Str::slug( Str::random(8), '-');
         if (!is_null($request->promotion) && $request->promotion !== 'stable') {
 
-            $this->storageManager->putFileAsPublic($request->promotion->getClientOriginalName(), $request->promotion, 'image');
+            $this->storageManager->putFileAsPublic($nameCreator, $request->promotion, 'image');
             $data = [
-                'name' => $request->promotion->getClientOriginalName(),
+                'name' => $nameCreator,
                 'alt_text' => $request->promotion->getClientOriginalName(),
-                'slug' => 'image' . DIRECTORY_SEPARATOR . $request->promotion->getClientOriginalName(),
+                'slug' => 'image' . DIRECTORY_SEPARATOR . $nameCreator,
                 'imageable_type' => 'App\Models\Build',
                 'imageable_id' => $buildId,
                 'tag' => 'promotion'
             ];
             DB::table('images')->insert($data);
+            $src = 'storage/' . 'image' . DIRECTORY_SEPARATOR . $nameCreator;
+
+
+            $mainImage = Image::make($src);
+
+            $width = $mainImage->width();
+
+            $height = $mainImage->height();
+
+            if ($width > $height) {
+                $width = 400;
+                $height = null;
+            } else {
+                $height = 400;
+                $width = null;
+            }
+
+
+            $background = $mainImage->blur(100)->resize(400, 400);
+
+            $background->insert(Image::make($src)->resize($width, $height, function ($constraint) {
+                $constraint->aspectRatio();
+            }), 'center');
+
+            $background->save($src);
 
         }
         if (is_null($request->promotion)) {
@@ -322,20 +348,22 @@ class DeveloperController extends Controller
 
     private function uploadCover($request, $buildId)
     {
-
+        $nameCreator = Str::slug( Str::random(8), '-');
+//        dd($request->cover);
         if (!is_null($request->cover) && $request->cover !== 'stable') {
-            $this->storageManager->putFileAsPublic($request->cover->getClientOriginalName(), $request->cover, 'image');
+            $nameCreator = Str::slug( Str::random(8), '-');
+            $this->storageManager->putFileAsPublic($nameCreator, $request->cover, 'image');
             $data = [
-                'name' => $request->cover->getClientOriginalName(),
+                'name' => $nameCreator,
                 'alt_text' => $request->cover->getClientOriginalName(),
-                'slug' => 'image' . DIRECTORY_SEPARATOR . $request->cover->getClientOriginalName(),
+                'slug' => 'image' . DIRECTORY_SEPARATOR . $nameCreator,
                 'imageable_type' => 'App\Models\Build',
                 'imageable_id' => $buildId,
                 'tag' => 'cover'
             ];
 
             DB::table('images')->insert($data);
-            $src = 'storage/' . 'image' . DIRECTORY_SEPARATOR . $request->cover->getClientOriginalName();
+            $src = 'storage/' . 'image' . DIRECTORY_SEPARATOR . $nameCreator;
 
 
             $mainImage = Image::make($src);

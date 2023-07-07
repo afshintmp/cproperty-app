@@ -62,9 +62,10 @@
                                         <input type="file" name="cover" id="">
                                     </div>
 
-{{--                                    <div>--}}
-{{--                                        <input type="file" name="cover" id="select-cover">--}}
-{{--                                    </div>--}}
+                                    {{--                                    <div>--}}
+
+                                    {{--                                        <input type="file" name="cover" id="select-cover">--}}
+                                    {{--                                    </div>--}}
                                     <div class="mt-5">
 
                                         <input type="file" name="images[]" id="" multiple>
@@ -368,12 +369,25 @@
                             <h3 class="admin-sec-subtitle admin-sec-title mb-3">
                                 Building Promotion:
                             </h3>
+                            <style>
+                                .recommend-txt{
+                                    font-size: 14px;
+                                    color: red;
+                                    padding-left: 20px;
+                                }
+                            </style>
+
                             <div class="d-flex">
                                 <div>
                                     <div class="promotion-section">
                                         <div style="width: 219px">
                                             <div>
-                                                <input type="file" name="promotion" id="select-promotion">
+                                                <input type="file" name="promotion" id="">
+                                            </div>
+                                            <div class="">
+                                                <p class="recommend-txt">
+                                                    recommended 400px * 400px
+                                                </p>
                                             </div>
                                         </div>
 
@@ -395,12 +409,9 @@
                                         </div>
 
                                     </div>
-                                    <div class="profile-textarea-custom">
-                                        <textarea name="promotion_text"
-                                                  placeholder="type down description here..."></textarea>
+                                    <textarea id="myeditorinstance" name="promotion_text"></textarea>
 
-                                    </div>
-                                    <title>Integrate Bootstrap Datepicker in Laravel </title>
+
                                     <link rel="stylesheet"
                                           href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
                                     <link rel="stylesheet"
@@ -427,6 +438,7 @@
 @endsection
 
 @section('custom-head')
+    <x-head.tinymce-config/>
     <link href="https://unpkg.com/filepond@^4/dist/filepond.css" rel="stylesheet"/>
     <link
         href="https://unpkg.com/filepond-plugin-image-preview/dist/filepond-plugin-image-preview.css"
@@ -483,11 +495,11 @@
         function decriptiocCounter(e) {
 
             len = jQuery('#develop-desc').val().length
-            if (len >80){
+            if (len > 80) {
                 e.preventDefault()
                 return false;
 
-            }else {
+            } else {
                 jQuery('.ch-counter').html(len)
             }
         }

@@ -1,4 +1,5 @@
 @extends('app')
+
 @section('content')
     <x-developer.developer-bar active="developer"></x-developer.developer-bar>
 
@@ -405,7 +406,14 @@
                             </div>
 
                         </div>
+                        <style>
+                            .recommend-txt{
+                                font-size: 14px;
+                                color: red;
+                                padding-left: 20px;
 
+                            }
+                        </style>
                         <div class="have-back-shadow add-developer-padding section-input-bdrs-unset mt-70">
                             <h3 class="admin-sec-subtitle admin-sec-title mb-3">
                                 Building Promotion:
@@ -416,6 +424,11 @@
                                         <div style="width: 219px">
                                             <div>
                                                 <input type="file" name="promotion" id="select-promotion">
+                                            </div>
+                                            <div>
+                                                <p class="recommend-txt">
+                                                    recommended 400px * 400px
+                                                </p>
                                             </div>
                                         </div>
 
@@ -438,12 +451,9 @@
                                         </div>
 
                                     </div>
-                                    <div class="profile-textarea-custom">
-                                        <textarea name="promotion_text"
-                                                  placeholder="type down description here...">{{$build->promotion_text}}</textarea>
 
-                                    </div>
 
+                                    <textarea id="myeditorinstance" name="promotion_text">{{$build->promotion_text}}</textarea>
                                     <link rel="stylesheet"
                                           href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
                                     <link rel="stylesheet"
@@ -470,6 +480,7 @@
 @endsection
 
 @section('custom-head')
+    <x-head.tinymce-config/>
     <link href="https://unpkg.com/filepond@^4/dist/filepond.css" rel="stylesheet"/>
     <link
         href="https://unpkg.com/filepond-plugin-image-preview/dist/filepond-plugin-image-preview.css"

@@ -110,6 +110,16 @@
 
 
                                 </div>
+                                <div class="profile-input-custom text-area-co-gn">
+                                    <label for="">Bio:
+                                        <span class="label-required">* required</span>
+                                    </label>
+
+
+                                    <textarea class="input-custom w-420" name="bio">{{$info?->bio}}</textarea>
+
+
+                                </div>
                                 <div class="profile-input-custom">
                                     <label class="w-unset" for="">Display name publicly as:</label>
 

@@ -1,5 +1,13 @@
 @media only screen and (max-width: 992px) {
-    .profile-input-custom > .input-custom > input{
+    .all-tumbs {
+        display: none;
+    }
+
+    #nav-menu {
+        margin-bottom: 25px;
+    }
+
+    .profile-input-custom > .input-custom > input {
 
     }
 
@@ -7,11 +15,73 @@
         margin-bottom: 30px;
     }
 
+    .dec--ui--.color-97 {
+        height: unset !important;
+        margin-bottom: 35px;
+    }
+
+    .b-title.inner-property-title {
+        margin-top: 50px;
+    }
+
+    .h-400 {
+        height: unset !important;
+    }
+
+    .tabs > span {
+        padding-top: 25px !important;
+        padding-bottom: 25px !important;
+        margin-bottom: 0 !important;
+        margin-top: 0 !important;
+        margin-right: 50px;
+        margin-left: 50px;
+        border-bottom: 1px solid #E3E3E3;
+        border-right: 0 !important;
+        height: unset !important;
+    }
+
+    .promotion-head {
+        position: relative;
+    }
+
+    .promotion-head > .for-vertical {
+        position: absolute;
+        left: -32px;
+    }
+
     .dreamstm-title {
         font-size: 26px;
         text-align: center;
         margin-top: 40px;
         margin-bottom: 16px !important;
+    }
+
+    .tabs > span::after {
+        -webkit-transition: 0.3ms all;
+        -moz-transition: 0.3ms all;
+        -ms-transition: 0.3ms all;
+        -o-transition: 0.3ms all;
+        transition: 0.3ms all;
+        display: none;
+        position: absolute;
+        content: "";
+        width: 30px;
+        height: 20px;
+        background: #FFB743;
+        top: 29px !important;
+        left: -80px;
+        z-index: -3;
+        /*display: none !important;*/
+        box-shadow: 0px -6px 19px 3px #FFB743;
+        overflow-x: hidden;
+    }
+
+    .tabs-controller-- {
+        height: unset !important;
+    }
+
+    .tabs > span {
+        display: block;
     }
 
     .c-cart-shadow {
@@ -43,6 +113,10 @@
 
     .plan-main::after {
         display: none !important;
+    }
+
+    .mob-mt-18 {
+        margin-top: 18px;
     }
 
     .plan-sub-title, .plan-title {
@@ -194,5 +268,29 @@
         font-weight: 400;
         font-family: 'mazzard_m_light';
         line-height: 18px;
+    }
+    .form-section {
+        background: #ffff;
+        z-index: 10;
+        position: relative;
+    }
+    .promotion-pi{
+        width: 100%!important;
+        height: unset!important;
+    }
+    .promotion-tab-sec{
+        display: block!important;
+    }
+    #pro_tab {
+        height: unset!important;
+    }
+    .develoepr-img{
+        height: unset;
+        width: 100%;
+    }
+    .developer-bio > p{
+        padding-left: 0!important;
+        margin-left: 0!important;
+        margin-top: 15px;
     }
 }
