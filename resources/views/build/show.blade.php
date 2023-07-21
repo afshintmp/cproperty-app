@@ -812,7 +812,7 @@
                     </style>
                     <div class="developer" style="display: none">
                         <div class="developer-inner-sec">
-                            <div class="h-100 d-inline-block vertical-top">
+                            <div class="h-100 d-inline-block vertical-top" style="overflow: hidden">
                                 <img class="develoepr-img" style="height: 100%;display: inline-block"
                                      src="{{asset('storage/' . $info?->image)}}" alt="">
                             </div>
@@ -833,27 +833,27 @@
             <div class="col-lg-3 col-12 mob-mt-18">
                 <div class="box-shadow-two p-4 form-section shadow-clear form-it">
 
-                    <h3 class="mb-3 form-title">
+                    <h3 class=" form-title">
                         contact sales center
                     </h3>
                     <form action="">
                         <div>
-                            <input type="text" class="form-group-customize outline-none mb-2 p-2"
+                            <input type="text" class="form-group-customize inner-prop-input outline-none  p-2"
                                    placeholder="Full Name">
                         </div>
                         <div>
-                            <input type="text" class="form-group-customize outline-none mb-2 p-2"
+                            <input type="text" class="form-group-customize inner-prop-input outline-none  p-2"
                                    placeholder="Email Address">
                         </div>
 
                         <div>
-                            <input type="text" class="form-group-customize outline-none mb-2 p-2"
+                            <input type="text" class="form-group-customize inner-prop-input outline-none  p-2"
                                    placeholder="Phone Number">
 
                         </div>
 
                         <div>
-                        <textarea class="form-group-customize outline-none textarea-control h-220 mb-2 p-2" name=""
+                        <textarea class="form-group-customize outline-none inner-prop-input textarea-control h-197 p-2" name=""
                                   id=""
                                   placeholder="Message"></textarea>
 

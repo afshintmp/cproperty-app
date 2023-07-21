@@ -69,7 +69,7 @@ class UnitController extends Controller
 
         $build->load('phases');
 
-        return view('developer.units.add', compact('build'));
+        return view('developer.units.add2', compact('build'));
     }
 
 

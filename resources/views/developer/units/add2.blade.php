@@ -7,8 +7,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-12">
-                    <div class="brardcurmbs">
-                        <p>
+                    <div class="brardcurmbs"><p>
                             Dashboard
                         </p>
                         <span>
@@ -57,24 +56,7 @@
                                 Add New Unit
                             </h3>
                             <div class="d-flex">
-                                <style>
-                                    .image-uploader {
-                                        border: 1px solid #818181;
-                                        -webkit-border-radius: 10px;
-                                        -moz-border-radius: 10px;
-                                        border-radius: 10px;
-                                        background: #eeeeee;
-                                        text-align: center;
-                                        padding-top: 30px;
-                                        padding-bottom: 30px;
-                                    }
 
-                                    .image-uploader > img {
-                                        margin: auto;
-                                    }
-
-
-                                </style>
 
 
                                 <div style="flex: 0 0 219px;">
@@ -100,56 +82,10 @@
                                         <div id="images"></div>
                                     </div>
                                 </div>
-                                <script>
-                                    const fileInput = document.getElementById('select-cover');
-
-                                    const images = document.getElementById('images');
-                                    const totalImages = document.getElementById('total-images');
-
-                                    // Listen to the change event on the <input> element
-                                    fileInput.addEventListener('change', (event) => {
-                                        // Get the selected image file
-                                        const imageFiles = event.target.files;
-
-                                        // Show the number of images selected
-                                        totalImages.innerText = imageFiles.length;
-
-                                        // Empty the images div
-                                        images.innerHTML = '';
-
-                                        if (imageFiles.length > 0) {
-                                            // Loop through all the selected images
-                                            for (const imageFile of imageFiles) {
-                                                const reader = new FileReader();
-                                                document.getElementById('uploader--').style.display = "none";
-                                                // Convert each image file to a string
-                                                reader.readAsDataURL(imageFile);
-
-                                                // FileReader will emit the load event when the data URL is ready
-                                                // Access the string using reader.result inside the callback function
-                                                reader.addEventListener('load', () => {
-                                                    // Create new <img> element and add it to the DOM
-                                                    images.innerHTML += `
-                                                    <div class="image_box">
-                                                        <img src='${reader.result}'>
-                                                        <span class='image_name'>${imageFile.name}</span>
-                                                        <span onclick="deleteImage()">delete</span>
-                                                    </div>
-                                                `;
-                                                });
-                                            }
-                                        } else {
-                                            // Empty the images div
-                                            images.innerHTML = '';
-                                        }
-                                    });
 
 
 
-                                </script>
-
-
-                                <div class=" flex-auto ms-4 vertical-top border-left-custom developer-general-info">
+                                <div class="flex-auto ms-4 vertical-top border-left-custom developer-general-info">
 
                                     <div class="profile-input-custom ">
 
@@ -187,84 +123,10 @@
                                     </div>
 
                                     <!--                            --------assignment-------------------------------------- -->
-                                    <style>
-                                        .price-input > input,
-                                        .floor-input > input {
-                                            width: 100%;
-                                            padding-left: 0 !important;
-                                            padding-right: 10px !important;
-                                        }
 
-                                        .floor-input {
-                                            width: 93px !important;
-                                        }
 
-                                        .unit-dec---.dec----- {
-                                            padding-top: 9px;
 
-                                        }
 
-                                        .unit-custom-padding > .col-4 {
-                                            padding-right: 30px !important;
-                                        }
-
-                                        .add-unit-form .input-custom.w-320.flex-auto.self.no-logo > input {
-                                            width: 100%;
-                                        }
-
-                                        .floor-cart > p {
-                                            font-size: 16px;
-                                        }
-
-                                        .floor-cart {
-
-                                            box-shadow: 0px 4px 38px 3px rgba(0, 0, 0, 0.13);
-                                            text-align: center;
-                                            display: inline-block;
-                                            margin-bottom: 15px;
-                                            padding: 11px;
-                                            margin-right: 15px;
-                                        }
-
-                                        .floor-cart > p {
-                                            display: inline-block;
-                                            margin-bottom: 0;
-                                        }
-
-                                        .floor-cart > .delete-deposit-btn svg {
-                                            line-height: 11px !important;
-                                        }
-
-                                        .floor-cart > .delete-deposit-btn {
-                                            width: 15px;
-                                            height: 15px;
-                                            margin-top: 5px;
-                                            line-height: 12px;
-
-                                        }
-
-                                        .add-floor-btn-uses {
-                                            margin-bottom: 0;
-                                        }
-
-                                        .add-floor-btn-uses-sec {
-                                            margin-left: 15px;
-                                        }
-
-                                        .add-floor-btn-uses-sec {
-
-                                        }
-
-                                        .green-btn.cursor-pointer.in-add-property.add-floor-btn-uses {
-                                            padding: 9px;
-                                            vertical-align: top;
-                                            position: relative;
-                                        }
-
-                                        .font-light.error-text {
-                                            margin-bottom: 0;
-                                        }
-                                    </style>
 
                                     <h3 class="admin-sec-subtitle admin-sec-title">
                                         <img src="{{asset('img/house-building%202.svg')}}" alt="">
@@ -291,6 +153,9 @@
                                         </div>
                                     </div>
 
+
+
+
                                     <!--                           -------------------- Maintenance---------------- -->
                                     <h3 class="admin-sec-subtitle admin-sec-title">
                                         <img src="{{asset('img/money.svg')}}" alt="">
@@ -315,8 +180,6 @@
                                                                value="">
                                                     </label>
                                                 </div>
-
-
                                             </div>
                                         </div>
                                         <div class="input-custom flex-auto price-input self no-logo"
@@ -326,8 +189,6 @@
                                                    placeholder="Type Number Here..."
                                                    value="{{old('price')}}">
                                         </div>
-
-
                                         <div class="input-custom flex-auto price-input price-range self no-logo"
                                              style="width: 200px; display: none">
 
@@ -412,7 +273,24 @@
 
                                                 Unit Size:
                                             </h3>
-
+                                            <div>
+                                                <div class="profile-radio-custom ">
+                                                    <div data-moode="single" class="new-custom-radio size-mode  active">
+                                                        <label>
+                                                            single value
+                                                            <input type="radio" checked="checked" name="price-mode"
+                                                                   class="pricemodecheck" value="">
+                                                        </label>
+                                                    </div>
+                                                    <div data-moode="range" class="new-custom-radio size-mode">
+                                                        <label>
+                                                            range value
+                                                            <input type="radio" name="price-mode" class="pricemodecheck"
+                                                                   value="">
+                                                        </label>
+                                                    </div>
+                                                </div>
+                                            </div>
                                             <div class="profile-input-custom ">
 
                                                 <div class="input-custom flex-auto self no-logo w-120">
@@ -422,7 +300,7 @@
                                                            placeholder="Type Here...">
                                                 </div>
 
-                                                <div class="input-custom flex-auto self no-logo w-120">
+                                                <div class="input-custom flex-auto self size-range no-logo w-120" style="display: none">
 
                                                     <input type="text" name="end_size"
                                                            value="{{old('size')}}"
@@ -442,7 +320,24 @@
 
                                                 Storage:
                                             </h3>
-
+                                            <div>
+                                                <div class="profile-radio-custom ">
+                                                    <div data-moode="single" class="new-custom-radio storage-mode  active">
+                                                        <label>
+                                                            single value
+                                                            <input type="radio" checked="checked" name="price-mode"
+                                                                   class="pricemodecheck" value="">
+                                                        </label>
+                                                    </div>
+                                                    <div data-moode="range" class="new-custom-radio storage-mode">
+                                                        <label>
+                                                            range value
+                                                            <input type="radio" name="price-mode" class="pricemodecheck"
+                                                                   value="">
+                                                        </label>
+                                                    </div>
+                                                </div>
+                                            </div>
                                             <div class="profile-input-custom ">
 
                                                 <div class="input-custom w-120 flex-auto self no-logo">
@@ -452,7 +347,7 @@
                                                 </div>
 
 
-                                                <div class="input-custom w-120 flex-auto self no-logo">
+                                                <div class="input-custom w-120 flex-auto self storage-range no-logo" style="display: none">
 
                                                     <input type="text" name="end_storage"
                                                            value="{{old('storage')}}" placeholder="Type Here...">
@@ -467,7 +362,24 @@
 
                                                 Parking:
                                             </h3>
-
+                                            <div>
+                                                <div class="profile-radio-custom ">
+                                                    <div data-moode="single" class="new-custom-radio parking-mode  active">
+                                                        <label>
+                                                            single value
+                                                            <input type="radio" checked="checked" name="price-mode"
+                                                                   class="pricemodecheck" value="">
+                                                        </label>
+                                                    </div>
+                                                    <div data-moode="range" class="new-custom-radio parking-mode">
+                                                        <label>
+                                                            range value
+                                                            <input type="radio" name="price-mode" class="pricemodecheck"
+                                                                   value="">
+                                                        </label>
+                                                    </div>
+                                                </div>
+                                            </div>
                                             <div class="profile-input-custom ">
 
                                                 <div class="input-custom w-120 flex-auto self no-logo">
@@ -475,7 +387,7 @@
                                                     <input type="text" name="start_parking"
                                                            value="{{old('parking')}}" placeholder="Type Here...">
                                                 </div>
-                                                <div class="input-custom w-120 flex-auto self no-logo">
+                                                <div class="input-custom w-120 flex-auto parking-range self no-logo" style="display: none">
 
                                                     <input type="text" name="end_parking"
                                                            value="{{old('parking')}}" placeholder="Type Here...">
@@ -489,7 +401,24 @@
 
                                                 Bedroom:
                                             </h3>
-
+                                            <div>
+                                                <div class="profile-radio-custom ">
+                                                    <div data-moode="single" class="new-custom-radio bedroom-mode  active">
+                                                        <label>
+                                                            single value
+                                                            <input type="radio" checked="checked" name="price-mode"
+                                                                   class="pricemodecheck" value="">
+                                                        </label>
+                                                    </div>
+                                                    <div data-moode="range" class="new-custom-radio bedroom-mode">
+                                                        <label>
+                                                            range value
+                                                            <input type="radio" name="price-mode" class="pricemodecheck"
+                                                                   value="">
+                                                        </label>
+                                                    </div>
+                                                </div>
+                                            </div>
                                             <div class="profile-input-custom ">
 
                                                 <div class="input-custom w-120 flex-auto self no-logo">
@@ -497,7 +426,7 @@
                                                     <input type="number" name="start_bedroom"
                                                            value="{{old('bedroom')}}" placeholder="Type Here...">
                                                 </div>
-                                                <div class="input-custom w-120 flex-auto self no-logo">
+                                                <div class="input-custom w-120 flex-auto self bedroom-range no-logo" style="display: none">
 
                                                     <input type="number" name="end_bedroom"
                                                            value="{{old('bedroom')}}" placeholder="Type Here...">
@@ -512,7 +441,24 @@
 
                                                 Bathroom:
                                             </h3>
-
+                                            <div>
+                                                <div class="profile-radio-custom ">
+                                                    <div data-moode="single" class="new-custom-radio bathroom-mode  active">
+                                                        <label>
+                                                            single value
+                                                            <input type="radio" checked="checked" name="price-mode"
+                                                                   class="pricemodecheck" value="">
+                                                        </label>
+                                                    </div>
+                                                    <div data-moode="range" class="new-custom-radio bathroom-mode">
+                                                        <label>
+                                                            range value
+                                                            <input type="radio" name="price-mode" class="pricemodecheck"
+                                                                   value="">
+                                                        </label>
+                                                    </div>
+                                                </div>
+                                            </div>
                                             <div class="profile-input-custom ">
 
                                                 <div class="input-custom w-120 flex-auto self no-logo">
@@ -520,7 +466,7 @@
                                                     <input type="number" name="start_bathroom"
                                                            value="{{old('bathroom')}}" placeholder="Type Here...">
                                                 </div>
-                                                <div class="input-custom w-120 flex-auto self no-logo">
+                                                <div class="input-custom w-120 flex-auto self no-logo bathroom-range" style="display: none">
 
                                                     <input type="number" name="end_bathroom"
                                                            value="{{old('bathroom')}}" placeholder="Type Here...">
@@ -535,7 +481,24 @@
 
                                                 Garden:
                                             </h3>
-
+                                            <div>
+                                                <div class="profile-radio-custom ">
+                                                    <div data-moode="single" class="new-custom-radio garden-mode  active">
+                                                        <label>
+                                                            single value
+                                                            <input type="radio" checked="checked" name="price-mode"
+                                                                   class="pricemodecheck" value="">
+                                                        </label>
+                                                    </div>
+                                                    <div data-moode="range" class="new-custom-radio garden-mode">
+                                                        <label>
+                                                            range value
+                                                            <input type="radio" name="price-mode" class="pricemodecheck"
+                                                                   value="">
+                                                        </label>
+                                                    </div>
+                                                </div>
+                                            </div>
                                             <div class="profile-input-custom ">
 
                                                 <div class="input-custom self no-logo w-120">
@@ -544,7 +507,7 @@
                                                            value="{{old('garden')}}" placeholder="Type Here...">
                                                 </div>
 
-                                                <div class="input-custom self no-logo w-120">
+                                                <div class="input-custom self no-logo w-120 garden-range" style="display: none">
 
                                                     <input type="number" name="end_garden"
                                                            value="{{old('garden')}}" placeholder="Type Here...">
@@ -563,7 +526,24 @@
 
                                                 Dens:
                                             </h3>
-
+                                            <div>
+                                                <div class="profile-radio-custom ">
+                                                    <div data-moode="single" class="new-custom-radio den-mode  active">
+                                                        <label>
+                                                            single value
+                                                            <input type="radio" checked="checked" name="price-mode"
+                                                                   class="pricemodecheck" value="">
+                                                        </label>
+                                                    </div>
+                                                    <div data-moode="range" class="new-custom-radio den-mode">
+                                                        <label>
+                                                            range value
+                                                            <input type="radio" name="price-mode" class="pricemodecheck"
+                                                                   value="">
+                                                        </label>
+                                                    </div>
+                                                </div>
+                                            </div>
                                             <div class="profile-input-custom ">
 
                                                 <div class="input-custom w-120 flex-auto self no-logo">
@@ -572,7 +552,7 @@
                                                            value="{{old('dens')}}"
                                                            placeholder="Type Here...">
                                                 </div>
-                                                <div class="input-custom w-120 flex-auto self no-logo">
+                                                <div class="input-custom w-120 flex-auto self no-logo den-range" style="display: none">
 
                                                     <input type="text" name="end_dens"
                                                            value="{{old('dens')}}"
@@ -586,7 +566,24 @@
 
                                                 Flex:
                                             </h3>
-
+                                            <div>
+                                                <div class="profile-radio-custom ">
+                                                    <div data-moode="single" class="new-custom-radio flex-mode  active">
+                                                        <label>
+                                                            single value
+                                                            <input type="radio" checked="checked" name="price-mode"
+                                                                   class="pricemodecheck" value="">
+                                                        </label>
+                                                    </div>
+                                                    <div data-moode="range" class="new-custom-radio flex-mode">
+                                                        <label>
+                                                            range value
+                                                            <input type="radio" name="price-mode" class="pricemodecheck"
+                                                                   value="">
+                                                        </label>
+                                                    </div>
+                                                </div>
+                                            </div>
                                             <div class="profile-input-custom ">
 
                                                 <div class="input-custom w-120 flex-auto self no-logo">
@@ -595,7 +592,7 @@
                                                            value="{{old('flex')}}"
                                                            placeholder="Type Here...">
                                                 </div>
-                                                <div class="input-custom w-120 flex-auto self no-logo">
+                                                <div class="input-custom w-120 flex-auto self no-logo flex-range" style="display: none">
 
                                                     <input type="text" name="end_flex"
                                                            value="{{old('flex')}}"
@@ -610,7 +607,24 @@
 
                                                 Balcony:
                                             </h3>
-
+                                            <div>
+                                                <div class="profile-radio-custom ">
+                                                    <div data-moode="single" class="new-custom-radio balcony-mode  active">
+                                                        <label>
+                                                            single value
+                                                            <input type="radio" checked="checked" name="price-mode"
+                                                                   class="pricemodecheck" value="">
+                                                        </label>
+                                                    </div>
+                                                    <div data-moode="range" class="new-custom-radio balcony-mode">
+                                                        <label>
+                                                            range value
+                                                            <input type="radio" name="price-mode" class="pricemodecheck"
+                                                                   value="">
+                                                        </label>
+                                                    </div>
+                                                </div>
+                                            </div>
                                             <div class="profile-input-custom ">
 
                                                 <div class="input-custom self no-logo w-120">
@@ -618,7 +632,7 @@
                                                     <input type="number" name="start_balcony"
                                                            value="{{old('balcony')}}" placeholder="Type Here...">
                                                 </div>
-                                                <div class="input-custom self no-logo w-120">
+                                                <div class="input-custom self no-logo w-120 balcony-range" style="display: none">
 
                                                     <input type="number" name="end_balcony"
                                                            value="{{old('balcony')}}" placeholder="Type Here...">
@@ -651,25 +665,58 @@
         </div>
 
     </div>
-
-@endsection
-
-@section('custom-head')
-    <link href="https://unpkg.com/filepond@^4/dist/filepond.css" rel="stylesheet"/>
-    <link
-        href="https://unpkg.com/filepond-plugin-image-preview/dist/filepond-plugin-image-preview.css"
-        rel="stylesheet"
-    />
-    <link
-        href="https://unpkg.com/filepond-plugin-file-poster/dist/filepond-plugin-file-poster.css"
-        rel="stylesheet"
-    />
-
 @endsection
 @section('custom-script')
 
-
     <script>
+
+        const fileInput = document.getElementById('select-cover');
+
+        const images = document.getElementById('images');
+        const totalImages = document.getElementById('total-images');
+
+        // Listen to the change event on the <input> element
+        fileInput.addEventListener('change', (event) => {
+            // Get the selected image file
+            const imageFiles = event.target.files;
+
+            // Show the number of images selected
+            totalImages.innerText = imageFiles.length;
+
+            // Empty the images div
+            images.innerHTML = '';
+
+            if (imageFiles.length > 0) {
+                // Loop through all the selected images
+                for (const imageFile of imageFiles) {
+                    const reader = new FileReader();
+                    document.getElementById('uploader--').style.display = "none";
+                    // Convert each image file to a string
+                    reader.readAsDataURL(imageFile);
+
+                    // FileReader will emit the load event when the data URL is ready
+                    // Access the string using reader.result inside the callback function
+                    reader.addEventListener('load', () => {
+                        // Create new <img> element and add it to the DOM
+                        images.innerHTML += `
+                                                    <div class="image_box">
+                                                        <img src='${reader.result}'>
+                                                        <span class='image_name'>${imageFile.name}</span>
+                                                        <span onclick="deleteImage()">delete</span>
+                                                    </div>
+                                                `;
+                    });
+                }
+            } else {
+                // Empty the images div
+                images.innerHTML = '';
+            }
+        });
+
+
+    </script>
+    <script>
+
         function addFloor() {
 
 
@@ -703,6 +750,141 @@
         function deleteFloor(e) {
             jQuery(e).parent().remove()
         }
+        jQuery('.new-custom-radio.balcony-mode').on('click', function () {
+
+            jQuery('.new-custom-radio.balcony-mode').removeClass('active')
+            jQuery('.new-custom-radio.balcony-mode').find('input').prop('checked', '')
+            jQuery(this).addClass('active')
+            jQuery(this).find('input').prop('checked', 'checked')
+
+            mode = jQuery(this).attr('data-moode')
+            console.log(mode)
+            if(mode === 'single'){
+                jQuery('.balcony-range').hide()
+            }else{
+                jQuery('.balcony-range').show()
+
+            }
+
+
+        })
+        jQuery('.new-custom-radio.flex-mode').on('click', function () {
+
+            jQuery('.new-custom-radio.flex-mode').removeClass('active')
+            jQuery('.new-custom-radio.flex-mode').find('input').prop('checked', '')
+            jQuery(this).addClass('active')
+            jQuery(this).find('input').prop('checked', 'checked')
+
+            mode = jQuery(this).attr('data-moode')
+            console.log(mode)
+            if(mode === 'single'){
+                jQuery('.flex-range').hide()
+            }else{
+                jQuery('.flex-range').show()
+
+            }
+
+
+        })
+
+
+        jQuery('.new-custom-radio.den-mode').on('click', function () {
+
+            jQuery('.new-custom-radio.den-mode').removeClass('active')
+            jQuery('.new-custom-radio.den-mode').find('input').prop('checked', '')
+            jQuery(this).addClass('active')
+            jQuery(this).find('input').prop('checked', 'checked')
+
+            mode = jQuery(this).attr('data-moode')
+            console.log(mode)
+            if(mode === 'single'){
+                jQuery('.den-range').hide()
+            }else{
+                jQuery('.den-range').show()
+
+            }
+
+
+        })
+
+        jQuery('.new-custom-radio.garden-mode').on('click', function () {
+
+            jQuery('.new-custom-radio.garden-mode').removeClass('active')
+            jQuery('.new-custom-radio.garden-mode').find('input').prop('checked', '')
+            jQuery(this).addClass('active')
+            jQuery(this).find('input').prop('checked', 'checked')
+
+            mode = jQuery(this).attr('data-moode')
+            console.log(mode)
+            if(mode === 'single'){
+                jQuery('.garden-range').hide()
+            }else{
+                jQuery('.garden-range').show()
+
+            }
+
+
+        })
+
+
+        jQuery('.new-custom-radio.bathroom-mode').on('click', function () {
+
+            jQuery('.new-custom-radio.bathroom-mode').removeClass('active')
+            jQuery('.new-custom-radio.bathroom-mode').find('input').prop('checked', '')
+            jQuery(this).addClass('active')
+            jQuery(this).find('input').prop('checked', 'checked')
+
+            mode = jQuery(this).attr('data-moode')
+            console.log(mode)
+            if(mode === 'single'){
+                jQuery('.bathroom-range').hide()
+            }else{
+                jQuery('.bathroom-range').show()
+
+            }
+
+
+        })
+
+
+
+        jQuery('.new-custom-radio.bedroom-mode').on('click', function () {
+
+            jQuery('.new-custom-radio.bedroom-mode').removeClass('active')
+            jQuery('.new-custom-radio.bedroom-mode').find('input').prop('checked', '')
+            jQuery(this).addClass('active')
+            jQuery(this).find('input').prop('checked', 'checked')
+
+            mode = jQuery(this).attr('data-moode')
+            console.log(mode)
+            if(mode === 'single'){
+                jQuery('.bedroom-range').hide()
+            }else{
+                jQuery('.bedroom-range').show()
+
+            }
+
+
+        })
+        jQuery('.new-custom-radio.parking-mode').on('click', function () {
+
+            jQuery('.new-custom-radio.parking-mode').removeClass('active')
+            jQuery('.new-custom-radio.parking-mode').find('input').prop('checked', '')
+            jQuery(this).addClass('active')
+            jQuery(this).find('input').prop('checked', 'checked')
+
+            mode = jQuery(this).attr('data-moode')
+            console.log(mode)
+            if(mode === 'single'){
+                jQuery('.parking-range').hide()
+            }else{
+                jQuery('.parking-range').show()
+
+            }
+
+
+        })
+
 
         jQuery('.new-custom-radio.price-mode').on('click', function () {
 
@@ -723,7 +905,44 @@
 
         })
 
+        jQuery('.new-custom-radio.size-mode').on('click', function () {
 
+            jQuery('.new-custom-radio.size-mode').removeClass('active')
+            jQuery('.new-custom-radio.size-mode').find('input').prop('checked', '')
+            jQuery(this).addClass('active')
+            jQuery(this).find('input').prop('checked', 'checked')
+
+            mode = jQuery(this).attr('data-moode')
+            console.log(mode)
+            if(mode === 'single'){
+                jQuery('.size-range').hide()
+            }else{
+                jQuery('.size-range').show()
+
+            }
+
+
+        })
+
+
+        jQuery('.new-custom-radio.storage-mode').on('click', function () {
+
+            jQuery('.new-custom-radio.storage-mode').removeClass('active')
+            jQuery('.new-custom-radio.storage-mode').find('input').prop('checked', '')
+            jQuery(this).addClass('active')
+            jQuery(this).find('input').prop('checked', 'checked')
+
+            mode = jQuery(this).attr('data-moode')
+            console.log(mode)
+            if(mode === 'single'){
+                jQuery('.storage-range').hide()
+            }else{
+                jQuery('.storage-range').show()
+
+            }
+
+
+        })
 
         jQuery('.new-custom-radio.typeofbuild').on('click', function () {
 
@@ -761,6 +980,9 @@
             // e.stopPropagation();
         })
 
-    </script>
 
+
+
+    </script>
 @endsection
+
