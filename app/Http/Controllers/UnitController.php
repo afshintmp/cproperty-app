@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Build;
+use App\Models\Face;
 use App\Models\Unit;
 use App\Services\Uploader\StorageManager;
 use App\Services\Uploader\Uploader;
@@ -42,19 +43,34 @@ class UnitController extends Controller
 
 //        dd($data);
         $endData = [];
+
+
+
         $floor_plan = $this->uploadFloorPlan($request);
+//        dd($request->face);
+        $unit = Unit::find(1);
+
+        $face_data = array();
+        foreach ($request->face as $face){
+            $face_data[] = ['face' => $face];
+
+        }
+
+
+
 
         foreach ($request->floor as $floor) {
 
             $data = $request->all('name', 'start_price', 'end_price', 'start_size', 'end_size', 'start_storage', 'end_storage',
-                'start_parking', 'end_parking', 'start_bedroom','end_bedroom', 'start_bathroom', 'end_bathroom', 'start_dens', 'end_dens', 'start_flex', 'end_flex',
+                'start_parking', 'end_parking', 'start_bedroom', 'end_bedroom', 'start_bathroom', 'end_bathroom', 'start_dens', 'end_dens', 'start_flex', 'end_flex',
                 'start_garden', 'end_garden', 'start_balcony', 'end_balcony');
             $data['floor_plan'] = $floor_plan;
             $data['phase_id'] = $request->phase;
             $data['floor'] = $floor;
 //            $data['name'] = $request->name;
             $endData[] = $data;
-            $build->units()->create($data);
+            $build->units()->create();
+            $unit->faces()->createMany($face_data);
         }
 
 //        dd($endData);

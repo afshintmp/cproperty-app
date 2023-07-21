@@ -23,4 +23,9 @@ class Unit extends Model
 //    }
 
 
+    public function faces(): \Illuminate\Database\Eloquent\Relations\HasMany
+    {
+        return $this->hasMany(Face::class);
+    }
+
 }
